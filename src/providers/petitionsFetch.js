@@ -1,7 +1,9 @@
+// IMPORTACION DE FETCH
 import fetch from 'node-fetch';
 let UrlBase = 'http://localhost:8080/';
 
-export const LoginFetch = (loginObj) => new Promise ((resolve, reject) => {
+// PETICION PARA LOGIN USER
+export const loginFetch = (loginObj) => new Promise ((resolve, reject) => {
     let Url = UrlBase + 'login'; 
     fetch(
         Url, 
@@ -11,8 +13,10 @@ export const LoginFetch = (loginObj) => new Promise ((resolve, reject) => {
             headers: {'Content-Type': 'application/json'}
         }
     )
-    .then(response => resolve(response.json()))
-    .catch(error => {
+    .then((response) => {
+        resolve(response.json())
+    })
+    .catch((error) => {
         reject(error);
     });
 });

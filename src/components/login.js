@@ -1,32 +1,70 @@
-import React from 'react';
-import { LoginFetch } from '../providers/fetch.js';
-// import { useHistory } from 'react-router-dom';
-// import { useNavigate } from 'react-router-dom';
+// IMPORTACION HOOK useState CUSTOM HOOK Y FUNCIONES QUE USAN FETCH
+import { useEffect } from 'react';
+import { useFormCustHook } from '../hooks/useFormCustHook.js';
+import { loginFetch } from '../providers/petitionsFetch.js';
 
+loginFetch(
+    {
+        'email': 'grace.hopper@systers.xyz',
+        'password': '123456'
+    }
+)
+.then((response) => {
+    console.log('token', response);
+})    
+.catch((error) => {
+    console.log(error);
+});
 
+// COMPONENTE LOGIN
 export const Login = () => {
-    // const navigate = useNavigate();
-    // const handleClick = () => {
-    //     history.push('/kitchen')
-    // };
-    LoginFetch({
-        "email": "grace.hopper@systers.xyz",
-        "password": "123456"
-    })
-    .then((response) => {
-        console.log('hoooo', response)
-    })
-    .catch((err) => { 
-        console.log(err) 
+
+    // estructura de hook para cambio en inputs de form login
+    const [formLoginValues, handleInputChange] = useFormCustHook({
+        email:'',
+        password:'',
     });
+
+    // desestructuracion de formLoginValues
+    const { email, password } = formLoginValues;
+
+    // funcion para envio de formulario login
+    const handleSubmitLogin = (e) => {
+        e.preventDefault();
+        console.log('L39', formLoginValues);
+    }
+
+    // escuchador de cambios para form
+    useEffect( () => {
+        console.log('cambio de form');
+    }, [formLoginValues]);
+
+    // retorno de estructura de form login
     return (
         <>
-            <form className='login'>
-                <label>Usuario</label>
-                <input type='text' placeholder='Correo'></input>
-                <label>Contraseña</label>
-                <input type='text' placeholder='Contraseña'></input>
-                <button type='submit'>Iniciar sesión</button>
+            <form className='login' onSubmit={handleSubmitLogin}>
+                <label>
+                    Email:
+                    <input 
+                        type='email'
+                        name='email'
+                        placeholder='Correo'
+                        autoComplete='off'
+                        value= { email }
+                        onChange={ handleInputChange }>
+                    </input>
+                </label>
+                <label>
+                    Contraseña:
+                    <input 
+                        type='password'
+                        name='password'
+                        placeholder='Contraseña'
+                        value= { password }
+                        onChange={ handleInputChange }>
+                    </input>
+                </label>
+                <button type='submit' className='login-btn'>Iniciar sesión</button>
             </form>
         </>
     )

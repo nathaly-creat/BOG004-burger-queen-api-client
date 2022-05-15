@@ -1,8 +1,6 @@
-import React from 'react';
-
+// COMPONENTE COCINA
 export const Kitchen = () => {
     return (
-        <p>COCINANDO</p>
+        <p>VISTA DE COCINA</p>
     )
 }
-

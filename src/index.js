@@ -1,15 +1,17 @@
+// IMPORTACIONES DE REACT PARA INICIALIZACION 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import App from './app.js';
+import Router from './router.js';
+import './styles/index.css'
 
-const appDiv = document.querySelector('#app');
-const root = ReactDOM.createRoot(appDiv);
+// ENLACE DE RUTAS PARA CONTENIDO DE DIV EN HTML
+const root = ReactDOM.createRoot(document.querySelector('#app'));
 
 root.render(
     <React.StrictMode>
         <BrowserRouter>
-            <App/>
+            <Router/>
         </BrowserRouter>
     </React.StrictMode>
 );
