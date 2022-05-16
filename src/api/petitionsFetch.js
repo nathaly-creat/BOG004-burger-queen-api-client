@@ -20,3 +20,9 @@ export const loginFetch = (loginObj) => new Promise ((resolve, reject) => {
         reject(error);
     });
 });
+
+//Funcion para guardar usuario en localstorage.
+export const saveLoginUser = (user) => {
+    sessionStorage.setItem('user', JSON.stringify(user));
+}
+
