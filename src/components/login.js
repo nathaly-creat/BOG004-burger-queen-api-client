@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useFormCustHook } from "../hooks/useFormCustHook.js";
 import { loginFetch, saveLoginUser } from "../api/petitionsFetch.js";
-import { modalError } from "./modal.js";
+import { ModalError } from "./ModalError.js";
 
 const handleLoginFetch = (user) => {
   loginFetch(user)
@@ -12,7 +12,7 @@ const handleLoginFetch = (user) => {
     })
     .catch((error) => {
       console.log("error", error);
-      modalError("te equivocaste", error);
+      ModalError("te equivocaste", error);
     });
 };
 

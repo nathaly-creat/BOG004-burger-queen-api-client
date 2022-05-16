@@ -1,19 +1,19 @@
 // IMPORTACIONES DE REACT PARA ROUTER | VISTAS
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { LoginContainer } from '../views/loginContainer.js';
-import { KitchenContainer } from '../views/kitchenContainer.js';
-import { WaiterContainer } from '../views/waiterContainer.js';
-import { NotFound } from '../views/notFound.js';
+import { LoginView } from '../views/LoginView.js';
+import { KitchenView } from '../views/KitchenView.js';
+import { WaiterView } from '../views/WaiterView.js';
+import { NotFoundView } from '../views/NotFoundView.js';
 
 // ROUTER
-export default function Router() {
+export default function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<LoginContainer/>} />
-        <Route path='/kitchen' element={<KitchenContainer/>} />
-        <Route path='/waiter' element={<WaiterContainer/>} />
-        <Route path='*' element={<NotFound />} /> 
+        <Route path='/' element={<LoginView/>} />
+        <Route path='/kitchen' element={<KitchenView/>} />
+        <Route path='/waiter' element={<WaiterView/>} />
+        <Route path='*' element={<NotFoundView />} /> 
       </Routes>
     </BrowserRouter>
   );
