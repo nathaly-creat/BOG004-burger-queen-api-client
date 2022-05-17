@@ -1,6 +1,7 @@
 // COMPONENTE MESEROS
 export const Waiter = () => {
   return (
-    <p>VISTA DE MESEROS..</p>
+    <p>VISTA DE MESEROS....</p>
   )
 }
+  
