@@ -35,7 +35,7 @@ export const Login = () => {
     console.log('rol', rol)
     console.log(Object.keys(rol));
     // navigate('/Kitchen');
-    navigate(`/${Object.keys(rol)}`);
+    navigate(`/${Object.keys(rol)}`, { replace: true});
   }
 
   // funcion para envio de formulario login
