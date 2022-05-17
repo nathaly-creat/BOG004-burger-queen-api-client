@@ -1,9 +1,7 @@
 // IMPORTACIONES DE REACT PARA ROUTER | VISTAS
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LoginView } from '../views/LoginView.js';
-import { KitchenView } from '../views/KitchenView.js';
-import { WaiterView } from '../views/WaiterView.js';
-import { NotFoundView } from '../views/NotFoundView.js';
+import { RolesRoutes } from './RolesRoutes.js';
 
 // ROUTER
 export default function AppRouter() {
@@ -11,9 +9,7 @@ export default function AppRouter() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<LoginView/>} />
-        <Route path='/kitchen' element={<KitchenView/>} />
-        <Route path='/waiter' element={<WaiterView/>} />
-        <Route path='*' element={<NotFoundView />} /> 
+        <Route path='/*' element={<RolesRoutes/>} />
       </Routes>
     </BrowserRouter>
   );
