@@ -1,4 +1,4 @@
-// IMPORTACION CUSTOM HOOK Y FUNCOIN loginFetch
+// IMPORTACION CUSTOM HOOK Y FUNCION loginFetch
 import { useEffect } from 'react';
 import { useFormCustHook } from '../hooks/useFormCustHook.js';
 import { loginFetch, saveLoginUser } from '../api/petitionsFetch.js';
