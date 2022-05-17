@@ -1,21 +1,21 @@
 .loginView {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    /* background-image: url(../assets/images/loginBg.jpg); */
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* background-image: url(../assets/images/loginBg.jpg); */
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
 }
 .login{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    font-size: 1.3rem;
-    background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  font-size: 1.3rem;
+  background-color: white;
 }
