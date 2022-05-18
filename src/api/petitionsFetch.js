@@ -18,6 +18,7 @@ export const loginFetch = (loginObj) => new Promise ((resolve, reject) => {
   })
   .catch((error) => {
     reject(error);
+    
   });
 });
 

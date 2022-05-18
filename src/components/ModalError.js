@@ -1,8 +1,11 @@
 // FUNCION PARA MOSTRAR MODAL DE ERROR EN LOGIN
-export const ModalError = (error) => {
+export const ModalError = () => {
   return (
+    <>
     <div className='modal-error'>
-      <p>{ error }</p>
+      <p>No tienes acceso a esta ruta</p>
+      
     </div>
+    </>
   );
 }
