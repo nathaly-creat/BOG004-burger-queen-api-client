@@ -2,6 +2,7 @@
 import { Login } from '../components/Login.js';
 import '../styles/loginView.css'
 
+
 // CONTENEDOR DE LOGIN
 export const LoginView = () => {
   return (
