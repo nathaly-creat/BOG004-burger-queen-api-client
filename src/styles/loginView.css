@@ -5,15 +5,17 @@
   
 } 
 
-html{
-  background-image: url(../assets/images/loginBag.jpg);
+html {
+  background-color: rgb(8, 6, 10);
+  
+  /* background-image: url(../assets/images/loginBag.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   overflow-x: hidden;
   opacity: 10;
-  transition: 2s
+  transition: 2s; */
 }
 
 .login {
@@ -34,6 +36,7 @@ html{
   opacity: 10;
   font-weight: bold;
   transition: 2s;
+  color : white;
 }
 
 h2 {
@@ -42,6 +45,11 @@ h2 {
   color: #fff;
   text-align: center;
   margin-bottom: 1rem;
+}
+
+.spanCss {
+  color: white;
+  z-index: 2;
 }
 
 input {
@@ -61,6 +69,7 @@ input {
 button {
   background-color: #ff7700;
   margin-top: 25px;
+  border-bottom: #fff solid 1px;
   border-radius: 10px;
   width: 45%;
   height: 30px;

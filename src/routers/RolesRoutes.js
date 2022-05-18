@@ -7,6 +7,7 @@ import { NotFoundView } from '../views/NotFoundView.js';
 
 
 
+
 // ROUTER
 export const RolesRoutes = () => {
   const activeUser = JSON.parse(sessionStorage.getItem('user'));
@@ -19,7 +20,7 @@ export const RolesRoutes = () => {
         {
           activeUser.user.roles.admin ? (
             <Route path="/admin" element={<AdminView />} />
-          ) : null}
+          ) : null} 
         {
           activeUser.user.roles.waiter ? (
             <Route path="/waiter" element={<WaiterView />} />
@@ -32,7 +33,7 @@ export const RolesRoutes = () => {
         /* <Route path="/admin" element={<AdminView />} />
         <Route path='kitchen' element={<KitchenView/>} />
         <Route path='waiter' element={<WaiterView/>} /> */}
-        <Route path='notf' element={<NotFoundView />} /> 
+        <Route path='*' element={<NotFoundView />} /> 
       </Routes>
     </>
   );
