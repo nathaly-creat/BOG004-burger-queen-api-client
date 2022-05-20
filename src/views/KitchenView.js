@@ -1,5 +1,5 @@
 // IMPORTACION DE COMPONENTE KITCHEN
-import { Kitchen } from '../components/Kitchen.js';
+import { Kitchen } from '../components/Kitchen/Kitchen.js';
 
 // CONTENEDOR DE COCINA
 export const KitchenView = () => {

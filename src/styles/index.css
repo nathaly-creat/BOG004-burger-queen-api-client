@@ -1,15 +1,7 @@
 *{
-  /* background-color: rgb(233, 240, 203); */
-  /* background-color: black; */
   box-sizing: border-box;
   font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   margin:0;
   padding: 0;
+  font-size: 1.2rem;
 }
-p{
-  font-size: 1.5rem;
-  color: white;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-

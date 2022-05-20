@@ -1,55 +1,74 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  
-} 
-
-html {
-  background-color: rgb(8, 6, 10);
-  
-  /* background-image: url(../assets/images/loginBag.jpg);
+:root{
+  --red1:#FF0202;
+  --orange1:#FF3F00;
+  --orange2:#FF7700;
+  --yellow1:#FAB300;
+  --yellow2:#FFF1A4;
+  --yellow3:#FFF9D6;
+  --textblack:#0A0909;
+  --black:#0a0909;
+  --textwhite:#FCF9F9;
+  --textwhite2:#fcf9f9be;
+}
+.login-view{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: var(--black);
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   overflow-x: hidden;
-  opacity: 10;
-  transition: 2s; */
 }
-
-.login {
+.login-pic {
+  width: 0vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-pic img{
+  width: 0px;
+  height: 0px;
+}
+.login-form {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  position: absolute;
-  z-index: 1;
-  right: 0;
-  font-size: 1rem;
-  background-color: rgba(7, 4, 4, 0.781);
-  border-radius: 10px;
-  padding: 4rem; 
-  box-shadow: 0px 0px 10px 0px #FF7700;
-  width: 40%;
-  height: 100%;
-  opacity: 10;
-  font-weight: bold;
+  box-shadow: 0px 0px 10px 0px var(--orange2);
+  /* padding: 4rem;  */
+  /* border-radius: 10px; */
+  /* opacity: 10; */
+  /* font-weight: bold;
   transition: 2s;
-  color : white;
+  color : white; */
 }
+.login-logo{
+  margin: 0, 200px, 0, 200px;
+  box-shadow: 0px 0px 10px 0px var(--orange2);
+  margin-bottom: 30px;
+}
+.login-logo img{
+  width: 250px;
+  height: 100px;
 
+}
+.login-error {
+  color: white;
+}
+/* 
 h2 {
   background-color: transparent;
   font-size: 1.5rem;
   color: #fff;
   text-align: center;
   margin-bottom: 1rem;
-}
-
-.spanCss {
-  color: white;
-  z-index: 2;
 }
 
 input {
@@ -76,4 +95,16 @@ button {
   font-size: 0.9rem;
   color: #fff;
   font-weight: bold;
+} */
+@media only screen and (min-width: 500px) {
+  .login-pic {
+    width: 65vw;
+  }
+  .login-pic img{
+    width: 600px;
+    height: 500px;
+  }
+  .login-form {
+    width: 35vw;
+  }
 }

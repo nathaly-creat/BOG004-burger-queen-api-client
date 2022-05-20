@@ -14,8 +14,3 @@ export default function AppRouter() {
     </BrowserRouter>
   );
 };
-
-// declarar funciones de public y private
-
-// const Public = () => <div>public</div>;
-// const Private = () => <div>private</div>;

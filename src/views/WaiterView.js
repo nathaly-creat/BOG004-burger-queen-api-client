@@ -1,5 +1,5 @@
 // IMPORTACION DE COMPONENTE WAITER
-import { Waiter } from '../components/Waiter.js';
+import { Waiter } from '../components/Waiter/Waiter.js';
 
 // CONTENEDOR DE MESEROS
 export const WaiterView = () => {
