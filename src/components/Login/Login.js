@@ -113,7 +113,7 @@ export const Login = () => {
           Iniciar sesión
         </button>
 
-        { loginError && <span className='login-error'>{loginError}</span>}
+        { loginError && <span className='login-alert-error'>{loginError}</span>}
 
       </form>
     </>
