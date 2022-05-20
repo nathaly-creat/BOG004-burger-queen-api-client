@@ -51,8 +51,8 @@
 }
 .login-logo{
   margin: 0, 200px, 0, 200px;
-  box-shadow: 0px 0px 10px 0px var(--orange2);
-  margin-bottom: 30px;
+  /* box-shadow: 0px 0px 5px 0px var(--orange2); */
+  margin-bottom: 80px;
 }
 .login-logo img{
   width: 250px;
@@ -60,9 +60,29 @@
 
 }
 .login-error {
-  color: white;
+  background-color: var(--yellow3);
+  border-radius: 50px ridge white;
+  width: 60vw;
+  height: 5h;
+  text-align: center;
+  color: var(--black);
+  font-size: 0.9rem;
+  box-shadow: 0px 0px 5px 0px var(--yellow3);
 }
-/* 
+
+.login-alert-error {
+  background-color: rgba(255, 0, 0, 0.356);
+  border-radius: 50px outset white;
+  width: 50vw;
+  height: 8vh;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  margin-top: 10px;
+  text-align: center;
+  color: white;
+  font-size: 1.1rem;
+  box-shadow: 0px 0px 5px 0px var(--red1);
+}
+
 h2 {
   background-color: transparent;
   font-size: 1.5rem;
@@ -81,21 +101,23 @@ input {
   padding: 0.5rem;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
-  width: 50vh;
+  width: 40vh;
   align-content: center;
 }
 
 button {
   background-color: #ff7700;
   margin-top: 25px;
+  margin-bottom: 30px;
   border-bottom: #fff solid 1px;
   border-radius: 10px;
-  width: 45%;
-  height: 30px;
-  font-size: 0.9rem;
+  width: 51%;
+  height: 35px;
+  font-size: 1.1rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: #fff;
   font-weight: bold;
-} */
+}
 @media only screen and (min-width: 500px) {
   .login-pic {
     width: 65vw;
@@ -106,5 +128,13 @@ button {
   }
   .login-form {
     width: 35vw;
+  }
+
+  .login-error{
+    width: 20vw;
+  }
+
+  .login-alert-error{
+    width: 20vw;
   }
 }
