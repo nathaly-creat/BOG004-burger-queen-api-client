@@ -59,7 +59,11 @@ export const Login = () => {
         }
       })
       .catch((error) => {
-        setLoginError(error.message);
+        if(error.message === 'Failed to fetch'){
+          setLoginError('Error al conectar con el servidor');
+        }else{
+          setLoginError(error.message);
+        }
       });
   };
 
