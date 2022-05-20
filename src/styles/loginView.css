@@ -62,8 +62,8 @@
 .login-error {
   background-color: var(--yellow3);
   border-radius: 50px ridge white;
-  width: 60vw;
-  height: 5h;
+  width: 50vw;
+  height: 4vh;
   text-align: center;
   color: var(--black);
   font-size: 0.9rem;
