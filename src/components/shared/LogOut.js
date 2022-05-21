@@ -11,7 +11,7 @@ export const LogOut = () => {
     <>
       <button
         onClick={() => {
-          sessionStorage.removeItem('token');
+          sessionStorage.removeItem('user');
           navigate(`/`, { replace: true });
         }}
       >

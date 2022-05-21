@@ -5,7 +5,7 @@ import { Kitchen } from '../components/Kitchen/Kitchen.js';
 export const KitchenView = () => {
   return (
     <>
-      <div className='kitchenView'>
+      <div className='kitchen-view'>
         <Kitchen/>
       </div>
     </>

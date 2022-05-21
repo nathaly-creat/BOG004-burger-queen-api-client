@@ -10,9 +10,13 @@ import logoLaBurger from '../../assets/images/laBurgLogo.png';
 const handleLoginFetch = (user) => new Promise((resolve, reject) => {
   loginFetch(user)
     .then((response) => {
+      let final = new Date();
+      console.log('then', final);
       resolve(saveLoginUser(response));
     })
     .catch((error) => {
+      let final2 = new Date();
+      console.log('catch', final2);
       reject(error);
     });
 });
@@ -21,11 +25,7 @@ const handleLoginFetch = (user) => new Promise((resolve, reject) => {
 export const Login = () => {
 
   // estructura de hook para validaciones de formulario 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
   // estructura de hook para cambio en inputs de form login
   const [formLoginValues, handleInputChange] = useFormCustHook({
@@ -92,7 +92,7 @@ export const Login = () => {
           })}
           onChange={handleInputChange}
         ></input>
-        {errors.email && <span className='login-error'>{errors.email.message}</span>}
+        {errors.email && <span className='login-error-1'>{errors.email.message}</span>}
 
         <input
           type='password'
@@ -111,13 +111,13 @@ export const Login = () => {
           })}
           onChange={handleInputChange}
         ></input>
-        {errors.password && <span className='login-error'>{errors.password.message}</span>}
+        {errors.password && <span className='login-error-1'>{errors.password.message}</span>}
 
         <button type='submit' className='login-btn'>
           Iniciar sesión
         </button>
 
-        { loginError && <span className='login-alert-error'>{loginError}</span>}
+        { loginError && <span className='login-error-2'>{loginError}</span>}
 
       </form>
     </>

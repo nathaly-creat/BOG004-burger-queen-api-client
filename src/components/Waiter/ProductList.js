@@ -1,15 +1,61 @@
+// IMPORTACION HOOKS Y OTROS
+import { Accordion } from 'react-bootstrap';
+
 // COMPONENTE PARA MOSTRAR PRODUCTOS
 export const ProductList = (props) => {
-  console.log(props);
+  console.log('props', props);
+
+  // declaracion de lista de productos
   const products = props.products;
-  const listProducts = products.map((product) =>
-    <li key={product.id.toString()}>
-      {product.name}
-      {product.price}
-      <img src={product.image} alt='products'/>
-    </li>
-  );
+
+  // captura de productos de desayuno
+  let breakfastProd = products.map((product) => {
+    let breakfast;
+    if (product.type === 'Desayuno') {
+      breakfast = (  
+          <li key={product.id.toString()}>
+            <img src={product.image} alt='products' />
+            {product.name}
+            {product.price}
+          <button className='waiter-add-btn'>Agregar</button>
+          </li>
+      );
+    }
+    return breakfast;
+  });
+
+  // captura de productos de almuerzo
+  let lunchProd = products.map((product) => {
+    let lunch;
+    if (product.type === 'Almuerzo') {
+      lunch = (
+        <li key={product.id.toString()}>
+          <img src={product.image} alt='products' />
+          {product.name}
+          {product.price}
+          <button className='waiter-add-btn'>Agregar</button>
+        </li>
+      );
+    }
+    return lunch;
+  });
+
   return (
-    <ul>{listProducts}</ul>
+    <>
+      <Accordion  defaultActiveKey={['0']} alwaysOpen >
+        <Accordion.Item className='waiter-accordion' eventKey='0' >
+          <Accordion.Header>DESAYUNOS</Accordion.Header>
+          <Accordion.Body>
+            <ul>{breakfastProd}</ul>
+          </Accordion.Body>
+        </Accordion.Item>
+        <Accordion.Item className='waiter-accordion' eventKey='1'>
+          <Accordion.Header>ALMUERZOS</Accordion.Header>
+          <Accordion.Body>
+            <ul>{lunchProd}</ul>
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
+    </>
   );
-}
+};

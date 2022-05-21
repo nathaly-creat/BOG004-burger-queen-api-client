@@ -10,7 +10,7 @@ export const LoginView = () => {
     <>
       <div className='login-view'>
         <div className='login-pic'>
-          <img src={ picBurg } alt='logo-la-burger' />
+          <img src={ picBurg } alt='burger-pic' />
         </div>
         <Login/>
       </div>

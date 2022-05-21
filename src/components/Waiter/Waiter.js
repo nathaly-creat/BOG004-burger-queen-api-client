@@ -2,14 +2,17 @@
 import { useState, useEffect } from 'react';
 import { ProductList }  from './ProductList.js';
 import { productFetch } from '../../api/petitionsFetch.js'; 
+import { NavBarW } from './NavBarW.js';
 
 // COMPONENTE MESEROS
 export const Waiter = () => {
+  
+  console.log('render waiter');
 
-  // estructura de hook para deteccion de cambio de products
+  // estructura de hook para deteccion de cambio en lista de products
   const [products, setProducts] = useState([]);
 
-  // estructura de hook para peticion de productos y agregar los mismos a el estado de cambio 
+  // estructura de hook para peticion de productos y agregar los mismos a la lista del hook L13 
   useEffect(() => {
     const activeSession = JSON.parse(sessionStorage.user);
     const activeSessionToken = activeSession.accessToken;
@@ -20,11 +23,11 @@ export const Waiter = () => {
       .catch((error)=>{
         console.log(error);
       })
-  },[]);
+  },[setProducts]);
 
   return (
     <>
-      <p>VISTA DE MESEROS....</p>
+      <NavBarW />
       <ProductList products={products}/>
     </>
   )

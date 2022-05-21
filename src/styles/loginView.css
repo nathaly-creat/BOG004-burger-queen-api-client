@@ -1,16 +1,16 @@
-:root{
-  --red1:#FF0202;
-  --orange1:#FF3F00;
-  --orange2:#FF7700;
-  --yellow1:#FAB300;
-  --yellow2:#FFF1A4;
-  --yellow3:#FFF9D6;
-  --textblack:#0A0909;
-  --black:#0a0909;
-  --textwhite:#FCF9F9;
-  --textwhite2:#fcf9f9be;
+:root {
+  --red1: #ff0202;
+  --orange1: #ff3f00;
+  --orange2: #ff7700;
+  --yellow1: #fab300;
+  --yellow2: #fff1a4;
+  --yellow3: #fff9d6;
+  --textblack: #0a0909;
+  --black: #0a0909;
+  --textwhite: #fcf9f9;
+  --textwhite2: #fcf9f9be;
 }
-.login-view{
+.login-view {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -30,7 +30,7 @@
   justify-content: center;
   align-items: center;
 }
-.login-pic img{
+.login-pic img {
   width: 0px;
   height: 0px;
 }
@@ -41,100 +41,95 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  gap: 9%;
   box-shadow: 0px 0px 10px 0px var(--orange2);
-  /* padding: 4rem;  */
-  /* border-radius: 10px; */
-  /* opacity: 10; */
-  /* font-weight: bold;
-  transition: 2s;
-  color : white; */
 }
-.login-logo{
-  margin: 0, 200px, 0, 200px;
-  /* box-shadow: 0px 0px 5px 0px var(--orange2); */
-  margin-bottom: 80px;
+.login-logo {
+  margin-bottom: 2%;
 }
-.login-logo img{
+.login-logo img {
   width: 250px;
   height: 100px;
-
 }
-.login-error {
-  background-color: var(--yellow3);
-  border-radius: 50px ridge white;
-  width: 50vw;
-  height: 4vh;
+.login-error-1 {
+  width: 60%;
+  height: 4.5%;
   text-align: center;
   color: var(--black);
   font-size: 0.9rem;
+  background-color: var(--yellow3);
+  border-radius: 50px ridge var(--textwhite);
   box-shadow: 0px 0px 5px 0px var(--yellow3);
 }
-
-.login-alert-error {
-  background-color: rgba(255, 0, 0, 0.356);
-  border-radius: 50px outset white;
-  width: 50vw;
-  height: 8vh;
-  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  margin-top: 10px;
+.login-error-2 {
+  width: 40%;
+  height: 7.5%;
+  padding: 0.5%;
   text-align: center;
-  color: white;
-  font-size: 1.1rem;
+  font-size: 0.7rem;
+  color: var(--textwhite);
+  background-color: var(--red1);
+  border-radius: 50px outset var(--textwhite);
   box-shadow: 0px 0px 5px 0px var(--red1);
 }
-
-h2 {
-  background-color: transparent;
-  font-size: 1.5rem;
-  color: #fff;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-input {
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid #FF7700;
-  color: white;
+.login-form input {
+  width: 60%;
+  align-content: center;
+  color: var(--textwhite);
   font-size: 0.9rem;
   font-weight: bold;
-  padding: 0.5rem;
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
-  width: 40vh;
-  align-content: center;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--orange2);
 }
-
-button {
-  background-color: #ff7700;
-  margin-top: 25px;
-  margin-bottom: 30px;
-  border-bottom: #fff solid 1px;
-  border-radius: 10px;
-  width: 51%;
-  height: 35px;
-  font-size: 1.1rem;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: #fff;
+.login-form button {
+  width: 40%;
+  height: 6%;
+  color: var(--textwhite);
+  font-size: 0.8rem;
   font-weight: bold;
+  background-color: var(--orange2);
+  border-bottom: var(--textwhite) solid 1px;
+  border-radius: 10px;
 }
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 576px) and (max-width: 1000px){
   .login-pic {
     width: 65vw;
   }
-  .login-pic img{
+  .login-pic img {
+    width: 430px;
+    height: 370px;
+  }
+  .login-form {
+    width: 35vw;
+  }
+  .login-form input {
+    width: 70%;
+  }
+  .login-form button {
+    width: 55%;
+    height: 5%;
+  }
+  .login-error-1 {
+    width: 70%;
+    height: 4.5%;
+  }
+  .login-error-2 {
+    width: 60%;
+  }
+}
+@media only screen and (min-width: 1001px) {
+  .login-pic {
+    width: 65vw;
+  }
+  .login-pic img {
     width: 600px;
     height: 500px;
   }
   .login-form {
     width: 35vw;
   }
-
-  .login-error{
-    width: 20vw;
-  }
-
-  .login-alert-error{
-    width: 20vw;
-  }
+  .login-error-2 {
+    height: 6%;
+  } 
 }

@@ -5,7 +5,7 @@ import { Admin } from '../components/Admin/Admin.js';
 export const AdminView = () => {
   return (
     <>
-      <div className='AdminView'>
+      <div className='admin-view'>
         <Admin/>
       </div>
     </>
