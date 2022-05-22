@@ -4,6 +4,7 @@ import { ProductList }  from './ProductList.js';
 import { productFetch } from '../../api/petitionsFetch.js'; 
 import { NavBarW } from './NavBarW.js';
 
+
 // COMPONENTE MESEROS
 export const Waiter = () => {
   
