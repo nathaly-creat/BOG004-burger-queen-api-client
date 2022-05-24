@@ -4,7 +4,7 @@ import { createMemoryHistory } from 'history';
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { LoginView } from './LoginView';
- 
+
 test('Componente login', async () => {
   const history = createMemoryHistory();
   render(
@@ -21,7 +21,7 @@ test('Componente login', async () => {
   fireEvent.click(button);
   
   msgError = await screen.findByTestId("login-error-message");
- 
+
   expect(msgError.textContent).toBe('Confirmar email y contraseña');
   expect(history.location.pathname).toBe('/');
 });
