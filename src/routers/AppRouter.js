@@ -5,11 +5,13 @@ import { RolesRoutes } from './RolesRoutes.js';
 
 // ROUTER
 export default function AppRouter() {
+  const activeUser = JSON.parse(sessionStorage.getItem('user'));
+  console.log('active?', activeUser);
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<LoginView/>} />
-        <Route path='/*' element={<RolesRoutes/>} />
+        <Route path='/' element={<LoginView/>}/>
+        <Route path='/*' element={<RolesRoutes/>}/>
       </Routes>
     </BrowserRouter>
   );
