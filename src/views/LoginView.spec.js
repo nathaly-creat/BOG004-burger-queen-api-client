@@ -4,12 +4,40 @@ import { createMemoryHistory } from 'history';
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { LoginView } from './LoginView';
-
+ 
 test('Componente login', async () => {
   const history = createMemoryHistory();
   render(
     <Router location={history.location} navigator={history}>
-      <LoginView />
+      <LoginView/>
+    </Router>
+  );
+  let msgError;
+  const emailInput = screen.getByPlaceholderText('ejemplo@email.com');
+  const pswInput = screen.getByPlaceholderText('Contraseña');
+  const button = screen.getByText('Inicializar');
+  fireEvent.change(emailInput, { target: { value: 'mesero.laburguer@systers.xyz' } });
+  fireEvent.change(pswInput, { target: { value: '1234567' } });
+  fireEvent.click(button);
+  
+  msgError = await screen.findByTestId("login-error-message");
+ 
+  expect(msgError.textContent).toBe('Confirmar email y contraseña');
+  expect(history.location.pathname).toBe('/');
+});
+
+test('Route Navigate', async () => {
+
+  const mockedUsedNavigate = jest.fn();
+  jest.mock("react-router-dom", () => ({
+    ...jest.requireActual("react-router-dom"),
+    useNavigate: () => mockedUsedNavigate,
+  }));
+
+  const history = createMemoryHistory();
+  render(
+    <Router location={history.location} navigator={history}>
+      <LoginView/>
     </Router>
   );
 
@@ -17,13 +45,13 @@ test('Componente login', async () => {
   const pswInput = screen.getByPlaceholderText('Contraseña');
   const button = screen.getByText('Inicializar');
   fireEvent.change(emailInput, { target: { value: 'mesero.laburguer@systers.xyz' } });
-  fireEvent.change(pswInput, { target: { value: '1234567' } });
+  fireEvent.change(pswInput, { target: { value: '123456' } });
   fireEvent.click(button);
 
-  let msgError;
   await waitFor(() => {
-    msgError = screen.queryByTestId('login-error-message');
-    console.log('prueba', msgError);
-    expect(msgError.textContent).toBe('Confirmar email y contraseña');
+    expect(history.location.pathname).toBe('/waiter');
   });
+
 });
+
+
