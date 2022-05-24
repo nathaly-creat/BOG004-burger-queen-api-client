@@ -1,9 +1,9 @@
 // IMPORTACION HOOKS Y OTROS
 import { useState, useEffect } from 'react';
-import { ProductList }  from './ProductList.js';
 import { productFetch } from '../../api/petitionsFetch.js'; 
+import { ProductList }  from './ProductList.js';
 import { NavBarW } from './NavBarW.js';
-
+import { OrderContainer } from './OrderContainer.js';
 
 // COMPONENTE MESEROS
 export const Waiter = () => {
@@ -28,8 +28,9 @@ export const Waiter = () => {
 
   return (
     <>
-      <NavBarW />
+      <NavBarW/>
       <ProductList products={products}/>
+      <OrderContainer/>
     </>
   )
 }

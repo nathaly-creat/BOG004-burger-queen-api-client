@@ -1,5 +1,5 @@
 // IMPORTACION HOOKS
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 // COMPONENTE PARA INDICAR QUE NO TIENE ACCESO Y RETORNAR A VISTA ANTERIOR
 export const WithoutAccess = () => {

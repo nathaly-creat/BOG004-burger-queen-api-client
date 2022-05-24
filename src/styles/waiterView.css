@@ -10,111 +10,82 @@
   --textwhite: #fcf9f9;
   --textwhite2: #fcf9f9be;
 }
-
-.product {
+.waiter-view {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--black);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+.waiter-nav-toggle {
+  width: 20%;
+  height: 25%;
+  border: none;
+  align-items: center;
+}
+.waiter-accordion {
+  margin-top: 8px;
+  max-width: 90vw;
+}
+.accordion-button {
+  min-width: 90vw;
+  max-width: 90vw;
+  background-color: var(--yellow3);
+  color: var(--black);
+}
+.accordion-button:focus {
+  min-width: 90vw;
+  max-width: 90vw;
+  color: var(--textwhite);
+  background-color: #2d3233;
+  box-shadow: 0px 0px 10px 0px var(--orange1);
+}
+.waiter-accordion-body {
+  min-width: 90vw;
+  max-width: 90vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 300px;
-  height: 100%;
   background-color: var(--black);
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-  padding: 10px;
-  margin: 10px;
 }
-.card-body{
+.waiter-card-body{
   background-color: var(--black);
   color: var(--textwhite);
 }
-
-.card-title {
-  font-size: 17px;
-  color: var(--red1)
-}
-
-.card-text {
+.waiter-card-text {
   font-size: 10px;
-  color: var(--red1);
-}
-
-
-.accordion-body {
-  background-color: var(--black);
+  color: var(--orange2);
 }
 .waiter-add-btn {
+  width: 45%;
   background-color: var(--yellow2);
-  color: black;
-  width: 95px;
+  color:  var(--black);
 }
-.waiter-view {
-  width: 100vw;
-  height: 100vh;
-  background-color: black;
-}
-.toggle {
-  width: 70px;
-  height: 45px;
-  border: none;
-  align-items: center;
-  color: azure;
-}
-
-/* // REVISAAAAAR */
-/* .waiter-accordion {
-  background-color: black;
-} */
-
-.accordion-button {
-  background-color: #adadad;
-  height: 30px;
-  color: white;
-}
-.accordion-button:focus {
-  background-color: #33312d;
-  color: var(--textwhite);
-  box-shadow: 0px 0px 10px 0px var(--orange1);
-}
-
-.container-waiter {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  background-color: black;
-  color: red;
-}
-
-/*SECCION DE PEDIDOS LISTA PARA FACTURAR*/
-.container-order {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 370px;
-  border-radius: 10px;
+/*INICIO seccion pedidos a facturar*/
+.waiter-order-container {
+  width: 90vw;
   height: 20vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
   background-color: greenyellow;
 }
-
-
+/*FIN seccion pedidos a facturar*/
 @media only screen and (min-width: 576px) {
-  .waiter-nav-mobile {
-    background-color: var(--black);
-  }
-
-  .accordion-header {
-    width: 400px;
-  }
-  .accordion-body {
-    width: 400px;
-  }
-
   .waiter-accordion {
     margin-top: 8px;
+    width: 400px;
+  }
+  .waiter-accordion-header {
+    width: 400px;
+  }
+  .waiter-accordion-body {
     width: 400px;
   }
 }
