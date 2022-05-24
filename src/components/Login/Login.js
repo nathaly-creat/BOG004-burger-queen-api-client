@@ -46,7 +46,7 @@ export const Login = () => {
   };
 
   // estructura de hook para mostrar error de login
-  const [loginError, setLoginError] = useState(null);
+  const [loginError, setLoginError] = useState("");
 
   // funcion para envio de formulario login
   const handleSubmitLogin = () => {
@@ -63,6 +63,7 @@ export const Login = () => {
           setLoginError('Error al conectar con el servidor');
         }else{
           setLoginError(error.message);
+          // setLoginError('Confirmar email y contraseña');
         }
       });
   };
@@ -91,8 +92,9 @@ export const Login = () => {
             },
           })}
           onChange={handleInputChange}
+          data-testid="login-email"
         ></input>
-        {errors.email && <span className='login-error-1'>{errors.email.message}</span>}
+        {errors.email && <span className='login-error-1' >{errors.email.message}</span>}
 
         <input
           type='password'
@@ -110,14 +112,16 @@ export const Login = () => {
             }
           })}
           onChange={handleInputChange}
+          data-testid="login-password"
         ></input>
-        {errors.password && <span className='login-error-1'>{errors.password.message}</span>}
+        {errors.password && <span className='login-error-1' >{errors.password.message}</span>}
+
+        {loginError && <span className='login-error-2' data-testid="login-error-message">{loginError}</span>}
 
         <button type='submit' className='login-btn'>
-          Iniciar sesión
+          Iniciar sesion
         </button>
 
-        { loginError && <span className='login-error-2'>{loginError}</span>}
 
       </form>
     </>
