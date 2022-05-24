@@ -81,10 +81,6 @@ export const Login = () => {
           autoComplete='off'
           value={email}
           {...register('email', {
-            required: {
-              value: true,
-              message: 'El campo es requerido',
-            },
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
               message: 'El formato no es correcto',
@@ -101,10 +97,6 @@ export const Login = () => {
           placeholder='Contraseña'
           value={password}
           {...register('password', {
-            required: {
-              value: true,
-              message: 'El campo es requerido'
-            },
             minLength: {
               value: 6,
               message: 'La contraseña debe tener al menos 6 caracteres'
@@ -116,7 +108,7 @@ export const Login = () => {
         {errors.password && <span className='login-error-1'>{errors.password.message}</span>}
 
         {loginError && <span className='login-error-2' data-testid='login-error-message'>{loginError}</span>}
-
+        
         <button type='submit' className='login-btn'>Inicializar</button>
 
       </form>
