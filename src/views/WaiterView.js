@@ -7,7 +7,7 @@ export const WaiterView = () => {
   return (
     <>
         <div className='waiter-view'>
-          <Waiter />
+          <Waiter/>
         </div>
     </>
   );

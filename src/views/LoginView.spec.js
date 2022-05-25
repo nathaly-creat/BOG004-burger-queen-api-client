@@ -42,7 +42,7 @@ test('Route Navigate', async () => {
   const emailInput = screen.getByPlaceholderText('ejemplo@email.com');
   const pswInput = screen.getByPlaceholderText('Contraseña');
   const button = screen.getByText('Inicializar');
-  fireEvent.change(emailInput, { target: { value: 'mesero.laburguer@systers.xyz' } });
+  fireEvent.change(emailInput, { target: { value: 'mesero@gmail.com' } });
   fireEvent.change(pswInput, { target: { value: '123456' } });
   fireEvent.click(button);
 
@@ -51,5 +51,3 @@ test('Route Navigate', async () => {
   });
 
 });
-
-

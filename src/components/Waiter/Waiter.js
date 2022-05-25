@@ -1,36 +1,39 @@
 // IMPORTACION HOOKS Y OTROS
-import { useState, useEffect } from 'react';
-import { productFetch } from '../../api/petitionsFetch.js'; 
-import { ProductList }  from './ProductList.js';
-import { NavBarW } from './NavBarW.js';
-import { OrderContainer } from './OrderContainer.js';
+import { Link, Outlet} from 'react-router-dom'
+import { Navbar, Container, Nav } from 'react-bootstrap';
+import { LogOut } from '../../components/shared/LogOut.js';
+import logoLaBurger from '../../assets/images/laBurgLogo.png';
 
-// COMPONENTE MESEROS
+// COMPONENTE WAITER CON B. DE NAVEGACION PARA MESERO
 export const Waiter = () => {
-  
   console.log('render waiter');
-
-  // estructura de hook para deteccion de cambio en lista de products
-  const [products, setProducts] = useState([]);
-
-  // estructura de hook para peticion de productos y agregar los mismos a la lista del hook L13 
-  useEffect(() => {
-    const activeSession = JSON.parse(sessionStorage.user);
-    const activeSessionToken = activeSession.accessToken;
-    productFetch(activeSessionToken)
-      .then((response) => {
-        setProducts(response);
-      })
-      .catch((error)=>{
-        console.log(error);
-      })
-  },[setProducts]);
-
   return (
     <>
-      <NavBarW/>
-      <ProductList products={products}/>
-      <OrderContainer/>
+      <Navbar expand='sm' className='waiter-nav'>
+        <Container>
+          <Navbar.Brand>
+            <img
+              alt='logo-la-burger'
+              src={logoLaBurger}
+              width='150'
+              height='70'
+              className='d-inline-block align-top'
+            />
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls='basic-navbar-nav' className='waiter-nav-toggle'/>
+          <Navbar.Collapse id='basic-navbar-nav'>
+            <Nav className='me-auto waiter-nav-dir'>
+              <Link to='/waiter'>Nuevo Pedido</Link>
+              <Link to='/waiter/orders'>Pedidos</Link>
+              <Link to='/waiter/delivered-orders'>Pedidos Entregados</Link>
+              <LogOut/>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <section>
+        <Outlet/>
+      </section>
     </>
-  )
-}
+  );
+};
