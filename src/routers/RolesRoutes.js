@@ -8,9 +8,9 @@ import { KitchenView } from '../views/KitchenView.js';
 // fin vistas kitchen
 // inicio vistas waiter
 import { WaiterView } from '../views/WaiterView.js';
-import { NewOrder } from '../components/Waiter/NewOrder.js';
-import { Orders } from '../components/Waiter/Orders.js';
-import { DeliveredOrders } from '../components/shared/DeliveredOrders.js';
+import { NewOrder } from '../components/Waiter/NewOrder/NewOrder.js';
+import { Orders } from '../components/Waiter/Orders/Orders.js';
+import { DeliveredOrders } from '../components/shared/DeliveredOrders/DeliveredOrders.js';
 // fin vistas waiter
 import { NotFoundView } from '../views/NotFoundView.js';
 import { WithoutAccess } from '../components/shared/WithoutAccess.js';
