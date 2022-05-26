@@ -1,9 +1,12 @@
 // IMPORTACION HOOKS Y OTROS
 import { Accordion } from 'react-bootstrap';
+import { useCart } from 'react-use-cart';
 
 // COMPONENTE PARA MOSTRAR PRODUCTOS
 export const ProductList = (props) => {
-  console.log('props', props);
+  // console.log('props', props);
+
+  const { addItem } = useCart();
 
   // declaracion de lista de productos
   const products = props.products;
@@ -22,7 +25,10 @@ export const ProductList = (props) => {
               <div className='waiter-card-body'>
                 <h5 className='waiter-card-title'>{product.name}</h5>
                 <p className='waiter-card-text'><strong>{product.price}</strong></p>
-                <button className='waiter-add-btn'>Agregar</button>
+                <button className='waiter-add-btn' 
+                  onClick={() => addItem(product)}>
+                  Agregar
+                </button>
               </div>
             </div>
           </div>
@@ -46,7 +52,10 @@ export const ProductList = (props) => {
               <div className='waiter-card-body'>
                 <h5 className='waiter-card-title'>{product.name}</h5>
                 <p className='waiter-card-text'><strong>{product.price}</strong></p>
-                <button className='waiter-add-btn'>Agregar</button>
+                <button className='waiter-add-btn'
+                  onClick={() => addItem(product)}
+                  >Agregar
+                </button>
               </div>
             </div>
           </div>

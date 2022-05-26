@@ -1,10 +1,12 @@
 // IMPORTACION HOOKS Y OTROS
 import { useState, useEffect } from 'react';
-import { productFetch } from '../../api/petitionsFetch.js'; 
+import { CartProvider } from 'react-use-cart';
+import { productFetch } from '../../../api/petitionsFetch.js'; 
 import { ProductList }  from './ProductList.js';
 import { OrderContainer } from './OrderContainer.js';
 
 export const NewOrder = () => {
+
     // estructura de hook para deteccion de cambio en lista de products
     const [products, setProducts] = useState([]);
 
@@ -22,9 +24,11 @@ export const NewOrder = () => {
     },[setProducts]);
 
   return (
-    <div className='waiter-selected-component'>
-      <ProductList products={products}/>
-      <OrderContainer/>
-    </div>
+      <>
+        <CartProvider>
+          <ProductList products={products}/>
+          <OrderContainer/>
+        </CartProvider>
+      </>
   )
 }

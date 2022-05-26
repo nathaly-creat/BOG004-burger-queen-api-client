@@ -16,12 +16,13 @@ test('Componente login', async () => {
   const emailInput = screen.getByPlaceholderText('ejemplo@email.com');
   const pswInput = screen.getByPlaceholderText('Contraseña');
   const button = screen.getByText('Inicializar');
-  fireEvent.change(emailInput, { target: { value: 'mesero.laburguer@systers.xyz' } });
+  fireEvent.change(emailInput, { target: { value: 'mesero.hopper@systers.xyz' } });
   fireEvent.change(pswInput, { target: { value: '1234567' } });
   fireEvent.click(button);
   
   msgError = await screen.findByTestId("login-error-message");
 
+  // expect(msgError.textContent).toBe('Error al conectar con el servidor');
   expect(msgError.textContent).toBe('Confirmar email y contraseña');
   expect(history.location.pathname).toBe('/');
 });
@@ -42,7 +43,7 @@ test('Route Navigate', async () => {
   const emailInput = screen.getByPlaceholderText('ejemplo@email.com');
   const pswInput = screen.getByPlaceholderText('Contraseña');
   const button = screen.getByText('Inicializar');
-  fireEvent.change(emailInput, { target: { value: 'mesero@gmail.com' } });
+  fireEvent.change(emailInput, { target: { value: 'mesero.hopper@systers.xyz' } });
   fireEvent.change(pswInput, { target: { value: '123456' } });
   fireEvent.click(button);
 

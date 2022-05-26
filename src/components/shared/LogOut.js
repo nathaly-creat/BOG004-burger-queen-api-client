@@ -12,6 +12,7 @@ export const LogOut = () => {
       <button
         onClick={() => {
           sessionStorage.removeItem('user');
+          localStorage.removeItem('react-use-cart');
           navigate(`/`, { replace: true });
         }}
       >

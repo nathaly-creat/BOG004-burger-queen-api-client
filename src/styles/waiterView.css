@@ -87,13 +87,13 @@
 /*INICIO seccion pedidos a facturar*/
 .waiter-order-container {
   width: 90vw;
-  height: 20vh;
+  height: 100vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  background-color: rgb(34, 88, 236);
+  background-color: rgb(94, 219, 198);
 }
 /*FIN seccion pedidos a facturar*/
 /* @media only screen and (min-width: 576px) {
