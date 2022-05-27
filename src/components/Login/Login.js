@@ -41,7 +41,7 @@ export const Login = () => {
 
   // función de cambio de ruta
   const handleLoginUrlChange = (role) => {
-    console.log('rol', role);
+    // console.log('rol', role);
     return navigate(`/${Object.keys(role)}`, { replace: true });
   };
 

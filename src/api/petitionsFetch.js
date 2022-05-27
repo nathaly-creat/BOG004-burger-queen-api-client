@@ -40,3 +40,20 @@ export const productFetch = (token) => {
     return response.json();
   });
 };
+
+// FUNCION DE PETICION PARA UN SOLO PRODUCTO
+export const onlyProductFetch = (token, productId) => {
+  let Url = UrlBase + 'products/' + productId;
+  return fetch(Url, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
+    },
+  }).then((response) => {
+    if (!response.ok) {
+      throw Error('Error al traer un solo producto');
+    }
+    return response.json();
+  });
+};

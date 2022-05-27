@@ -10,10 +10,11 @@ export const NewOrder = () => {
     // estructura de hook para deteccion de cambio en lista de products
     const [products, setProducts] = useState([]);
 
+    const activeSession = JSON.parse(sessionStorage.user);
+    const activeSessionToken = activeSession.accessToken;
+    
     // estructura de hook para peticion de productos y agregar los mismos a la lista del hook L13 
     useEffect(() => {
-      const activeSession = JSON.parse(sessionStorage.user);
-      const activeSessionToken = activeSession.accessToken;
       productFetch(activeSessionToken)
         .then((response) => {
           setProducts(response);
@@ -21,13 +22,13 @@ export const NewOrder = () => {
         .catch((error)=>{
           console.log(error);
         })
-    },[setProducts]);
+    },[activeSessionToken, setProducts]);
 
   return (
       <>
         <CartProvider>
           <ProductList products={products}/>
-          <OrderContainer/>
+          <OrderContainer activeSession={activeSession}/>
         </CartProvider>
       </>
   )
