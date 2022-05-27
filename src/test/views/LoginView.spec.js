@@ -3,7 +3,7 @@ import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { LoginView } from './LoginView';
+import { LoginView } from '../../views/LoginView';
 
 test('Componente login', async () => {
   const history = createMemoryHistory();
@@ -20,7 +20,7 @@ test('Componente login', async () => {
   fireEvent.change(pswInput, { target: { value: '1234567' } });
   fireEvent.click(button);
   
-  msgError = await screen.findByTestId("login-error-message");
+  msgError = await screen.findByTestId('login-error-message');
 
   // expect(msgError.textContent).toBe('Error al conectar con el servidor');
   expect(msgError.textContent).toBe('Confirmar email y contraseña');
@@ -28,8 +28,8 @@ test('Componente login', async () => {
 });
 
 test('Route Navigate', async () => {
-  jest.mock("react-router-dom", () => ({
-    ...jest.requireActual("react-router-dom"),
+  jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
     useNavigate: () => jest.fn()
   }));
 

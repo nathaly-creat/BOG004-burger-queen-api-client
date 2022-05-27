@@ -1,5 +1,5 @@
 // IMPORTACION HOOKS Y OTROS
-import { useCart } from "react-use-cart";
+import { useCart } from 'react-use-cart';
 
 export const ProductsToBill = () => {
 
@@ -10,40 +10,34 @@ export const ProductsToBill = () => {
     const prodsToBill = items.map((product, index) => {
       return (
         <div key={index}>
-          <table className="table table-dark table-borderless">
+          <table className='table table-dark table-borderless'>
             <tbody>
               <tr>
                 <td>
-                  <img src={product.image} style={{ width: "6rem" }} alt="" />
+                  <img src={product.image} style={{ width: '6rem' }} alt='' />
                 </td>
                 <td>{product.name}</td>
                 <td>
                   <button
-                    className="btn btn-info ms-2"
+                    className='btn btn-info ms-2'
                     onClick={() =>
                       updateItemQuantity(product.id, product.quantity - 1)
                     }
-                  >
-                    -
-                  </button>
+                  >-</button>
                   <p>{product.quantity}</p>
                   <button
-                    className="btn btn-info ms-2"
+                    className='btn btn-info ms-2'
                     onClick={() =>
                       updateItemQuantity(product.id, product.quantity + 1)
                     }
-                  >
-                    +
-                  </button>
+                  >+</button>
                 </td>
                 <td>{product.price}</td>
                 <td>
                   <button
-                    className="btn btn-danger ms-2"
+                    className='btn btn-danger ms-2'
                     onClick={() => removeItem(product.id)}
-                  >
-                    Eliminar
-                  </button>
+                  >Eliminar</button>
                 </td>
               </tr>
             </tbody>

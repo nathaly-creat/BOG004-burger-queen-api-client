@@ -57,3 +57,22 @@ export const onlyProductFetch = (token, productId) => {
     return response.json();
   });
 };
+
+// FUNCION DE PETICION PARA REALIZAR PEDIDO
+export const orderFetch = (token, orderObj) => {
+  console.log(token, orderObj);
+  let Url = UrlBase + 'orders';
+  return fetch(Url, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
+    },
+    bodbody: JSON.stringify(orderObj),
+  }).then((response) => {
+    if (!response.ok) {
+      throw Error('Error de creacion orden');
+    }
+    return response.json();
+  });
+};
