@@ -31,7 +31,7 @@ export const Waiter = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <section>
+      <section className = 'waiter-selected-component'>
         <Outlet/>
       </section>
     </>

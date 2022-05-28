@@ -52,6 +52,7 @@ export const OrderContainer = (props) => {
   const totalProductsToBill = () => {
     // fecha y hr de orden
     const orderDate = dateFormat(new Date().toLocaleString());
+    console.log('orderDate: ', orderDate);
 
     // extraccion de productos seleccionados de localStorage 
     let total = localStorage.getItem('react-use-cart');

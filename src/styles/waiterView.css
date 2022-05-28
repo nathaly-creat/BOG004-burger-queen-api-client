@@ -87,24 +87,65 @@
 /*INICIO seccion pedidos a facturar*/
 .waiter-order-container {
   width: 90vw;
-  height: 100vh;
+  height: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   border-radius: 10px;
   background-color: rgb(94, 219, 198);
 }
+.waiter-order-products {
+  height: 100px;
+}
+.waiter-order-products-text {
+  font-size: 9px;
+
+}
+.waiter-order-products-btns-qty {
+  display: flex;
+  height: 81px;
+
+}
+
+.waiter-order-products button {
+  width: 20px;
+  height: 20px;
+
+}
+
+
+
+
 /*FIN seccion pedidos a facturar*/
-/* @media only screen and (min-width: 576px) {
-  .waiter-accordion {
-    margin-top: 8px;
-    width: 400px;
+@media only screen and (min-width: 768px) {
+  .waiter-selected-component{
+    flex-direction: row;
+    align-items: flex-start;
   }
-  .waiter-accordion-header {
-    width: 400px;
+  .waiter-accordion {
+    /* margin-top: 8px; */
+    max-width: 45vw;
+  }
+  .accordion-button {
+    min-width: 45vw;
+    max-width: 45vw;
+  }
+  .accordion-button:focus {
+    min-width: 45vw;
+    max-width: 45vw; 
   }
   .waiter-accordion-body {
-    width: 400px;
+    min-width: 45vw;
+    max-width: 45vw;
   }
-} */
+  .waiter-order-container {
+    width: 45vw;
+    height: 60%;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: rgb(94, 219, 198); */
+  }
+}
