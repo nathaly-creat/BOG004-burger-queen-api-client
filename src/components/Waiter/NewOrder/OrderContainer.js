@@ -77,7 +77,9 @@ export const OrderContainer = (props) => {
             client: customerName,
             products: products,
             status: 'pending',
+            cooked: false,
             dateEntry: orderDate,
+            totalPrice: cartTotal,
           };
           if(products.length === total.length){
             orderFetch(token,orderPetitionObj);

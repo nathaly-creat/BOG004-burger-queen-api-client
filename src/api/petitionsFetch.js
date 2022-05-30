@@ -75,3 +75,20 @@ export const orderFetch = (token, orderObj) => {
     return response.json();
   });
 };
+
+// FUNCION DE PETICION PEDIDOS ORDENADOS
+export const totalOrdersFetch = (token) => {
+  let Url = UrlBase + 'orders';
+  return fetch(Url, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
+    },
+  }).then((response) => {
+    if (!response.ok) {
+      throw Error('Error al traer pedidos');
+    }
+    return response.json();
+  });
+};

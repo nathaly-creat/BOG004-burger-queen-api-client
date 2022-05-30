@@ -37,7 +37,7 @@ export const ProductsToBill = () => {
                   <button
                     className='btn btn-light ms-2'
                     onClick={() => removeItem(product.id)}
-                  ><i class="fa-regular fa-trash-can"></i>
+                  ><i className='fa-regular fa-trash-can'></i>
                   </button>
                 </td>
               </tr>
