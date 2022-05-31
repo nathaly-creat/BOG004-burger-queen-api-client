@@ -15,9 +15,7 @@ export const LogOut = () => {
           localStorage.removeItem('react-use-cart');
           navigate(`/`, { replace: true });
         }}
-      >
-        Log Out
-      </button>
+      >Cerrar sesión</button>
     </>
   );
 };

@@ -7,6 +7,7 @@ import { AdminView } from '../views/AdminView.js';
 
 // inicio vistas kitchen
 import { KitchenView } from '../views/KitchenView.js';
+import { OrdersToCook } from '../components/Kitchen/OrdersToCook/OrdersToCook.js';
 // fin vistas kitchen
 
 // inicio vistas waiter
@@ -18,7 +19,7 @@ import { DeliveredOrders } from '../components/shared/DeliveredOrders/DeliveredO
 
 import { WithoutAccess } from '../components/shared/WithoutAccess.js';
 
-// ROUTER
+// ROUTER SEGUN USUARIO ACTIVO
 export const RolesRoutes = () => {
   const activeUser = JSON.parse(sessionStorage.getItem('user'));
 
@@ -43,7 +44,12 @@ export const RolesRoutes = () => {
         }
         {
           activeUser?.user.roles.kitchen
-            ? (<Route path='kitchen' element={<KitchenView/>}/>)
+            ? (
+              <Route path='kitchen' element={<KitchenView/>}>
+                <Route index element={<OrdersToCook/>}></Route>
+                <Route path='delivered-orders' element={<DeliveredOrders/>}></Route>
+              </Route>
+              )
             : (<Route path='*' element={<WithoutAccess/>}/>)
         }
         <Route path='*' element={<WithoutAccess/>} /> 

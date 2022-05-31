@@ -20,22 +20,22 @@
   background-repeat: no-repeat;
   overflow-x: hidden;
 }
-.waiter-nav{
+.waiter-kitchen-nav{
   background-color: var(--black);
 }
-.waiter-nav-toggle {
+.waiter-kitchen-nav-toggle {
   width: 20%;
   height: 25%;
   border: none;
   align-items: center;
   background-color: var(--yellow2);
 }
-.waiter-nav-dir{
+.waiter-kitchen-nav-dir{
   width: 100%;
   height: 100%;
   gap: 8%;
 }
-.waiter-selected-component{
+.waiter-kitchen-selected-component{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -82,6 +82,7 @@
   background-color: var(--yellow2);
   color:  var(--black);
 }
+
 /*INICIO seccion pedidos a facturar*/
 .waiter-order-container {
   width: 90vw;
@@ -108,7 +109,8 @@
   height: 20px;
 }
 /*FIN seccion pedidos a facturar*/
-/*Inicio seccion pedidos Pending*/
+
+/*INICIO seccion pedidos Pending*/
 .waiter-orders-pending {
   background-color: rgb(16, 99, 119);
   width: 90vw;
@@ -117,11 +119,10 @@
   background-color: rgb(66, 7, 143);
   width: 90vw;
 }
-
-/*Fin de la seccion pedidos pending*/
+/*FIN de la seccion pedidos pending*/
 
 @media only screen and (min-width: 768px) {
-  .waiter-selected-component{
+  .waiter-kitchen-selected-component{
     flex-direction: row;
     align-items: flex-start;
   }

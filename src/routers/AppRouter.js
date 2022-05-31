@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LoginView } from '../views/LoginView.js';
 import { RolesRoutes } from './RolesRoutes.js';
 
-// ROUTER
+// ROUTER PRINCIPAL
 export default function AppRouter() {
   // const activeUser = JSON.parse(sessionStorage.getItem('user'));
   // console.log('active us', activeUser);

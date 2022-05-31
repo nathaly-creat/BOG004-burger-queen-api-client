@@ -4,8 +4,8 @@ import { useCart } from 'react-use-cart';
 
 // COMPONENTE PARA MOSTRAR PRODUCTOS
 export const ProductList = (props) => {
-  // console.log('props', props);
 
+  // funcion para agregar items al carrito
   const { addItem } = useCart();
 
   // declaracion de lista de productos
@@ -26,9 +26,8 @@ export const ProductList = (props) => {
                 <h5 className='waiter-card-title'>{product.name}</h5>
                 <p className='waiter-card-text'><strong>{product.price}</strong></p>
                 <button className='waiter-add-btn' 
-                  onClick={() => addItem(product)}>
-                  Agregar
-                </button>
+                  onClick={() => addItem(product)}
+                >Agregar</button>
               </div>
             </div>
           </div>
@@ -54,8 +53,7 @@ export const ProductList = (props) => {
                 <p className='waiter-card-text'><strong>{product.price}</strong></p>
                 <button className='waiter-add-btn'
                   onClick={() => addItem(product)}
-                  >Agregar
-                </button>
+                >Agregar</button>
               </div>
             </div>
           </div>

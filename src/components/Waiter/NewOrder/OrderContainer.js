@@ -4,6 +4,7 @@ import { useCart } from 'react-use-cart';
 import { onlyProductFetch, orderFetch } from '../../../api/petitionsFetch.js';
 import { useFormCustHook } from '../../../hooks/useFormCustHook.js';
 import { ProductsToBill } from './ProductsToBill.js';
+import { dateFormat } from '../../shared/dateFormat.js'
 
 // COMPONENTE PARA MOSTRAR ORDEN DE CLIENTE
 export const OrderContainer = (props) => {
@@ -16,43 +17,13 @@ export const OrderContainer = (props) => {
   // desestructuracion de formLoginValues
   const { customerName } = inputNameCus;
 
-  // se declaran los metodos para actualización de productos a ordenar
+  // se declaran los metodos para actualizacion de productos a ordenar
   const { cartTotal, emptyCart } = useCart();
-
-  // funcion para formato de fecha
-  const dateFormat = (receivedDate) => {
-    let fullDateArray = receivedDate.split(',');
-    let dateArray = fullDateArray[0].split('/');
-
-    let day, month;
-    switch (true) {
-      case dateArray[0].length !== 2 && dateArray[1].length !== 2:
-        day = dateArray[0].padStart(2, '0');
-        month = dateArray[1].padStart(2, '0');
-        break;
-      case dateArray[0].length !== 2:
-        day = dateArray[0].padStart(2, '0');
-        month = dateArray[1];
-        break;
-      case dateArray[1].length !== 2:
-        day = dateArray[0];
-        month = dateArray[1].padStart(2, '0');
-        break;
-      default:
-        day = dateArray[0];
-        month = dateArray[1];
-        break;
-    }
-
-    let newFormat = dateArray[2].concat('-', day).concat('-', month).concat('', fullDateArray[1]);
-    return (newFormat)
-  }
 
   // funcion para crear objeto para peticion de orders
   const totalProductsToBill = () => {
-    // fecha y hr de orden
+    // fecha y hora de creacion de la orden
     const orderDate = dateFormat(new Date().toLocaleString());
-    console.log('orderDate: ', orderDate);
 
     // extraccion de productos seleccionados de localStorage 
     let total = localStorage.getItem('react-use-cart');
@@ -91,21 +62,23 @@ export const OrderContainer = (props) => {
     }
   };
 
-  // estructura de hook para mostrar error de login
+  // estructura de hook para mostrar error de login, 
+  // en la validacion del input nombre del cliente, inicializa vacio ('')
   const [inputNameError, setInputNameError] = useState('');
 
   // funcion para validar nombre diferente de vacio
   const nameValidation = () => {
-    if(customerName!==''){
+    if(customerName !== ''){
       totalProductsToBill();
     }else{
-      setInputNameError('nombre cliente requerido')
+      setInputNameError('Nombre del cliente es requerido')
     }
   }
 
   return (
     <>
       <div className='waiter-order-container'>
+        <p>Resumen del pedido</p>
         <input
           type='text'
           name='customerName'
@@ -118,9 +91,10 @@ export const OrderContainer = (props) => {
         <ProductsToBill/>
         <h2>Total: $ {cartTotal}</h2>
         <div>
-          <button className='btn btn-danger m-2' onClick={() => emptyCart()}>
-            Cancelar
-          </button>
+          <button 
+            className='btn btn-danger m-2' 
+            onClick={() => emptyCart()}
+          >Cancelar</button>
           <button
             type='button'
             className='btn btn-warning m-2'

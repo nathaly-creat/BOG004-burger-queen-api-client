@@ -4,8 +4,6 @@ let UrlBase = 'http://localhost:8080/';
 
 // FUNCION DE PETICION PARA LOGIN USER
 export const loginFetch = (loginObj) => {
-  let d = new Date();
-  console.log('peticion inicio', d);
   let Url = UrlBase + 'login';
   return fetch(Url, {
     method: 'POST',
@@ -88,6 +86,50 @@ export const totalOrdersFetch = (token) => {
   }).then((response) => {
     if (!response.ok) {
       throw Error('Error al traer pedidos');
+    }
+    return response.json();
+  });
+};
+
+// FUNCION DE PETICION CAMBIO DE ESTADO EN 'cooked'
+export const statusCookedFetch = (orderId, token) => {
+  let Url = UrlBase + 'orders/' + orderId;
+  return fetch(Url, {
+    method: 'PATCH',
+    headers: {
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
+    },
+    body: JSON.stringify(
+      {
+        'status': '',
+        'cooked': true
+      }),
+  }).then((response) => {
+    if (!response.ok) {
+      throw Error('Error al cambiar status de cook del pedido');
+    }
+    return response.json();
+  });
+};
+
+// FUNCION DE PETICION CAMBIO DE ESTADO EN 'status'
+export const statusDeliveredFetch = (orderId, token, finalDate) => {
+  let Url = UrlBase + 'orders/' + orderId;
+  return fetch(Url, {
+    method: 'PATCH',
+    headers: {
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
+    },
+    body: JSON.stringify(
+      {
+        'status': 'delivered',
+        'dateProcessed': finalDate
+      }),
+  }).then((response) => {
+    if (!response.ok) {
+      throw Error('Error al cambiar status delivered del pedido');
     }
     return response.json();
   });

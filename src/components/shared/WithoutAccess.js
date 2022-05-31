@@ -11,9 +11,7 @@ export const WithoutAccess = () => {
         onClick={() => {
           navigate(-1);
         }}
-      >
-        volver
-      </button>
+      >Volver</button>
     </>
   )
 }

@@ -5,15 +5,18 @@ import { productFetch } from '../../../api/petitionsFetch.js';
 import { ProductList }  from './ProductList.js';
 import { OrderContainer } from './OrderContainer.js';
 
+// COMPONENTE PARA MOSTRAR PRODUCTOS Y RESUMEN DE PRODUCTOS A ORDENAR
 export const NewOrder = () => {
 
     // estructura de hook para deteccion de cambio en lista de products
     const [products, setProducts] = useState([]);
 
+    // extraccion de token usuario activo
     const activeSession = JSON.parse(sessionStorage.user);
     const activeSessionToken = activeSession.accessToken;
     
-    // estructura de hook para peticion de productos y agregar los mismos a la lista del hook L13 
+    // estructura de hook para peticion de productos y agregar
+    // los mismos a la lista de productos (products)
     useEffect(() => {
       productFetch(activeSessionToken)
         .then((response) => {

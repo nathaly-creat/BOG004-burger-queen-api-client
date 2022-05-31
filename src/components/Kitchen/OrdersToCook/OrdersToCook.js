@@ -1,19 +1,18 @@
 // IMPORTACION HOOKS Y OTROS
 import { useState, useEffect } from 'react';
 import { totalOrdersFetch } from '../../../api/petitionsFetch.js';
-import { OrderLists } from './OrdersLists.js';
-import { OrderToServer } from './OrderToServer.js';
+import { OrderToCookList } from './OrderToCookList.js'
 
-// COMPONENTE PARA MOSTRAR PEDIDOS PENDIENTES Y PEDIDOS LISTOS PARA SERVIR
-export const Orders = () => {
-
-  // estructura de hook para traer las ordenes
+// COMPONENTE ORDERSTOCOOK PARA KITCHEN
+export const OrdersToCook = () => {
+  
+  // estructura de hook para traer pedidos a preparar
   const [orders, setOrders] = useState([]);
 
-  // token usuario activo
+  // extraccion de token 
   const activeSessionToken = JSON.parse(sessionStorage.user).accessToken;
 
-  // estructura de hook para peticion de ordenes
+  // estructura de hook para peticion pedidos totales a preparar
   useEffect(() => {
     totalOrdersFetch(activeSessionToken)
       .then((response) => {
@@ -26,8 +25,7 @@ export const Orders = () => {
 
   return (
     <>
-      <OrderLists orders={orders}/>
-      <OrderToServer orders={orders} token={activeSessionToken}/>
+      <OrderToCookList orders={orders} token={activeSessionToken}/>
     </>
-  );
-};
+  )
+}

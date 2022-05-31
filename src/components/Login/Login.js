@@ -10,13 +10,9 @@ import logoLaBurger from '../../assets/images/laBurgLogo.png';
 const handleLoginFetch = (user) => new Promise((resolve, reject) => {
   loginFetch(user)
     .then((response) => {
-      let final = new Date();
-      console.log('then', final);
       resolve(saveLoginUser(response));
     })
     .catch((error) => {
-      let final2 = new Date();
-      console.log('catch', final2);
       reject(error);
     });
 });
@@ -41,7 +37,6 @@ export const Login = () => {
 
   // función de cambio de ruta
   const handleLoginUrlChange = (role) => {
-    console.log('rol', role);
     return navigate(`/${Object.keys(role)}`, { replace: true });
   };
 
@@ -74,6 +69,7 @@ export const Login = () => {
         <div className='login-logo'>
           <img src={ logoLaBurger } alt='logo-la-burger'/>
         </div>
+
         <input
           type='text'
           name='email'
@@ -89,6 +85,7 @@ export const Login = () => {
           onChange={handleInputChange}
           data-testid='login-email'
         ></input>
+        
         {errors.email && <span className='login-error-1'>{errors.email.message}</span>}
 
         <input
@@ -105,6 +102,7 @@ export const Login = () => {
           onChange={handleInputChange}
           data-testid='login-password'
         ></input>
+        
         {errors.password && <span className='login-error-1'>{errors.password.message}</span>}
 
         {loginError && <span className='login-error-2' data-testid='login-error-message'>{loginError}</span>}
