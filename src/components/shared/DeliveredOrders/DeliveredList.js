@@ -1,8 +1,5 @@
 // COMPONENTE COMPARTIDO PARA LISTA DE ORDENES ENTREGADAS
-export const DeliveredList = (props) => {
-  
-  // declaracion de lista de productos entregados
-  const orders = props.orders;
+export const DeliveredList = ({orders}) => {
 
   // declaracion de lista de productos entregados
   let ordersDeliveredList = orders.map((order) => {

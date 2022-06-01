@@ -4,11 +4,7 @@ import { statusDeliveredFetch } from '../../../api/petitionsFetch.js';
 import { dateFormat } from '../../shared/dateFormat.js';
 
 // COMPONENTE PARA MOSTRAR PEDIDOS LISTOS PARA SERVIR
-export const OrderToServer = (props) => {
-
-  // declaracion lista de ordenes | token
-  const orders = props.orders;
-  const token = props.token;
+export const OrderToServer = ({orders,token}) => {
 
   // formato para creacion de fecha procesado del pedido
   const finalDate = dateFormat(new Date().toLocaleString());

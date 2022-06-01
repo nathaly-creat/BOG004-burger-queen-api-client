@@ -5,7 +5,7 @@ import { useCart } from 'react-use-cart';
 export const ProductsToBill = () => {
 
   // se declaran los metodos para actualización de productos a ordenar
-  const { items, updateItemQuantity, removeItem,  } = useCart();
+  const { items, updateItemQuantity, removeItem } = useCart();
 
   // captura de productos para facturar
   const prodsToBill = items.map((product, index) => {
@@ -15,7 +15,7 @@ export const ProductsToBill = () => {
           <tbody>
             <tr>
               <td>
-                <img src={product.image} style={{ width: '4rem' }} alt='' />
+                <img src={product.image} style={{ width: '4rem' }} alt=''/>
               </td>
               <td className='waiter-order-products-text'>{product.name}</td>
               <td className='waiter-order-products-btns-qty'>

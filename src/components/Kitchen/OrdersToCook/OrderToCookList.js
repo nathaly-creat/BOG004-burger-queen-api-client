@@ -3,11 +3,7 @@ import { statusCookedFetch } from '../../../api/petitionsFetch.js';
 import { OrderProducts } from './OrderProducts.js';
 
 // COMPONENTE ORDERSTOCOOKLIST PARA MOSTRAR ESTRUCTURA DE CARD
-export const OrderToCookList = (props) => {
-
-  // declaracion de lista de ordenes a preparar
-  const orders = props.orders;
-  const token = props.token;
+export const OrderToCookList = ({orders,token}) => {
 
   // captura de pedidos a preparar
   let ordersToCookChef = orders.map((order) => {

@@ -1,8 +1,5 @@
 // COMPONENTE PARA MOSTRAR PEDIDOS PENDIENTES
-export const OrderLists = (props) => {
-
-  // declaracion de lista de ordenes
-  const orders = props.orders;
+export const OrderLists = ({orders}) => {
 
   // captura de ordenes con status pending
   let ordersPending = orders.map((order) => {

@@ -2,19 +2,25 @@
 import { useState } from 'react';
 
 // CUSTOM HOOK PARA FORMULARIOS
-export const useFormCustHook = ( initialState = {} ) => {
+export const useFormCustHook = (initialState = {}) => {
+  // estructura de hook para cambio en inputs de form
+  const [formValues, setFormValues] = useState(initialState);
 
-    // estructura de hook para cambio en inputs de form
-    const [formValues, setFormValues] = useState(initialState);
+  // funcion para manejo de cambio de inputs
+  const handleInputChange = ({ target }, clear=false) => {
+    if(clear===true){
+      setFormValues({
+        ...formValues,
+        [target.name]: '',
+      });
+    }else{
+      setFormValues({
+        ...formValues, // copia de valores iniciales de formValues
+        [target.name]: target.value,
+      });
+    }
+  };
 
-    // funcion para manejo de cambio de inputs
-    const handleInputChange = ({target}) => {
-        setFormValues({
-            ...formValues, // copia de valores iniciales de formValues
-            [ target.name ]: target.value,
-        })
-    };
-
-    // retorno de valores para form y f para manejar su cambio
-    return [formValues, handleInputChange];
+  // retorno de valores para form y f para manejar su cambio
+  return [formValues, handleInputChange];
 };

@@ -3,13 +3,10 @@ import { Accordion } from 'react-bootstrap';
 import { useCart } from 'react-use-cart';
 
 // COMPONENTE PARA MOSTRAR PRODUCTOS
-export const ProductList = (props) => {
+export const ProductList = ({products}) => {
 
   // funcion para agregar items al carrito
   const { addItem } = useCart();
-
-  // declaracion de lista de productos
-  const products = props.products;
 
   // captura de productos de desayuno
   let breakfastProd = products.map((product) => {

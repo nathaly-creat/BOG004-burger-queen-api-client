@@ -7,7 +7,7 @@ import { ProductsToBill } from './ProductsToBill.js';
 import { dateFormat } from '../../shared/dateFormat.js'
 
 // COMPONENTE PARA MOSTRAR ORDEN DE CLIENTE
-export const OrderContainer = (props) => {
+export const OrderContainer = ({activeSession}) => {
 
   // estructura de hook para cambio en input de nombre cliente
   const [inputNameCus, handleInputChange] = useFormCustHook({
@@ -35,8 +35,8 @@ export const OrderContainer = (props) => {
     let products = [];
 
     // declaracion id | token empleado
-    const userId = props.activeSession.user.id;
-    const token = props.activeSession.accessToken;
+    const userId = activeSession.user.id;
+    const token = activeSession.accessToken;
 
     // ciclo para recorrer productos a ordenar
     for (let product of total) {
@@ -70,6 +70,12 @@ export const OrderContainer = (props) => {
   const nameValidation = () => {
     if(customerName !== ''){
       totalProductsToBill();
+      emptyCart();
+      const inputName = document.getElementById('customerName');
+      const e = {
+        target: inputName
+      };
+      handleInputChange(e,true);
     }else{
       setInputNameError('Nombre del cliente es requerido')
     }
@@ -80,6 +86,7 @@ export const OrderContainer = (props) => {
       <div className='waiter-order-container'>
         <p>Resumen del pedido</p>
         <input
+          id = 'customerName'
           type='text'
           name='customerName'
           placeholder='Nombre del cliente'
@@ -98,7 +105,7 @@ export const OrderContainer = (props) => {
           <button
             type='button'
             className='btn btn-warning m-2'
-            onClick={ () => nameValidation()}
+            onClick={() =>nameValidation()}
           >Ordenar</button>
         </div>
       </div>
