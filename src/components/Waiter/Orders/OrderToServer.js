@@ -1,13 +1,9 @@
 // IMPORTACION DE FUNCION PARA FORMATO DE FECHA
 // Y PETICION FETCH DE ESTATUS DEL PEDIDO.
 import { statusDeliveredFetch } from '../../../api/petitionsFetch.js';
-import { dateFormat } from '../../shared/dateFormat.js';
 
 // COMPONENTE PARA MOSTRAR PEDIDOS LISTOS PARA SERVIR
 export const OrderToServer = ({orders,token}) => {
-
-  // formato para creacion de fecha procesado del pedido
-  const finalDate = dateFormat(new Date().toLocaleString());
 
   let ordersDelivered = orders.map((order) => {
     let statusCooked;
@@ -21,7 +17,9 @@ export const OrderToServer = ({orders,token}) => {
               <p>{order.dateEntry}</p>
               <button
                 className='btn btn-primary'
-                onClick={() => statusDeliveredFetch(order.id, token, finalDate)}
+                onClick={ () => 
+                  statusDeliveredFetch(order.id, token, new Date().toLocaleString('sv'))
+                }
               >Entregar pedido</button>
             </div>
           </div>

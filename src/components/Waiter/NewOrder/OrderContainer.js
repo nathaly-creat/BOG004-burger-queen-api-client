@@ -4,7 +4,6 @@ import { useCart } from 'react-use-cart';
 import { onlyProductFetch, orderFetch } from '../../../api/petitionsFetch.js';
 import { useFormCustHook } from '../../../hooks/useFormCustHook.js';
 import { ProductsToBill } from './ProductsToBill.js';
-import { dateFormat } from '../../shared/dateFormat.js'
 
 // COMPONENTE PARA MOSTRAR ORDEN DE CLIENTE
 export const OrderContainer = ({activeSession}) => {
@@ -22,8 +21,6 @@ export const OrderContainer = ({activeSession}) => {
 
   // funcion para crear objeto para peticion de orders
   const totalProductsToBill = () => {
-    // fecha y hora de creacion de la orden
-    const orderDate = dateFormat(new Date().toLocaleString());
 
     // extraccion de productos seleccionados de localStorage 
     let total = localStorage.getItem('react-use-cart');
@@ -49,7 +46,7 @@ export const OrderContainer = ({activeSession}) => {
             products: products,
             status: 'pending',
             cooked: false,
-            dateEntry: orderDate,
+            dateEntry: new Date().toLocaleString('sv'),
             totalPrice: cartTotal,
           };
           if(products.length === total.length){
