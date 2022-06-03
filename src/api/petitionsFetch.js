@@ -1,5 +1,5 @@
 // IMPORTACION DE FETCH
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 let UrlBase = 'http://localhost:8080/';
 
 // FUNCION DE PETICION PARA LOGIN USER
@@ -10,6 +10,7 @@ export const loginFetch = (loginObj) => {
     body: JSON.stringify(loginObj),
     headers: { 'content-type': 'application/json' },
   }).then((response) => {
+    console.log('err', response)
     if (!response.ok) {
       throw Error('Confirmar email y contraseña');
     }
@@ -31,7 +32,7 @@ export const productFetch = (token) => {
       'content-type': 'application/json',
       authorization: 'Bearer ' + token,
     },
-  }).then((response) => {
+  }).then((response) => { 
     if (!response.ok) {
       throw Error('Error al traer productos');
     }
