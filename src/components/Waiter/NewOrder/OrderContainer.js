@@ -27,7 +27,7 @@ export const OrderContainer = ({activeSession}) => {
     if (total !== null) {
       total = JSON.parse(total).items;
     }
-    
+    console.log('totalOC', total);
     // declaracion de array para agregar productos
     let products = [];
 
@@ -102,6 +102,7 @@ export const OrderContainer = ({activeSession}) => {
           <button
             type='button'
             className='btn btn-warning m-2'
+            id = 'btn-order'
             onClick={() =>nameValidation()}
           >Ordenar</button>
         </div>

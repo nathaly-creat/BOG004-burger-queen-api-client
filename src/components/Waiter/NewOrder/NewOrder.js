@@ -7,7 +7,7 @@ import { OrderContainer } from './OrderContainer.js';
 
 // COMPONENTE PARA MOSTRAR PRODUCTOS Y RESUMEN DE PRODUCTOS A ORDENAR
 export const NewOrder = () => {
-
+console.log('aquiiii llego a mesero')
     // estructura de hook para deteccion de cambio en lista de products
     const [products, setProducts] = useState([]);
 
