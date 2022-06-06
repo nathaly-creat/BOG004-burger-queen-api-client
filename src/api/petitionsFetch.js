@@ -10,11 +10,11 @@ export const loginFetch = (loginObj) => {
     body: JSON.stringify(loginObj),
     headers: { 'content-type': 'application/json' },
   }).then((response) => {
-    console.log('err', response)
     if (!response.ok) {
       throw Error('Confirmar email y contraseña');
+    } else {
+      return response.json();
     }
-    return response.json();
   });
 };
 
@@ -32,7 +32,7 @@ export const productFetch = (token) => {
       'content-type': 'application/json',
       authorization: 'Bearer ' + token,
     },
-  }).then((response) => { 
+  }).then((response) => {
     if (!response.ok) {
       throw Error('Error al traer productos');
     }
@@ -101,11 +101,10 @@ export const statusCookedFetch = (orderId, token) => {
       'content-type': 'application/json',
       authorization: 'Bearer ' + token,
     },
-    body: JSON.stringify(
-      {
-        'status': '',
-        'cooked': true
-      }),
+    body: JSON.stringify({
+      status: '',
+      cooked: true,
+    }),
   }).then((response) => {
     if (!response.ok) {
       throw Error('Error al cambiar status de cook del pedido');
@@ -123,11 +122,10 @@ export const statusDeliveredFetch = (orderId, token, finalDate) => {
       'content-type': 'application/json',
       authorization: 'Bearer ' + token,
     },
-    body: JSON.stringify(
-      {
-        'status': 'delivered',
-        'dateProcessed': finalDate
-      }),
+    body: JSON.stringify({
+      status: 'delivered',
+      dateProcessed: finalDate,
+    }),
   }).then((response) => {
     if (!response.ok) {
       throw Error('Error al cambiar status delivered del pedido');
