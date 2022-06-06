@@ -1,12 +1,13 @@
-import { rest } from 'msw';
-import { setupServer } from 'msw/node';
 import React from 'react';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
-import { render, fireEvent, waitFor, screen } from '@testing-library/react';
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
 import '@testing-library/jest-dom';
+import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import { LoginView } from '../../views/LoginView';
 
+// mock de servidor para peticiones de productos
 const server = setupServer(
   rest.post('http://localhost:8080/login', (_req, res, ctx) => {
     return res(
@@ -25,12 +26,13 @@ const server = setupServer(
   })
 );
 
+// limpieza mock de servidor
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-// test caso positivo de Login.
-test('Route Navigate', async () => {
+// test caso positivo de login
+test('login in waiter page', async () => {
   jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
     useNavigate: () => jest.fn(),
@@ -46,9 +48,8 @@ test('Route Navigate', async () => {
   const emailInput = screen.getByPlaceholderText('ejemplo@email.com');
   const pswInput = screen.getByPlaceholderText('Contraseña');
   const button = screen.getByText('Inicializar');
-  fireEvent.change(emailInput, {
-    target: { value: 'mesero.hopper@systers.xyz' },
-  });
+
+  fireEvent.change(emailInput, { target: { value: 'mesero.hopper@systers.xyz' } });
   fireEvent.change(pswInput, { target: { value: '123456' } });
   fireEvent.click(button);
 
@@ -57,12 +58,13 @@ test('Route Navigate', async () => {
   });
 });
 
-// // Test Caso Negativo de Login (datos incorrectos no autorizados).
-test('handle errors', async () => {
+// test caso negativo de login
+test('login error', async () => {
   jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
     useNavigate: () => jest.fn(),
   }));
+
   server.use(
     rest.post('http://localhost:8080/login', (_req, res, ctx) => {
       return res(
@@ -78,6 +80,7 @@ test('handle errors', async () => {
       <LoginView />
     </Router>
   );
+
   let msgError;
   const emailInput = screen.getByPlaceholderText('ejemplo@email.com');
   const pswInput = screen.getByPlaceholderText('Contraseña');
@@ -91,4 +94,3 @@ test('handle errors', async () => {
   expect(msgError.textContent).toBe('Confirmar email y contraseña');
   expect(history.location.pathname).toBe('/');
 });
-
