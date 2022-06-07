@@ -23,7 +23,7 @@ export const ProductList = ({products}) => {
                 <div className='waiter-card-body'>
                   <h5 className='waiter-card-title'>{product.name}</h5>
                   <p className='waiter-card-text'><strong>{product.price}</strong></p>
-                  <button className='waiter-add-btn'
+                  <button className='waiter-add-btn' 
                     onClick={() => addItem(product)}
                   >Agregar</button>
                 </div>

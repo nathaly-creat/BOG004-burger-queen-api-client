@@ -1,33 +1,49 @@
 // IMPORTACION HOOKS Y OTROS
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCart } from 'react-use-cart';
 import { onlyProductFetch, orderFetch } from '../../../api/petitionsFetch.js';
-import { useFormCustHook } from '../../../hooks/useFormCustHook.js';
 import { ProductsToBill } from './ProductsToBill.js';
 
 // COMPONENTE PARA MOSTRAR ORDEN DE CLIENTE
-export const OrderContainer = ({activeSession}) => {
-
+export const OrderContainer = ({ activeSession }) => {
   // estructura de hook para cambio en input de nombre cliente
-  const [inputNameCus, handleInputChange] = useFormCustHook({
+  const [inputNameCus, setInputNameCust] = useState({
     customerName: '',
   });
 
-  // desestructuracion de formLoginValues
+  // desestructuracion de inputNameCus
   const { customerName } = inputNameCus;
+
+  // funcion para manejo de cambio de input
+  const handleInputChangeOrder = ({ target }) => {
+    setInputNameCust({
+      ...inputNameCus,
+      [target.name]: target.value,
+    });
+  };
 
   // se declaran los metodos para actualizacion de productos a ordenar
   const { cartTotal, emptyCart } = useCart();
 
+  // se declara el estado de la orden
+  const [orderSuccess, setOrderSuccess] = useState('');
+
+  useEffect(() => {
+    if (orderSuccess !== '') {
+      setTimeout(() => {
+        setOrderSuccess('');
+      }, 3000);
+    }
+  }, [orderSuccess]);
+
   // funcion para crear objeto para peticion de orders
   const totalProductsToBill = () => {
-
-    // extraccion de productos seleccionados de localStorage 
+    // extraccion de productos seleccionados de localStorage
     let total = localStorage.getItem('react-use-cart');
     if (total !== null) {
       total = JSON.parse(total).items;
     }
-    console.log('totalOC', total);
+
     // declaracion de array para agregar productos
     let products = [];
 
@@ -49,8 +65,14 @@ export const OrderContainer = ({activeSession}) => {
             dateEntry: new Date().toLocaleString('sv'),
             totalPrice: cartTotal,
           };
-          if(products.length === total.length){
-            orderFetch(token,orderPetitionObj);
+          if (products.length === total.length) {
+            orderFetch(token, orderPetitionObj)
+              .then(() => {
+                setOrderSuccess('Orden creada con éxito');
+              })
+              .catch((error) => {
+                console.log('Error de Orden', error);
+              });
           }
         })
         .catch((error) => {
@@ -59,53 +81,55 @@ export const OrderContainer = ({activeSession}) => {
     }
   };
 
-  // estructura de hook para mostrar error de login, 
+  // estructura de hook para mostrar error de login,
   // en la validacion del input nombre del cliente, inicializa vacio ('')
   const [inputNameError, setInputNameError] = useState('');
 
   // funcion para validar nombre diferente de vacio
   const nameValidation = () => {
-    if(customerName !== ''){
+    if (customerName !== '') {
       totalProductsToBill();
       emptyCart();
-      const inputName = document.getElementById('customerName');
-      const e = {
-        target: inputName
-      };
-      handleInputChange(e,true);
-    }else{
-      setInputNameError('Nombre del cliente es requerido')
+      setInputNameCust({ customerName: '' });
+    } else {
+      setInputNameError('Nombre del cliente es requerido');
     }
-  }
+  };
 
   return (
     <>
       <div className='waiter-order-container'>
         <p>Resumen del pedido</p>
         <input
-          id = 'customerName'
+          id='customerName'
           type='text'
           name='customerName'
           placeholder='Nombre del cliente'
           autoComplete='off'
           value={customerName}
-          onChange={handleInputChange}
+          onChange={handleInputChangeOrder}
         ></input>
         <span>{inputNameError}</span>
-        <ProductsToBill/>
+        <ProductsToBill />
         <h2>Total: $ {cartTotal}</h2>
         <div>
-          <button 
-            className='btn btn-danger m-2' 
-            onClick={() => emptyCart()}
-          >Cancelar</button>
+          <button className='btn btn-danger m-2' onClick={() => emptyCart()}>
+            Cancelar
+          </button>
           <button
             type='button'
             className='btn btn-warning m-2'
-            id = 'btn-order'
-            onClick={() =>nameValidation()}
-          >Ordenar</button>
+            id='btn-order'
+            onClick={() => nameValidation()}
+          >
+            Ordenar
+          </button>
         </div>
+        {orderSuccess && (
+          <span className='' data-testid='order-success-notification'>
+            {orderSuccess}
+          </span>
+        )}
       </div>
     </>
   );
