@@ -1,5 +1,5 @@
 // IMPORTACION HOOKS Y OTROS
-import { statusCookedFetch } from '../../../api/petitionsFetch.js';
+import { statusDeliveringFetch } from '../../../api/petitionsFetch.js';
 import { OrderProducts } from './OrderProducts.js';
 
 // COMPONENTE ORDERSTOCOOKLIST PARA MOSTRAR ESTRUCTURA DE CARD
@@ -8,7 +8,7 @@ export const OrderToCookList = ({orders,token}) => {
   // captura de pedidos a preparar
   let ordersToCookChef = orders.map((order) => {
     let statusPendingToCook;
-    if(order.status === 'pending' && order.cooked === false) {
+    if(order.status === 'pending') {
       statusPendingToCook = (
       <div className='card kitchen-orders' key={order.id.toString()}>
         <div className='card-body'>
@@ -19,7 +19,7 @@ export const OrderToCookList = ({orders,token}) => {
           <OrderProducts products={order.products}/>
           <button 
             className='btn btn-primary'
-            onClick={() => statusCookedFetch(order.id, token)}
+            onClick={() => statusDeliveringFetch(order.id, token)}
           >¿Pedido Listo?</button>
         </div>
       </div>

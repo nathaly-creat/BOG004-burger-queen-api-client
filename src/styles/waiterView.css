@@ -21,7 +21,17 @@
   overflow-x: hidden;
 }
 .waiter-kitchen-nav{
-  background-color: var(--black);
+ background-color: var(--black);
+}
+.waiter-kitchen-nav-img {
+  width:120px;
+  height:50px;
+}
+.waiter-kitchen-nav-dir .fa-right-from-bracket {
+  color: var(--textwhite);
+  text-decoration: none;
+  padding: 20px;
+  background-color: var(--orange2);
 }
 .waiter-kitchen-nav-toggle {
   width: 20%;
@@ -34,6 +44,21 @@
   width: 100%;
   height: 100%;
   gap: 8%;
+}
+.waiter-kitchen-nav-dir a {
+  color: var(--textwhite);
+  text-decoration: none;
+  padding: 6px;
+  font-size: 1em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+}
+.waiter-kitchen-nav-dir a:hover {
+  color: var(--textwhite);
+  text-decoration: none;
+  padding: 20px;
 }
 .waiter-kitchen-selected-component{
   display: flex;
@@ -91,7 +116,7 @@
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
-  background-color: rgb(94, 219, 198);
+  background-color: transparent;
 }
 .waiter-order-products {
   height: 100px;
@@ -122,12 +147,46 @@
 /*FIN de la seccion pedidos pending*/
 
 @media only screen and (min-width: 768px) {
+  .waiter-kitchen-nav {
+    height: 10vh;
+    margin-top: 15px;
+  }
+  .waiter-kitchen-nav-img {
+    width:150px;
+    height:70px;
+  }
+  /* .waiter-kitchen-nav-dir a {
+    color: var(--textwhite);
+    text-decoration: none;
+    padding: 20px;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    gap: 10px;
+    border-radius: 5px;
+  }
+  .waiter-kitchen-nav-dir a:hover {
+    color: var(--textwhite);
+    text-decoration: none;
+    padding: 20px;
+  } */
   .waiter-kitchen-selected-component{
+    margin-top: 40px;
     flex-direction: row;
     align-items: flex-start;
+    /* background: #fab300; */
   }
+  .waiter-accordion-body {
+    flex-direction: row;
+    align-items: flex-start;
+    min-width: 45vw;
+    max-width: 45vw;
+  } 
   .waiter-accordion {
     max-width: 45vw;
+    min-width: 45vw;
   }
   .accordion-button {
     min-width: 45vw;
@@ -136,10 +195,6 @@
   .accordion-button:focus {
     min-width: 45vw;
     max-width: 45vw; 
-  }
-  .waiter-accordion-body {
-    min-width: 45vw;
-    max-width: 45vw;
   }
   .waiter-order-container {
     width: 45vw;

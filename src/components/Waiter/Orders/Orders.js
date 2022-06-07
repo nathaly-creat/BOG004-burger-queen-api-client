@@ -13,16 +13,29 @@ export const Orders = () => {
   // token usuario activo
   const activeSessionToken = JSON.parse(sessionStorage.user).accessToken;
 
-  // estructura de hook para peticion de ordenes
-  useEffect(() => {
+  // funcion para peticion de pedidos totales a preparar
+  const getDeliveringOrders = async () => {
     totalOrdersFetch(activeSessionToken)
-      .then((response) => {
-        setOrders(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [activeSessionToken, setOrders]);
+    .then((response) => {
+      setOrders(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  };
+
+  // estructura de hook para peticion de ordenes listas a entregar
+  useEffect(() => {
+    getDeliveringOrders();
+  }, []);
+
+  // estructura de hook para peticion cada 3 seg de ordenes listas a entregar
+  useEffect(() => {
+    const interval = setInterval(() => {
+      getDeliveringOrders();
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>

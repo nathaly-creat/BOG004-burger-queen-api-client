@@ -15,9 +15,7 @@ export const Waiter = () => {
             <img
               alt='logo-la-burger'
               src={logoLaBurger}
-              width='150'
-              height='70'
-              className='d-inline-block align-top'
+              className='d-inline-block align-top waiter-kitchen-nav-img'
             />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav' className='waiter-kitchen-nav-toggle'/>
@@ -26,7 +24,7 @@ export const Waiter = () => {
               <Link to='/waiter'>Nuevo Pedido</Link>
               <Link to='/waiter/orders'>Pedidos</Link>
               <Link to='/waiter/delivered-orders'>Pedidos Entregados</Link>
-              <LogOut/>
+              <LogOut className='logOut' />
             </Nav>
           </Navbar.Collapse>
         </Container>

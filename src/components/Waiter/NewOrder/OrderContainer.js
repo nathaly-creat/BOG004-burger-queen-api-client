@@ -27,7 +27,8 @@ export const OrderContainer = ({ activeSession }) => {
 
   // se declara el estado de la orden
   const [orderSuccess, setOrderSuccess] = useState('');
-
+  
+  // hook para cambio para mensaje de orderSuccess
   useEffect(() => {
     if (orderSuccess !== '') {
       setTimeout(() => {
@@ -61,7 +62,6 @@ export const OrderContainer = ({ activeSession }) => {
             client: customerName,
             products: products,
             status: 'pending',
-            cooked: false,
             dateEntry: new Date().toLocaleString('sv'),
             totalPrice: cartTotal,
           };

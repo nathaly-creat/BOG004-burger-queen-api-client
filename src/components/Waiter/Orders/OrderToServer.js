@@ -7,7 +7,7 @@ export const OrderToServer = ({orders,token}) => {
 
   let ordersDelivered = orders.map((order) => {
     let statusCooked;
-    if (order.status === '' && order.cooked === true) {
+    if (order.status === 'delivering') {
       statusCooked = (
         <div className='card mb-3' key={order.id.toString()}>
           <div className='col-md-8'>

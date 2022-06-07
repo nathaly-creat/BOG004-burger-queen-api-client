@@ -92,8 +92,8 @@ export const totalOrdersFetch = (token) => {
   });
 };
 
-// FUNCION DE PETICION CAMBIO DE ESTADO EN 'cooked'
-export const statusCookedFetch = (orderId, token) => {
+// FUNCION DE PETICION CAMBIO DE ESTADO EN 'delivering'
+export const statusDeliveringFetch = (orderId, token) => {
   let Url = UrlBase + 'orders/' + orderId;
   return fetch(Url, {
     method: 'PATCH',
@@ -102,8 +102,7 @@ export const statusCookedFetch = (orderId, token) => {
       authorization: 'Bearer ' + token,
     },
     body: JSON.stringify({
-      status: '',
-      cooked: true,
+      status: 'delivering'
     }),
   }).then((response) => {
     if (!response.ok) {
