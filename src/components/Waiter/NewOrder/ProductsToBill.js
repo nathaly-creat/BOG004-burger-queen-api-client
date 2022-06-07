@@ -6,7 +6,7 @@ export const ProductsToBill = () => {
 
   // se declaran los metodos para actualización de productos a ordenar
   const { items, updateItemQuantity, removeItem } = useCart();
-
+  
   // captura de productos para facturar
   const prodsToBill = items.map((product, index) => {
     return (

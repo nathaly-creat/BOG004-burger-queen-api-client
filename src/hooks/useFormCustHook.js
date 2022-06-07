@@ -7,18 +7,11 @@ export const useFormCustHook = (initialState = {}) => {
   const [formValues, setFormValues] = useState(initialState);
 
   // funcion para manejo de cambio de inputs
-  const handleInputChange = ({ target }, clear=false) => {
-    if(clear===true){
-      setFormValues({
-        ...formValues,
-        [target.name]: '',
-      });
-    }else{
-      setFormValues({
-        ...formValues, // copia de valores iniciales de formValues
-        [target.name]: target.value,
-      });
-    }
+  const handleInputChange = ({ target }) => {
+    setFormValues({
+      ...formValues, // copia de valores iniciales de formValues
+      [target.name]: target.value,
+    });
   };
 
   // retorno de valores para form y f para manejar su cambio
