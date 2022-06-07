@@ -4,7 +4,7 @@ export const OrderLists = ({orders}) => {
   // captura de ordenes con status pending
   let ordersPending = orders.map((order) => {
     let statusPending;
-    if (order.status === 'pending' && order.cooked === false) {
+    if (order.status === 'pending') {
       statusPending = (
         <div className='card mb-3' key={order.id.toString()}>
           <div className='col-md-8'>
