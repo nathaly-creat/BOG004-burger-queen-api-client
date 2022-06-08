@@ -108,12 +108,13 @@ export const OrderContainer = ({ activeSession }) => {
           autoComplete='off'
           value={customerName}
           onChange={handleInputChangeOrder}
+          className='waiter-order-container-input'
         ></input>
         <span>{inputNameError}</span>
         <ProductsToBill />
         <h2>Total: $ {cartTotal}</h2>
         <div>
-          <button className='btn btn-danger m-2' onClick={() => emptyCart()}>
+          <button className='btn btn-dark m-2' onClick={() => emptyCart()}>
             Cancelar
           </button>
           <button

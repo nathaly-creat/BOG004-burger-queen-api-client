@@ -28,17 +28,23 @@
   height:50px;
 }
 .waiter-kitchen-nav-dir .fa-right-from-bracket {
-  color: var(--textwhite);
+  color: var(--orange2);
   text-decoration: none;
   padding: 20px;
-  background-color: var(--orange2);
+  font-size: 1.4em;
+  float: left;
+  /* background-color: var(--orange2); */
+}
+.btn-logout {
+  border: none;
+  background-color: transparent;
 }
 .waiter-kitchen-nav-toggle {
   width: 20%;
   height: 25%;
   border: none;
   align-items: center;
-  background-color: var(--yellow2);
+  background-color: var(--orange2);
 }
 .waiter-kitchen-nav-dir{
   width: 100%;
@@ -46,7 +52,7 @@
   gap: 8%;
 }
 .waiter-kitchen-nav-dir a {
-  color: var(--textwhite);
+  color: var(--yellow1);
   text-decoration: none;
   padding: 6px;
   font-size: 1em;
@@ -57,9 +63,13 @@
 }
 .waiter-kitchen-nav-dir a:hover {
   color: var(--textwhite);
-  text-decoration: none;
+  /* text-decoration: none; */
+  text-decoration: underline;
+  background-color: var(--orange2);
+  margin: auto;
   padding: 20px;
 }
+
 .waiter-kitchen-selected-component{
   display: flex;
   flex-direction: column;
@@ -75,16 +85,25 @@
 .accordion-button {
   min-width: 90vw;
   max-width: 90vw;
-  background-color: var(--yellow2);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background-color: var(--orange2);
+  /* background-color: var(--black); */
   color: var(--black);
 }
 .accordion-button:focus {
   min-width: 90vw;
   max-width: 90vw;
   color: var(--textwhite);
-  background-color: #2d3233;
-  box-shadow: 0px 0px 10px 0px var(--orange1);
+  background-color: var(--black);
+  box-shadow: 0px 0px 6px 0px var(--yellow1);
 }
+.accordion-button:not(.collapsed){
+  color: var(--black);
+  border-color: transparent;
+  background-color: var(--yellow2);
+}
+
 .waiter-accordion-body {
   min-width: 90vw;
   max-width: 90vw;
@@ -94,29 +113,60 @@
   justify-content: center;
   background-color: var(--black);
 }
+.waiter-acordion-product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .waiter-card-body{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
   background-color: var(--black);
   color: var(--textwhite);
+}
+.waiter-card-body-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-left: 15px;
 }
 .waiter-card-text {
   font-size: 10px;
   color: var(--orange2);
 }
 .waiter-add-btn {
-  width: 45%;
+  border: none;
+  padding: 10px;
+  border-radius: 15px;
   background-color: var(--yellow2);
   color:  var(--black);
 }
 
 /*INICIO seccion pedidos a facturar*/
 .waiter-order-container {
+  margin-top: 20px;
   width: 90vw;
-  height: 60%;
+  min-height: 60vh;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
+  border: 1px solid var(--orange2);
   background-color: transparent;
+}
+.waiter-order-container p {
+  font-size: 1.5em;
+  color: var(--yellow1);
+}
+.waiter-order-container-input {
+  margin-bottom: 20px;
+  padding: 5px;
+  border-radius: 10px;
+  
 }
 .waiter-order-products {
   height: 100px;
@@ -124,6 +174,10 @@
 }
 .waiter-order-products-text {
   font-size: 9px;
+}
+.btn-info {
+  border: none;
+  background-color: var(--yellow2);
 }
 .waiter-order-products-btns-qty {
   display: flex;
@@ -136,30 +190,64 @@
 /*FIN seccion pedidos a facturar*/
 
 /*INICIO seccion pedidos Pending*/
-.waiter-orders-pending {
-  background-color: rgb(16, 99, 119);
+.waiter-orders-pending, .waiter-orders-to-serve {
+  background-color: var(--black);
+  border: 1px solid var(--orange2);
+  margin-left: 10px;
+  text-align: center;
+  color: var(--yellow1);
+  padding: 25px;
   width: 90vw;
 }
-.waiter-orders-to-serve {
-  background-color: rgb(66, 7, 143);
-  width: 90vw;
+
+.waiter-orders-to-serve .btn {
+  background-color: var(--yellow2);
+  color: var(--black);
+  border: none;
+  padding: 5px;
+  font-size: 1em;
+  border-radius: 10px;
 }
 /*FIN de la seccion pedidos pending*/
+
+.waiter-orders-total {
+  background-color: var(--black);
+  border: 1px outset var(--orange2);
+  justify-content: center;
+  text-align: center;
+  font-size: 1.1em;
+  color: var(--textwhite);
+  padding: 10px;
+  width: 10%; 
+}
+.waiter-card-body-orders {
+  background-color: var(--black);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: none;
+}
 
 @media only screen and (min-width: 768px) {
   .waiter-kitchen-nav {
     height: 10vh;
     margin-top: 15px;
+    /* display: flex;
+    justify-content: space-between; */
   }
   .waiter-kitchen-nav-img {
     width:150px;
     height:70px;
   }
-  /* .waiter-kitchen-nav-dir a {
-    color: var(--textwhite);
+  .waiter-kitchen-nav-dir {
+    display: flex;
+   justify-content: flex-end;
+  }
+  .waiter-kitchen-nav-dir a {
     text-decoration: none;
     padding: 20px;
-    font-size: 1em;
+    font-size: 1.1em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -168,10 +256,16 @@
     border-radius: 5px;
   }
   .waiter-kitchen-nav-dir a:hover {
-    color: var(--textwhite);
     text-decoration: none;
     padding: 20px;
-  } */
+  }
+  .waiter-kitchen-nav-dir .fa-right-from-bracket {
+    color: var(--orange2);
+    text-decoration: none;
+    padding: 20px;
+    font-size: 40px;
+    /* background-color: var(--orange2); */
+  }
   .waiter-kitchen-selected-component{
     margin-top: 40px;
     flex-direction: row;
@@ -197,6 +291,8 @@
     max-width: 45vw; 
   }
   .waiter-order-container {
+    margin-top: 5px;
+    margin-left: 20px;
     width: 45vw;
     height: 60%;
   }
@@ -208,6 +304,10 @@
     max-width: 45vw;
   }
   .waiter-orders-to-serve {
+    min-width: 45vw;
+    max-width: 45vw;
+  }
+  .waiter-orders-total {
     min-width: 45vw;
     max-width: 45vw;
   }
