@@ -19,8 +19,8 @@ export const ProductList = ({products}) => {
               <div className='col-md-4'>
                 <img src={product.image} className='img-fluid rounded-start' alt='products' />
               </div>
-              <div className='col-md-8'>
-                <div className='waiter-card-body'>
+              <div className='col-md-8 waiter-card-body'>
+                <div className='waiter-card-body-child'>
                   <h5 className='waiter-card-title'>{product.name}</h5>
                   <p className='waiter-card-text'><strong>{product.price}</strong></p>
                   <button className='waiter-add-btn' 

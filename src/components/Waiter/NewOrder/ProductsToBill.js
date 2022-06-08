@@ -20,14 +20,14 @@ export const ProductsToBill = () => {
               <td className='waiter-order-products-text'>{product.name}</td>
               <td className='waiter-order-products-btns-qty'>
                 <button
-                  className='btn-info ms-2'
+                  className='btn-danger ms-2'
                   onClick={() =>
                     updateItemQuantity(product.id, product.quantity - 1)
                   }
                 >-</button>
                 <p className='waiter-order-products-text'>{product.quantity}</p>
                 <button
-                  className='btn-info ms-2'
+                  className='btn-success ms-2'
                   onClick={() =>
                     updateItemQuantity(product.id, product.quantity + 1)
                   }
@@ -36,7 +36,7 @@ export const ProductsToBill = () => {
               <td className='waiter-order-products-text'>{product.price}</td>
               <td>
                 <button
-                  className='btn btn-light ms-2'
+                  className='btn-delete btn-light ms-2'
                   onClick={() => removeItem(product.id)}
                 ><i className='fa-regular fa-trash-can'></i>
                 </button>

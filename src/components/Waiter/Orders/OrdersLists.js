@@ -6,14 +6,10 @@ export const OrderLists = ({orders}) => {
     let statusPending;
     if (order.status === 'pending') {
       statusPending = (
-        <div className='card mb-3' key={order.id.toString()}>
-          <div className='col-md-8'>
-            <div className='waiter-card-body'>
+        <div className='waiter-card-body-orders' key={order.id.toString()}>
               <p>{order.id}</p>
               <p className='waiter-card-title'>{order.client}</p>
               <p>{order.dateEntry}</p>
-            </div>
-          </div>
         </div>
       );
     }

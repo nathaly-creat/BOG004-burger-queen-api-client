@@ -1,6 +1,5 @@
 // COMPONENTE COMPARTIDO PARA LISTA DE ORDENES ENTREGADAS
 export const DeliveredList = ({ orders }) => {
-
   // filtro de pedidos entregados
   let filterOrders = orders.filter((order) => order.status === "delivered");
 
@@ -20,18 +19,14 @@ export const DeliveredList = ({ orders }) => {
     );
 
     return (
-      <div className="card mb-3" key={order.id.toString()}>
-        <div className="col-md-8">
-          <div className="waiter-card-body">
-            <p>{order.id}</p>
-            <p>{order.client}</p>
-            <p>{order.totalPrice}</p>
-            <p>{order.dateEntry}</p>
-            <p>{order.dateProcessed}</p>
-            <p>{totalTime} min</p>
-          </div>
-        </div>
-      </div>
+        <tbody className="waiter-orders-total" key={order.id.toString()}>
+          <td>{order.id}</td>
+          <td>{order.client}</td>
+          <td>{order.totalPrice}</td>
+          <td>{order.dateEntry}</td>
+          <td>{order.dateProcessed}</td>
+          <td>{totalTime} min</td>
+        </tbody>
     );
   });
 

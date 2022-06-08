@@ -9,21 +9,17 @@ export const OrderToServer = ({orders,token}) => {
     let statusCooked;
     if (order.status === 'delivering') {
       statusCooked = (
-        <div className='card mb-3' key={order.id.toString()}>
-          <div className='col-md-8'>
-            <div className='waiter-card-body'>
+        <div className='waiter-card-body' key={order.id.toString()}>
               <p>{order.id}</p>
               <p className='waiter-card-title'>{order.client}</p>
               <p>{order.dateEntry}</p>
               <button
-                className='btn btn-primary'
+                className='btn btn-success'
                 onClick={ () => 
                   statusDeliveredFetch(order.id, token, new Date().toLocaleString('sv'))
                 }
               >Entregar pedido</button>
             </div>
-          </div>
-        </div>
       );
     }
     return statusCooked;
