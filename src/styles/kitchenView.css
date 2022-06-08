@@ -20,14 +20,14 @@
   background-repeat: no-repeat;
   overflow-x: hidden;
 }
-.kitchen-selected-component{
+/* .kitchen-selected-component{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: var(--black);
   color: var(--textwhite);
-}
+} */
 .kitchen-orders{
   background-color:  var(--black);
 }

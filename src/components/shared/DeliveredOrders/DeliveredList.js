@@ -20,12 +20,14 @@ export const DeliveredList = ({ orders }) => {
 
     return (
         <tbody className="waiter-orders-total" key={order.id.toString()}>
-          <td>{order.id}</td>
-          <td>{order.client}</td>
-          <td>{order.totalPrice}</td>
-          <td>{order.dateEntry}</td>
-          <td>{order.dateProcessed}</td>
-          <td>{totalTime} min</td>
+          <tr>
+            <td>{order.id}</td>
+            <td>{order.client}</td>
+            <td>{order.totalPrice}</td>
+            <td>{order.dateEntry}</td>
+            <td>{order.dateProcessed}</td>
+            <td>{totalTime} min</td>
+          </tr>
         </tbody>
     );
   });

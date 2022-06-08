@@ -38,8 +38,8 @@ export const DeliveredOrders = () => {
   return (
     <>
       <div className="waiter-kitchen-selected-component">
-        <table class='table table-dark'>
-          <thead class="thead-dark">
+        <table className='table table-dark'>
+          <thead className="thead-dark">
             <tr>
               <th scope="col">Id</th>
               <th scope="col">Cliente</th>

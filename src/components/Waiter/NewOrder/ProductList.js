@@ -14,22 +14,18 @@ export const ProductList = ({products}) => {
       let prodToPrint;
       if (product.type === typeToPrint) {
         prodToPrint = (
-          <div className='card mb-3' key={product.id.toString()}>
-            <div className='row g-0'>
-              <div className='col-md-4'>
-                <img src={product.image} className='img-fluid rounded-start' alt='products' />
+          <section className='waiter-card' key={product.id.toString()}>
+              <figure>
+                <img src={product.image} alt='products'/>
+              </figure>
+              <div className='waiter-card-body'>
+                <p><strong>{product.name}</strong></p>
+                <p><strong>{product.price}</strong></p>
+                <button className='waiter-add-btn' 
+                  onClick={() => addItem(product)}
+                >Agregar</button>
               </div>
-              <div className='col-md-8 waiter-card-body'>
-                <div className='waiter-card-body-child'>
-                  <h5 className='waiter-card-title'>{product.name}</h5>
-                  <p className='waiter-card-text'><strong>{product.price}</strong></p>
-                  <button className='waiter-add-btn' 
-                    onClick={() => addItem(product)}
-                  >Agregar</button>
-                </div>
-              </div>
-            </div>
-          </div>
+          </section>
         );
       }
       return prodToPrint;

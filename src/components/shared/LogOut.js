@@ -10,7 +10,7 @@ export const LogOut = () => {
   return (
     <>
       <button
-        className="btn-logout"
+        className="logout-btn"
         onClick={() => {
           sessionStorage.removeItem('user');
           localStorage.removeItem('react-use-cart');

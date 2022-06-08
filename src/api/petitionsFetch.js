@@ -1,5 +1,4 @@
 // IMPORTACION DE FETCH
-// import fetch from 'node-fetch';
 let UrlBase = 'http://localhost:8080/';
 
 // FUNCION DE PETICION PARA LOGIN USER

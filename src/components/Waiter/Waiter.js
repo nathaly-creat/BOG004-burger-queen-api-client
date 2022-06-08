@@ -24,12 +24,12 @@ export const Waiter = () => {
               <Link to='/waiter'>Nuevo Pedido</Link>
               <Link to='/waiter/orders'>Pedidos</Link>
               <Link to='/waiter/delivered-orders'>Pedidos Entregados</Link>
-              <LogOut className='logOut' />
+              <LogOut/>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <section className = 'waiter-kitchen-selected-component'>
+      <section className='waiter-kitchen-selected-component'>
         <Outlet/>
       </section>
     </>

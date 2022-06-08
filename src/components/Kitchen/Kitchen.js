@@ -14,9 +14,7 @@ export const Kitchen = () => {
             <img
               alt='logo-la-burger'
               src={logoLaBurger}
-              width='150'
-              height='70'
-              className='d-inline-block align-top'
+              className='d-inline-block align-top waiter-kitchen-nav-img'
             />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav' className='waiter-kitchen-nav-toggle'/>
@@ -29,7 +27,7 @@ export const Kitchen = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <section className = 'kitchen-selected-component'>
+      <section className='waiter-kitchen-selected-component'>
         <Outlet/>
       </section>
     </>
