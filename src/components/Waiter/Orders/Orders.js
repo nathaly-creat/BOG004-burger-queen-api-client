@@ -4,16 +4,16 @@ import { totalOrdersFetch } from '../../../api/petitionsFetch.js';
 import { OrderLists } from './OrdersLists.js';
 import { OrderToServer } from './OrderToServer.js';
 
-// COMPONENTE PARA MOSTRAR PEDIDOS PENDIENTES Y PEDIDOS LISTOS PARA SERVIR
+// COMPONENTE PARA MOSTRAR PEDIDOS LISTOS PARA SERVIR
 export const Orders = () => {
-
-  // estructura de hook para traer las ordenes
-  const [orders, setOrders] = useState([]);
 
   // token usuario activo
   const activeSessionToken = JSON.parse(sessionStorage.user).accessToken;
 
-  // funcion para peticion de pedidos totales a preparar
+  // estructura de hook para declarar lista de ordenes
+  const [orders, setOrders] = useState([]);
+
+  // funcion para peticion de ordenes
   const getDeliveringOrders = async () => {
     totalOrdersFetch(activeSessionToken)
     .then((response) => {
@@ -24,17 +24,19 @@ export const Orders = () => {
     });
   };
 
-  // estructura de hook para peticion de ordenes listas a entregar
+  // estructura de hook para visualizar ordenes
   useEffect(() => {
     getDeliveringOrders();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // estructura de hook para peticion cada 3 seg de ordenes listas a entregar
+  // estructura de hook para para visualizar ordenes cada 5 seg
   useEffect(() => {
     const interval = setInterval(() => {
       getDeliveringOrders();
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -1,13 +1,14 @@
-// IMPORTACION DE FUNCION PARA FORMATO DE FECHA
-// Y PETICION FETCH DE ESTATUS DEL PEDIDO.
+// IMPORTACION HOOKS Y OTROS
 import { statusDeliveredFetch } from '../../../api/petitionsFetch.js';
 
 // COMPONENTE PARA MOSTRAR PEDIDOS LISTOS PARA SERVIR
 export const OrderToServer = ({ orders, token }) => {
-  let ordersDelivered = orders.map((order) => {
-    let statusCooked;
+
+  // captura de ordenes con status delivering
+  let ordersToDeliver = orders.map((order) => {
+    let statusDelivering;
     if (order.status === 'delivering') {
-      statusCooked = (
+      statusDelivering = (
         <div className='waiter-card-body' key={order.id.toString()} data-testid='order-to-delivered'>
           <p>{order.id}</p>
           <p className='waiter-card-title'>{order.client}</p>
@@ -25,14 +26,13 @@ export const OrderToServer = ({ orders, token }) => {
         </div>
       );
     }
-    return statusCooked;
+    return statusDelivering;
   });
 
   return (
-    <div className='waiter-orders-to-serve' data-testid='orders-to-delivery'>
+    <div className='waiter-orders-to-serve' data-testid='orders-to-deliver'>
       <p>Pedidos listos para entregar</p>
-      {ordersDelivered}
+      {ordersToDeliver}
     </div>
   );
 };
-       

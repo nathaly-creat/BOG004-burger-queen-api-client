@@ -3,9 +3,7 @@ import { createMemoryHistory } from 'history';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { render, screen } from '@testing-library/react';
-import {
-  totalOrdersFetch,
-} from '../../../../api/petitionsFetch.js';
+import { totalOrdersFetch } from '../../../../api/petitionsFetch.js';
 import { Orders } from '../../../../components/Waiter/Orders/Orders.js';
 
 // mock de sessionStorage para token
@@ -20,7 +18,7 @@ sessionStorage.user = JSON.stringify({
   },
 });
 
-// mock de servidor para peticiones de ordenes realizadas.
+// mock de servidor para peticiones de ordenes realizadas
 const server = setupServer(
   rest.get('http://localhost:8080/orders', (_req, res, ctx) => {
     return res(
@@ -49,7 +47,7 @@ const server = setupServer(
         },
       ])
     );
-  }),
+  })
 );
 
 // limpieza mock de servidor
@@ -57,8 +55,8 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-//test para peticion de ordenes.
-test('response of Orders petition pending', async () => {
+// test para peticion de ordenes pendientes
+test('response of totalOrdersFetch petition with status pending', async () => {
   const activeSession = JSON.parse(sessionStorage.user);
   const activeSessionToken = activeSession.accessToken;
 
@@ -90,12 +88,12 @@ test('response of Orders petition pending', async () => {
   expect(orderTestResult).toEqual(orderListTest);
 });
 
-//Test para visulizar ordenes en el componente.
-test('Print of orders pending in Orders component', async () => {
+// test para visulizar ordenes hechas en el componente Orders
+test('print of orders pending in Orders component', async () => {
   const history = createMemoryHistory();
   render(
     <Router location={history.location} navigator={history}>
-      <Orders />
+      <Orders/>
     </Router>
   );
 

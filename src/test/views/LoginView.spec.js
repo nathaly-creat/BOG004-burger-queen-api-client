@@ -81,15 +81,15 @@ test('login error', async () => {
     </Router>
   );
 
-  let msgError;
   const emailInput = screen.getByPlaceholderText('ejemplo@email.com');
   const pswInput = screen.getByPlaceholderText('Contraseña');
   const button = screen.getByText('Inicializar');
+  
   fireEvent.change(emailInput, { target: { value: 'ejemplo@email.com' } });
   fireEvent.change(pswInput, { target: { value: '1234567' } });
   fireEvent.click(button);
 
-  msgError = await screen.findByTestId('login-error-message');
+  const msgError = await screen.findByTestId('login-error-message');
 
   expect(msgError.textContent).toBe('Confirmar email y contraseña');
   expect(history.location.pathname).toBe('/');

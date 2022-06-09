@@ -18,7 +18,7 @@ sessionStorage.user = JSON.stringify({
   },
 });
 
-// mock de servidor para peticiones de ordenes realizadas.
+// mock de servidor para peticiones de ordenes realizadas
 const server = setupServer(
   rest.get('http://localhost:8080/orders', (_req, res, ctx) => {
     return res(
@@ -56,8 +56,8 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-//test para peticion de ordenes con estatus delivered.
-test('response of Orders petition delivered', async () => {
+// test para peticion de ordenes con estatus delivered
+test('response of totalOrdersFetch petition with status delivered', async () => {
   const activeSession = JSON.parse(sessionStorage.user);
   const activeSessionToken = activeSession.accessToken;
 
@@ -90,17 +90,15 @@ test('response of Orders petition delivered', async () => {
   expect(orderTestResult).toEqual(orderListTest);
 });
 
-//Test para visualizar todas las ordenes entregadas.
-test('Print of total orders in DeliveredOrdes component', async () => {
-    const history = createMemoryHistory();
-    render(
-      <Router location={history.location} navigator={history}>
-        <DeliveredOrders />
-      </Router>
-    );
-  
-    const totalTime = await screen.findByTestId('time-total');
-    expect(totalTime.textContent).toEqual('5 min');
-   
-  });
-  
+// test para visualizar todas las ordenes con estatus delivered
+test('print of orders delivered in DeliveredOrders component', async () => {
+  const history = createMemoryHistory();
+  render(
+    <Router location={history.location} navigator={history}>
+      <DeliveredOrders/>
+    </Router>
+  );
+
+  const totalTime = await screen.findByTestId('total-time');
+  expect(totalTime.textContent).toEqual('5 min');
+});

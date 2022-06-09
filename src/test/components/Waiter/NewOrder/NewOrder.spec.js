@@ -18,7 +18,7 @@ sessionStorage.user = JSON.stringify({
   },
 });
 
-// mock de servidor para peticiones de productos
+// mock de servidor para peticiones de productos y creacion de orden
 const server = setupServer(
   rest.get('http://localhost:8080/products', (_req, res, ctx) => {
     return res(
@@ -97,7 +97,7 @@ localStorage.getItem('react-use-cart', [
 ]);
 
 // test de peticion de productos
-test('response of products petition', async () => {
+test('response of productFetch petition', async () => {
   const activeSession = JSON.parse(sessionStorage.user);
   const activeSessionToken = activeSession.accessToken;
 
@@ -131,22 +131,23 @@ test('print of products in NewOrder component', async () => {
   fireEvent.click(addProduct);
 });
 
-// Test de evento boton incrementar la cantidad de productos seleccionados.
-test('Event add button', async () => {
+// test de evento boton incrementar la cantidad de producto
+test('event of button add quantity', async () => {
   const history = createMemoryHistory();
   render(
     <Router location={history.location} navigator={history}>
-      <NewOrder />
+      <NewOrder/>
     </Router>
   );
   const addButton = await screen.findByTestId('increase-quantity');
   fireEvent.click(addButton);
+
   const textQuantity = screen.getByTestId('product-quantity');
   expect(textQuantity.textContent).toBe('2');
 });
 
-// Test de evento boton restar cantidad de productos seleccionados.
-test('Event decrease button', async () => {
+// test de evento boton restar la cantidad de producto
+test('event of decrease quantity button', async () => {
   const history = createMemoryHistory();
   render(
     <Router location={history.location} navigator={history}>
@@ -155,25 +156,26 @@ test('Event decrease button', async () => {
   );
   const decButton = await screen.findByTestId('decrease-quantity');
   fireEvent.click(decButton);
+
   const textQuantity = screen.getByTestId('product-quantity');
   expect(textQuantity.textContent).toBe('1');
 });
 
-// Test de evento boton ordenar.
-test('Event order button', async () => {
+// evento de boton de ordenar pedido
+test('order button event', async () => {
   const history = createMemoryHistory();
   render(
     <Router location={history.location} navigator={history}>
       <NewOrder />
     </Router>
   );
+
   const nameCustomer = screen.getByPlaceholderText('Nombre del cliente');
   const OrderButton = screen.getByText('Ordenar');
-  
+
   fireEvent.change(nameCustomer, { target: { value: 'Juanes' } });
   fireEvent.click(OrderButton);
-  
-  let orderSuccess;
-  orderSuccess = await screen.findByTestId('order-success-notification');
+
+  const orderSuccess = await screen.findByTestId('order-success-notification');
   expect(orderSuccess.textContent).toBe('Orden creada con éxito');
 });

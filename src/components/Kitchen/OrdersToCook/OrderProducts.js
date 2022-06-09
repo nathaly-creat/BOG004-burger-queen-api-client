@@ -1,7 +1,7 @@
 // COMPONENTE ORDERPRODUCTS PARA MOSTRAR LISTA DE PRODUCTOS TOTALES EN EL PEDIDO
 export const OrderProducts = ({products}) => {
   
-  // captura de lista de productos 
+  // estructura html de lista de productos 
   let ordersToCookChef = products.map((prod) => {
       return (
         <ul key={prod.product.name.toString()}>
@@ -16,4 +16,4 @@ export const OrderProducts = ({products}) => {
       {ordersToCookChef}
     </>
   );
-}
+};

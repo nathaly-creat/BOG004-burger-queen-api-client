@@ -2,7 +2,7 @@
 export const OrderLists = ({orders}) => {
 
   // captura de ordenes con status pending
-  let ordersPending = orders.map((order) => {
+  let pendingOrders = orders.map((order) => {
     let statusPending;
     if (order.status === 'pending') {
       statusPending = (
@@ -20,7 +20,7 @@ export const OrderLists = ({orders}) => {
     <>
       <section className='waiter-orders-pending'>
         <p>Pedidos en preparación</p>
-        <div>{ordersPending}</div>
+        <div>{pendingOrders}</div>
       </section>
     </>
   );

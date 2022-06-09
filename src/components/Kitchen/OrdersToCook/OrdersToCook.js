@@ -1,17 +1,16 @@
 // IMPORTACION HOOKS Y OTROS
 import { useState, useEffect } from 'react';
 import { totalOrdersFetch } from '../../../api/petitionsFetch.js';
-// import { OrderProducts } from './OrderProducts.js'; statusDeliveringFetch
 import { OrderToCookList } from './OrderToCookList.js'
 
 // COMPONENTE ORDERSTOCOOK PARA KITCHEN
 export const OrdersToCook = () => {
-  
-  // estructura de hook para traer pedidos a preparar
-  const [orders, setOrders] = useState([]);
 
   // extraccion de token 
   const activeSessionToken = JSON.parse(sessionStorage.user).accessToken;
+  
+  // estructura de hook para declarar pedidos a preparar
+  const [orders, setOrders] = useState([]);
 
   // funcion para peticion de pedidos totales a preparar
   const getPendingOrders = async () => {
@@ -24,17 +23,19 @@ export const OrdersToCook = () => {
     });
   };
 
-  // estructura de hook para peticion pedidos totales a preparar
+  // estructura de hook para visualizar pedidos a preparar
   useEffect(() => {
     getPendingOrders();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // estructura de hook para peticion cada 2 seg de pedidos totales a preparar
+  // estructura de hook para para visualizar pedidos a preparar cada 5 seg
   useEffect(() => {
     const interval = setInterval(() => {
       getPendingOrders();
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

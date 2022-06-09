@@ -1,7 +1,8 @@
 // COMPONENTE COMPARTIDO PARA LISTA DE ORDENES ENTREGADAS
 export const DeliveredList = ({ orders }) => {
+
   // filtro de pedidos entregados
-  let filterOrders = orders.filter((order) => order.status === "delivered");
+  let filterOrders = orders.filter((order) => order.status === 'delivered');
 
   // organizacion de pedidos entregados segun fecha de procesado
   const sortedOrders = filterOrders.sort((last, first) => {
@@ -19,18 +20,22 @@ export const DeliveredList = ({ orders }) => {
     );
 
     return (
-        <tbody className="waiter-orders-total" key={order.id.toString()}>
+        <tbody className='waiter-orders-total' key={order.id.toString()}>
           <tr>
             <td>{order.id}</td>
             <td>{order.client}</td>
             <td>{order.totalPrice}</td>
             <td>{order.dateEntry}</td>
             <td>{order.dateProcessed}</td>
-            <td data-testid='time-total'>{totalTime} min</td>
+            <td data-testid='total-time'>{totalTime} min</td>
           </tr>
         </tbody>
     );
   });
 
-  return <>{ordersDeliveredList}</>;
+  return(
+    <>
+      {ordersDeliveredList}
+    </>
+  );
 };

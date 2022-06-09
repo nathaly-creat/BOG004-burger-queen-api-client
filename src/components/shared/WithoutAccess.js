@@ -6,7 +6,7 @@ export const WithoutAccess = () => {
   const navigate = useNavigate();
   return (
     <div data-testid='without-access'>
-      <p> Vista no existente o no tienes permitido el acceso</p>
+      <p> Vista no existente o no tienes acceso permitido</p>
       <button
         onClick={() => {
           navigate(-1);

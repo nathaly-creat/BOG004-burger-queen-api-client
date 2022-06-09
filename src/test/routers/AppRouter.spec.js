@@ -23,7 +23,7 @@
 //     //   ...jest.requireActual('react-router-dom'),
 //     //   useNavigate: () => jest.fn(),
 //     // }));
-  
+
 //     const history = createMemoryHistory();
 //     const route = '/login'
 //     history.push(route)
@@ -38,7 +38,7 @@
 
 //     // const rolesChanger= await screen.findByTestId('change-views-roles');
 //     // // fireEvent.click(navOrdersDeliveredButton);
-  
+
 //     // await waitFor(() => {
 //     //   expect(rolesChanger).toBe('/waiter');
 //     // });

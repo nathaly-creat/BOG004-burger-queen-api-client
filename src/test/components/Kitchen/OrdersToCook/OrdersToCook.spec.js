@@ -3,11 +3,11 @@ import { createMemoryHistory } from 'history';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { fireEvent, render, screen } from '@testing-library/react';
+import { OrdersToCook } from '../../../../components/Kitchen/OrdersToCook/OrdersToCook.js';
 import {
   totalOrdersFetch,
   statusDeliveringFetch,
 } from '../../../../api/petitionsFetch.js';
-import { OrdersToCook } from '../../../../components/Kitchen/OrdersToCook/OrdersToCook.js';
 
 // mock de sessionStorage para token
 sessionStorage.user = JSON.stringify({
@@ -21,7 +21,7 @@ sessionStorage.user = JSON.stringify({
   },
 });
 
-// mock de servidor para peticiones de ordenes realizadas.
+// mock de servidor para peticiones de ordenes realizadas
 const server = setupServer(
   rest.get('http://localhost:8080/orders', (_req, res, ctx) => {
     return res(
@@ -86,12 +86,12 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-//test para peticion de ordenes recibidas .
-test('response of Orders petition pending to cook', async () => {
+// test para peticion de ordenes recibidas a cocinar
+test('response of totalOrdersFetch petition with status pending to cook', async () => {
   const activeSession = JSON.parse(sessionStorage.user);
   const activeSessionToken = activeSession.accessToken;
 
-  let orderListTest = [
+  let orderPendingListTest = [
     {
       userId: 3,
       client: 'Juanes',
@@ -116,15 +116,15 @@ test('response of Orders petition pending to cook', async () => {
   ];
 
   const orderTestResult = await totalOrdersFetch(activeSessionToken);
-  expect(orderTestResult).toEqual(orderListTest);
+  expect(orderTestResult).toEqual(orderPendingListTest);
 });
 
-//Test para visualizar ordenes en el componente.
-test('Print of orders pending in OrdersToCook component to cook', async () => {
+// test para visualizar ordenes en el componente.
+test('print of orders pending in OrdersToCook component', async () => {
   const history = createMemoryHistory();
   render(
     <Router location={history.location} navigator={history}>
-      <OrdersToCook />
+      <OrdersToCook/>
     </Router>
   );
 
@@ -133,15 +133,14 @@ test('Print of orders pending in OrdersToCook component to cook', async () => {
 
   const orderDeliveringButton = screen.getByText('¿Pedido Listo?');
   fireEvent.click(orderDeliveringButton);
-
 });
 
-//test para peticion de ordenes recibidas .
+// test para cambio de estado de orden a delivering
 test('change status orders to delivering', async () => {
   const activeSession = JSON.parse(sessionStorage.user);
   const activeSessionToken = activeSession.accessToken;
 
-  let orderListDelivering = [
+  let orderDeliveringList = [
     {
       userId: 3,
       client: 'Juanes',
@@ -165,24 +164,22 @@ test('change status orders to delivering', async () => {
     },
   ];
 
-  const orderDeliveringTestResult = await statusDeliveringFetch(
+  const deliveringTestResult = await statusDeliveringFetch(
     1,
     activeSessionToken
   );
-  expect(orderDeliveringTestResult).toEqual(orderListDelivering);
+  expect(deliveringTestResult).toEqual(orderDeliveringList);
 });
 
-// Test de evento boton liberar orden de cocina.
-test('Component after delivering button event to waiter', async () => {
-    const history = createMemoryHistory();
-    render(
-      <Router location={history.location} navigator={history}>
-        <OrdersToCook />
-      </Router>
-    );
-  
-    let orderDelivered;
-    orderDelivered = await screen.findByTestId('oders-to-cook-component');
-    expect(orderDelivered.textContent).toEqual('');
-  });
-  
+// test para visualizar resultado de evento boton ¿Pedido Listo?
+test('component after delivering button event', async () => {
+  const history = createMemoryHistory();
+  render(
+    <Router location={history.location} navigator={history}>
+      <OrdersToCook/>
+    </Router>
+  );
+
+  const componentOrdersToCookRes = await screen.findByTestId('oders-to-cook-component');
+  expect(componentOrdersToCookRes.textContent).toEqual('');
+});

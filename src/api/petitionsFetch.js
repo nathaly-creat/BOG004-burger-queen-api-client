@@ -50,7 +50,7 @@ export const onlyProductFetch = (token, productId) => {
     },
   }).then((response) => {
     if (!response.ok) {
-      throw Error('Error al traer un solo producto');
+      throw Error('Error al traer el producto solicitado');
     }
     return response.json();
   });
@@ -85,13 +85,13 @@ export const totalOrdersFetch = (token) => {
     },
   }).then((response) => {
     if (!response.ok) {
-      throw Error('Error al traer pedidos');
+      throw Error('Error al traer pedidos ordenados');
     }
     return response.json();
   });
 };
 
-// FUNCION DE PETICION CAMBIO DE ESTADO EN 'delivering'
+// FUNCION DE PETICION CAMBIO DE ESTADO a'delivering'
 export const statusDeliveringFetch = (orderId, token) => {
   let Url = UrlBase + 'orders/' + orderId;
   return fetch(Url, {
@@ -105,13 +105,13 @@ export const statusDeliveringFetch = (orderId, token) => {
     }),
   }).then((response) => {
     if (!response.ok) {
-      throw Error('Error al cambiar status de cook del pedido');
+      throw Error('Error al cambiar status de pending a delivering del pedido');
     }
     return response.json();
   });
 };
 
-// FUNCION DE PETICION CAMBIO DE ESTADO EN 'status'
+// FUNCION DE PETICION CAMBIO DE ESTADO a 'delivered'
 export const statusDeliveredFetch = (orderId, token, finalDate) => {
   let Url = UrlBase + 'orders/' + orderId;
   return fetch(Url, {
@@ -126,7 +126,7 @@ export const statusDeliveredFetch = (orderId, token, finalDate) => {
     }),
   }).then((response) => {
     if (!response.ok) {
-      throw Error('Error al cambiar status delivered del pedido');
+      throw Error('Error al cambiar status de delivering a delivered del pedido');
     }
     return response.json();
   });

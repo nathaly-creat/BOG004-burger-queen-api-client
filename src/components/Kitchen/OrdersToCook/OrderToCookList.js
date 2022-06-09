@@ -2,15 +2,15 @@
 import { statusDeliveringFetch } from '../../../api/petitionsFetch.js';
 import { OrderProducts } from './OrderProducts.js';
 
-// COMPONENTE ORDERSTOCOOKLIST PARA MOSTRAR ESTRUCTURA DE CARD
+// COMPONENTE ORDERSTOCOOKLIST
 export const OrderToCookList = ({orders,token}) => {
 
-  // captura de pedidos a preparar
+  // estructura html de pedidos a preparar
   let ordersToCookChef = orders.map((order) => {
     let statusPendingToCook;
     if(order.status === 'pending') {
       statusPendingToCook = (
-      <div className='card kitchen-orders' key={order.id.toString()}>
+      <section className='card kitchen-orders' key={order.id.toString()}>
         <div className='card-body'>
           <h5 className='card-title'>Orden N° {order.id}</h5>
           <p className='card-text'>Cliente: {order.client}</p>
@@ -22,7 +22,7 @@ export const OrderToCookList = ({orders,token}) => {
             onClick={() => statusDeliveringFetch(order.id, token)}
           >¿Pedido Listo?</button>
         </div>
-      </div>
+      </section>
       );
     }
     return statusPendingToCook;

@@ -5,7 +5,7 @@ import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import { KitchenView } from '../../views/KitchenView.js';
 
 // test de cambio de ruta en el componente Kitchen
-test('login in kitchen page', async () => {
+test('route change in kitchen view', async () => {
   jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
     useNavigate: () => jest.fn(),

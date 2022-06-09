@@ -21,7 +21,7 @@ sessionStorage.user = JSON.stringify({
   },
 });
 
-// mock de servidor para peticiones de ordenes realizadas.
+// mock de servidor para peticiones de ordenes a entregar y cambio de estado a delivered
 const server = setupServer(
   rest.get('http://localhost:8080/orders', (_req, res, ctx) => {
     return res(
@@ -87,12 +87,12 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-//test para peticion de ordenes.
-test('response of Orders petition delivering', async () => {
+// test para peticion de ordenes con estatus delivering
+test('response of totalOrdersFetch petition with status delivering', async () => {
   const activeSession = JSON.parse(sessionStorage.user);
   const activeSessionToken = activeSession.accessToken;
 
-  let orderListTest = [
+  let orderDeliveringList = [
     {
       userId: 3,
       client: 'Juanes',
@@ -117,14 +117,15 @@ test('response of Orders petition delivering', async () => {
   ];
 
   const orderTestResult = await totalOrdersFetch(activeSessionToken);
-  expect(orderTestResult).toEqual(orderListTest);
+  expect(orderTestResult).toEqual(orderDeliveringList);
 });
 
-test('Changes Status to Delivered', async () => {
+// test para cambio de estado de orden a delivered
+test('change status orders to delivered', async () => {
   const activeSession = JSON.parse(sessionStorage.user);
   const activeSessionToken = activeSession.accessToken;
 
-  let orderStatusChanged = [
+  let orderDeliveredList = [
     {
       userId: 3,
       client: 'Juanes',
@@ -149,38 +150,38 @@ test('Changes Status to Delivered', async () => {
     },
   ];
 
-  const statusChangesResult = await statusDeliveredFetch(
+  const deliveredTestResult = await statusDeliveredFetch(
     1,
     activeSessionToken,
     '2022-06-06 18:19:08'
   );
-  expect(statusChangesResult).toEqual(orderStatusChanged);
+  expect(deliveredTestResult).toEqual(orderDeliveredList);
 });
 
-//Test para visualizar ordenes en el componente.
-test('Print of orders delivering in Orders component', async () => {
+// test para visulizar ordenes a entregar en el componente Orders
+test('print of orders to deliver in Orders component', async () => {
   const history = createMemoryHistory();
   render(
     <Router location={history.location} navigator={history}>
-      <Orders />
+      <Orders/>
     </Router>
   );
 
   const deliveredButton = await screen.findByText('Entregar pedido');
   expect(deliveredButton.textContent).toEqual('Entregar pedido');
+
   fireEvent.click(deliveredButton);
 });
 
-// Test de confirmación de entrega del pedido al cliente por mesero.
-test('Component after delivered button event', async () => {
+// test para visualizar resultado de evento boton Entregar pedido
+test('component after delivered button event', async () => {
   const history = createMemoryHistory();
   render(
     <Router location={history.location} navigator={history}>
-      <Orders />
+      <Orders/>
     </Router>
   );
 
-  let orderDelivered;
-  orderDelivered = await screen.findByTestId('orders-to-delivery');
-  expect(orderDelivered.textContent).toEqual('Pedidos listos para entregar');
+  const orderToServerRes = await screen.findByTestId('orders-to-deliver');
+  expect(orderToServerRes.textContent).toEqual('Pedidos listos para entregar');
 });

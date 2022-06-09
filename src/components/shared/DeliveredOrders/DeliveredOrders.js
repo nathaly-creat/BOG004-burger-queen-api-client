@@ -1,17 +1,17 @@
 // IMPORTACION HOOKS Y OTROS
-import { useState, useEffect } from "react";
-import { totalOrdersFetch } from "../../../api/petitionsFetch.js";
-import { DeliveredList } from "./DeliveredList.js";
+import { useState, useEffect } from 'react';
+import { totalOrdersFetch } from '../../../api/petitionsFetch.js';
+import { DeliveredList } from './DeliveredList.js';
 
 // COMPONENTE COMPARTIDO DE ORDENES ENTREGADAS
 export const DeliveredOrders = () => {
-  // estructura de hook para extraccion de lista de pedidos entregados
-  const [ordersDelivered, setOrdersDelivered] = useState([]);
-
   // captura del token del usuario activo
   const activeSessionToken = JSON.parse(sessionStorage.user).accessToken;
 
-  // funcion para peticion de pedidos totales a preparar
+  // estructura de hook para extraccion de lista de pedidos entregados
+  const [ordersDelivered, setOrdersDelivered] = useState([]);
+
+  // funcion para peticion de pedidos entregados
   const getDeliveredOrders = async () => {
     totalOrdersFetch(activeSessionToken)
       .then((response) => {
@@ -22,31 +22,33 @@ export const DeliveredOrders = () => {
       });
   };
 
-  // estructura de hook para peticion pedidos entregados
+  // estructura de hook para visualizar pedidos entregados
   useEffect(() => {
     getDeliveredOrders();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // estructura de hook para peticion cada 3 seg de pedidos entregados
+  // estructura de hook para para visualizar pedidos entregados cada 5 seg
   useEffect(() => {
     const interval = setInterval(() => {
       getDeliveredOrders();
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
-      <div className="waiter-kitchen-selected-component">
+      <div className='waiter-kitchen-selected-component'>
         <table className='table table-dark'>
-          <thead className="thead-dark">
+          <thead className='thead-dark'>
             <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Cliente</th>
-              <th scope="col">Precio Total</th>
-              <th scope="col">Hora Pedido</th>
-              <th scope="col">Hora Entregado</th>
-              <th scope="col">Tiempo Total</th>
+              <th scope='col'>Id</th>
+              <th scope='col'>Cliente</th>
+              <th scope='col'>Precio Total</th>
+              <th scope='col'>Hora Pedido</th>
+              <th scope='col'>Hora Entregado</th>
+              <th scope='col'>Tiempo Total</th>
             </tr>
           </thead>
           <DeliveredList orders={ordersDelivered} />
