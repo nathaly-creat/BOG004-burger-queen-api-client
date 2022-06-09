@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 
 // inicio vistas admin
 import { AdminView } from '../views/AdminView.js';
+import { Employees } from '../components/Admin/Employees/Employees.js';
 // fin vistas admin
 
 // inicio vistas kitchen
@@ -28,7 +29,12 @@ export const RolesRoutes = () => {
       <Routes>
         {
           activeUser?.user.roles.admin
-            ? (<Route path='admin' element={<AdminView/>}/>)
+            ? (
+              <Route path='admin' element={<AdminView/>}>
+                <Route index element={<Employees/>}></Route>
+                <Route path='delivered-orders' element={<DeliveredOrders/>}></Route>
+              </Route>
+              )
             : (<Route path='*' element={<WithoutAccess/>}/>)
         }
         {

@@ -41,7 +41,7 @@ test('login in waiter page', async () => {
   const history = createMemoryHistory();
   render(
     <Router location={history.location} navigator={history}>
-      <LoginView />
+      <LoginView/>
     </Router>
   );
 

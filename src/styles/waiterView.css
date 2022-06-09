@@ -20,26 +20,26 @@
   background-repeat: no-repeat;
   overflow-x: hidden;
 }
-.waiter-kitchen-nav{
+.general-nav{
   background-color: var(--black);
 }
-.waiter-kitchen-nav-img {
+.general-nav-img {
   width:120px;
   height:50px;
 }
-.waiter-kitchen-nav-toggle {
+.general-nav-toggle {
   width: 20%;
   height: 25%;
   border: none;
   align-items: center;
   background-color: var(--orange2);
 }
-.waiter-kitchen-nav-dir{
+.general-nav-dir{
   width: 100%;
   height: 100%;
   gap: 8%;
 }
-.waiter-kitchen-nav-dir a {
+.general-nav-dir a {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -49,10 +49,10 @@
   padding: 6px;
   font-size: 1em;
 }
-.waiter-kitchen-nav-dir a:hover {
+.general-nav-dir a:hover {
   color: var(--textwhite);
 }
-.waiter-kitchen-nav-dir .fa-right-from-bracket {
+.general-nav-dir .fa-right-from-bracket {
   color: var(--orange2);
   text-decoration: none;
   padding: 10px;
@@ -63,7 +63,7 @@
   border: none;
   background-color: transparent;
 }
-.waiter-kitchen-selected-component{
+.general-selected-component{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -220,26 +220,26 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .waiter-kitchen-nav {
+  .general-nav {
     height: 10vh;
     margin-top: 15px;
     /* display: flex;
     justify-content: space-between; */
   }
-  .waiter-kitchen-nav-img {
+  .general-nav-img {
     width:150px;
     height:70px;
   }
-  .waiter-kitchen-nav-dir {
+  .general-nav-dir {
     display: flex;
     justify-content: flex-end;
   }
-  .waiter-kitchen-nav-dir a {
+  .general-nav-dir a {
     padding: 20px;
     justify-content: center;
     gap: 10px;
   }
-  .waiter-kitchen-selected-component{
+  .general-selected-component{
     margin-top: 40px;
     flex-direction: row;
     align-items: flex-start;
