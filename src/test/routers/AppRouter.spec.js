@@ -10,7 +10,7 @@ import { AppRouter } from '../../routers/AppRouter.js';
 sessionStorage.user = JSON.stringify({
   accessToken: 'tokenfortest',
   user: {
-    email: 'mesero.hopper@systers.xy',
+    email: 'mesero.hopper@systers.xyzz',
     roles: {
       waiter: true,
     },
