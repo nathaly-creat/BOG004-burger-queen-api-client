@@ -10,6 +10,7 @@ jobs:
       uses: actions/setup-node@v2.2.0
       with:
         node-version: '16'
-    - name: Test
-      uses: skx/github-action-tester@master
+        cache: 'npm'
+    - run: npm i
+    - run: npm test
 
