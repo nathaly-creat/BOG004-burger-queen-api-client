@@ -131,3 +131,20 @@ export const statusDeliveredFetch = (orderId, token, finalDate) => {
     return response.json();
   });
 };
+
+// FUNCION DE PETICION USUARIOS
+export const usersFetch = (token) => { 
+  let Url = UrlBase + 'users';
+  return fetch(Url, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
+    },
+  }).then((response) => {
+    if (!response.ok) {
+      throw Error('Error al traer usuarios');
+    }
+    return response.json();
+  });
+};

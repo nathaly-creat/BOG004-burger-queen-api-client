@@ -8,18 +8,18 @@ import logoLaBurger from '../../assets/images/laBurgLogo.png';
 export const Waiter = () => {
   return (
     <>
-      <Navbar expand='sm' className='waiter-kitchen-nav'>
+      <Navbar expand='sm' className='general-nav'>
         <Container>
           <Navbar.Brand>
             <img
               alt='logo-la-burger'
               src={logoLaBurger}
-              className='d-inline-block align-top waiter-kitchen-nav-img'
+              className='d-inline-block align-top general-nav-img'
             />
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls='basic-navbar-nav' className='waiter-kitchen-nav-toggle'/>
+          <Navbar.Toggle aria-controls='basic-navbar-nav' className='general-nav-toggle'/>
           <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='me-auto waiter-kitchen-nav-dir'>
+            <Nav className='me-auto general-nav-dir'>
               <Link to='/waiter'>Nuevo Pedido</Link>
               <Link to='/waiter/orders' data-testid='nav-waiter-orders'>Pedidos</Link>
               <Link to='/waiter/delivered-orders'>Pedidos Entregados</Link>
@@ -28,7 +28,7 @@ export const Waiter = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <section className='waiter-kitchen-selected-component'>
+      <section className='general-selected-component'>
         <Outlet/>
       </section>
     </>
