@@ -14,7 +14,7 @@ export const OrderToCookList = ({orders,token}) => {
         <div className='card-body'>
           <h5 className='card-title'>Orden N° {order.id}</h5>
           <p className='card-text'>Cliente: {order.client}</p>
-          <p className='card-text'>Hora orden: {order.dateEntry}</p>
+          <p className='card-text' data-testid = 'date-entry'>Hora orden: {order.dateEntry}</p>
           <p className='card-text'>Pedido:</p>
           <OrderProducts products={order.products}/>
           <button 

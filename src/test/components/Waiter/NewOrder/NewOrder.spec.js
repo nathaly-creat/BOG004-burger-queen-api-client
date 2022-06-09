@@ -69,7 +69,6 @@ const server = setupServer(
             },
           ],
           status: 'pending',
-          cooked: false,
           dateEntry: '2022-06-06 18:14:08',
           totalPrice: 10000,
           id: 1,
@@ -132,20 +131,49 @@ test('print of products in NewOrder component', async () => {
   fireEvent.click(addProduct);
 });
 
-test('agregar productos al LocaStorage', async () => {
+// Test de evento boton incrementar la cantidad de productos seleccionados.
+test('Event add button', async () => {
   const history = createMemoryHistory();
   render(
     <Router location={history.location} navigator={history}>
       <NewOrder />
     </Router>
   );
-  let orderSuccess;
+  const addButton = await screen.findByTestId('increase-quantity');
+  fireEvent.click(addButton);
+  const textQuantity = screen.getByTestId('product-quantity');
+  expect(textQuantity.textContent).toBe('2');
+});
+
+// Test de evento boton restar cantidad de productos seleccionados.
+test('Event decrease button', async () => {
+  const history = createMemoryHistory();
+  render(
+    <Router location={history.location} navigator={history}>
+      <NewOrder />
+    </Router>
+  );
+  const decButton = await screen.findByTestId('decrease-quantity');
+  fireEvent.click(decButton);
+  const textQuantity = screen.getByTestId('product-quantity');
+  expect(textQuantity.textContent).toBe('1');
+});
+
+// Test de evento boton ordenar.
+test('Event order button', async () => {
+  const history = createMemoryHistory();
+  render(
+    <Router location={history.location} navigator={history}>
+      <NewOrder />
+    </Router>
+  );
   const nameCustomer = screen.getByPlaceholderText('Nombre del cliente');
-  const productosTotalOrder = screen.getByText('Ordenar');
-
+  const OrderButton = screen.getByText('Ordenar');
+  
   fireEvent.change(nameCustomer, { target: { value: 'Juanes' } });
-  fireEvent.click(productosTotalOrder);
-
+  fireEvent.click(OrderButton);
+  
+  let orderSuccess;
   orderSuccess = await screen.findByTestId('order-success-notification');
   expect(orderSuccess.textContent).toBe('Orden creada con éxito');
 });

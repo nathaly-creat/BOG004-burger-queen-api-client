@@ -21,7 +21,7 @@ export const Kitchen = () => {
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto waiter-kitchen-nav-dir'>
               <Link to='/kitchen'>Ordenes</Link>
-              <Link to='/kitchen/delivered-orders'>Pedidos Entregados</Link>
+              <Link to='/kitchen/delivered-orders' data-testid='nav-kitchen-delivered-orders'>Pedidos Entregados</Link>
               <LogOut/>
             </Nav>
           </Navbar.Collapse>

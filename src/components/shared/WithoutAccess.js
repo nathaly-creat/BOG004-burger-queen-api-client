@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom';
 export const WithoutAccess = () => {
   const navigate = useNavigate();
   return (
-    <>
+    <div data-testid='without-access'>
       <p> Vista no existente o no tienes permitido el acceso</p>
       <button
         onClick={() => {
           navigate(-1);
         }}
       >Volver</button>
-    </>
+    </div>
   )
 }
