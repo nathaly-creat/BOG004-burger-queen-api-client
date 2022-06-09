@@ -6,7 +6,6 @@ import logoLaBurger from '../../assets/images/laBurgLogo.png';
 
 // COMPONENTE WAITER CON B. DE NAVEGACION PARA MESERO
 export const Waiter = () => {
-  console.log('render waiter');
   return (
     <>
       <Navbar expand='sm' className='waiter-kitchen-nav'>
@@ -22,7 +21,7 @@ export const Waiter = () => {
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto waiter-kitchen-nav-dir'>
               <Link to='/waiter'>Nuevo Pedido</Link>
-              <Link to='/waiter/orders'>Pedidos</Link>
+              <Link to='/waiter/orders' data-testid='nav-waiter-orders'>Pedidos</Link>
               <Link to='/waiter/delivered-orders'>Pedidos Entregados</Link>
               <LogOut/>
             </Nav>

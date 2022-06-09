@@ -13,7 +13,7 @@ export default function AppRouter() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<LoginView />}/>
-        <Route path='/*' element={<RolesRoutes />}/>
+        <Route path='/*' element={<RolesRoutes />} data-testid='change-views-roles'/>
       </Routes>
     </BrowserRouter>
   );

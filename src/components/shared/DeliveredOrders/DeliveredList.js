@@ -26,7 +26,7 @@ export const DeliveredList = ({ orders }) => {
             <td>{order.totalPrice}</td>
             <td>{order.dateEntry}</td>
             <td>{order.dateProcessed}</td>
-            <td>{totalTime} min</td>
+            <td data-testid='time-total'>{totalTime} min</td>
           </tr>
         </tbody>
     );

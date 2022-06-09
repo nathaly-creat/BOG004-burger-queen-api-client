@@ -16,6 +16,7 @@ export const LogOut = () => {
           localStorage.removeItem('react-use-cart');
           navigate(`/`, { replace: true });
         }}
+        data-testid="logout-btn"
       ><i className="fa-solid fa-right-from-bracket"></i></button>
     </>
   );
