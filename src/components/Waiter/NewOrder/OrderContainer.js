@@ -114,17 +114,16 @@ export const OrderContainer = ({ activeSession }) => {
         <ProductsToBill />
         <h2>Total: $ {cartTotal}</h2>
         <div>
-          <button className='btn btn-dark m-2' onClick={() => emptyCart()}>
-            Cancelar
-          </button>
+          <button
+            className='btn btn-dark m-2'
+            onClick={() => emptyCart()}
+          >Cancelar</button>
           <button
             type='button'
             className='btn btn-warning m-2'
             id='btn-order'
             onClick={() => nameValidation()}
-          >
-            Ordenar
-          </button>
+          >Ordenar</button>
         </div>
         {orderSuccess && (
           <span className='' data-testid='order-success-notification'>
