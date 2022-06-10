@@ -4,6 +4,7 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import { LogOut } from '../../components/shared/LogOut.js';
 import logoLaBurger from '../../assets/images/laBurgLogo.png';
 
+
 // COMPONENTE ADMIN CON B. DE NAVEGACION PARA ADMINISTRADOR.
 export const Admin = () => {
   return (

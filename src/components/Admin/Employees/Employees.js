@@ -6,30 +6,42 @@ import { EmployeeList } from './EmployeeList.js';
 
 // COMPONENTE COLABORADOR
 export const Employees = () => {
-
-  // extraccion de token usuario activo
-  const activeSession = JSON.parse(sessionStorage.user);
-  const activeSessionToken = activeSession.accessToken;
+  // extraccion de token 
+  const activeSessionToken = JSON.parse(sessionStorage.user).accessToken;
 
   // estructura de hook para declarar lista de usuarios
   const [users, setUsers] = useState([]);
 
-  // estructura de hook para peticion de usuarios y agregarlos a users
-  useEffect(() => {
+  // funcion para peticion de usuarios
+  const getUsers = async () => {
     usersFetch(activeSessionToken)
       .then((response) => {
-        // console.log(response);
         setUsers(response);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [activeSessionToken, setUsers]);
+  };
+
+  // estructura de hook para visualizar usuarios
+  useEffect(() => {
+    getUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // estructura de hook para para visualizar usuarios actualizados cada 5 seg
+  useEffect(() => {
+    const interval = setInterval(() => {
+      getUsers();
+    }, 5000);
+    return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
-      <AddEmployee/>
-      <EmployeeList users={users}/>
+      <AddEmployee token={activeSessionToken}/>
+      <EmployeeList users={users} token={activeSessionToken} />
     </>
   );
 };
