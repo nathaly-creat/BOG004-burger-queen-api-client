@@ -1,33 +1,61 @@
 // IMPORTACION HOOKS Y OTROS
-// import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useFormCustHook } from '../../../hooks/useFormCustHook.js';
 import { createUserFetch } from '../../../api/petitionsFetch.js';
 
 // COMPONENTE PARA REGISTRAR EMPLEADO
-export const AddEmployee = ({token}) => {
+export const AddEmployee = ({ token }) => {
+
   // estructura de hook para cambio en inputs de form login
   const [formRecordValues, handleInputChange] = useFormCustHook({
     email: '',
     password: '',
-    rol: '',
   });
 
   // desestructuracion de formRecordValues
-  const { email, password, rol} = formRecordValues;
+  const { email, password } = formRecordValues;
 
-  // funcion para crear objeto segun necesidad de peticion
+  // objeto para pintar valores en select
+  const rolesValues = [
+    {
+      name: 'admin',
+    },
+    {
+      name: 'waiter',
+    },
+    {
+      name: 'kitchen',
+    },
+  ];
+
+  // estructura de hook para cambio en select option
+  const [selectedRol, setSelectedRol] = useState({
+    rol: '',
+  });
+
+  // desestructuracion de selectedRol
+  const { rol } = selectedRol;
+
+  // funcion para manejo de cambio de select
+  const handleSelectRol = ({ target }) => {
+    setSelectedRol({
+      ...selectedRol,
+      [target.id]: target.value,
+    });
+  };
+
+  // funcion para crear objeto de peticion createUserFetch
   const objCreation = (formRecordValues) => {
     let selectedRol;
-    console.log(formRecordValues.rol);
-    switch (formRecordValues.rol) {
+    switch (rol) {
       case 'admin':
-        selectedRol = {admin : true};
+        selectedRol = { admin: true };
         break;
       case 'waiter':
-        selectedRol = {waiter : true};
+        selectedRol = { waiter: true };
         break;
       case 'kitchen':
-        selectedRol = {kitchen : true};
+        selectedRol = { kitchen: true };
         break;
       default:
         break;
@@ -36,30 +64,15 @@ export const AddEmployee = ({token}) => {
     return {
       email: formRecordValues.email,
       password: formRecordValues.password,
-      roles: selectedRol
+      roles:  selectedRol,
     };
   };
 
-  const rolesValues = [
-    {
-      value: rol,
-      name:'admin',
-    },
-    {
-      value: rol,
-      name:'waiter',
-    },
-    {
-      value: rol,
-      name:'kitchen',
-    }
-  ];
-
   return (
-    <div className='employee-register'>
+    <div className='employee-register' >
       <h1>Registrar Empleado</h1>
       <label>Correo:</label>
-      <input 
+      <input
         type='text'
         name='email'
         placeholder='ejemplo@email.com'
@@ -67,31 +80,25 @@ export const AddEmployee = ({token}) => {
         onChange={handleInputChange}
       />
       <label>Contraseña:</label>
-      <input 
-        type='text' 
+      <input
+        type='text'
         name='password'
         value={password}
         placeholder='Contraseña'
         onChange={handleInputChange}
       />
       <label>Rol:</label>
-      <select>
-        {rolesValues.map((rol) =>
-          <option key={rol.name} name='rol' value={rol.value} onChange={handleInputChange}>{rol.name}</option>)
-        }
+      <select id='rol' value={rol.name} onChange={handleSelectRol}>
+        {rolesValues.map((rol) => (
+          <option key={rol.name} name='rol' value={rol.name}>
+            {rol.name}
+          </option>
+        ))}
       </select>
-      <button 
+      <button
         className='btn btn-info'
-        onClick={() =>  createUserFetch(token, objCreation(formRecordValues))}
+        onClick={() => createUserFetch(token, objCreation(formRecordValues))}
       >crear usuario</button>
     </div>
   );
 };
-
- /* <input 
-        type='text'
-        name='rol'
-        placeholder='Rol'
-        value={rol}
-        onChange={handleInputChange}
-      /> */
