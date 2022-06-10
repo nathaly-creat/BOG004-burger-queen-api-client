@@ -148,3 +148,39 @@ export const usersFetch = (token) => {
     return response.json();
   });
 };
+
+// FUNCION DE PETICION PARA CREAR USUARIOS
+export const createUserFetch = (token, userObj) => { 
+  let Url = UrlBase + 'users';
+  return fetch(Url, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
+    },
+    body: JSON.stringify(userObj),
+  }).then((response) => {
+    if (!response.ok) {
+      throw Error('Error al crear usuario');
+    }
+    return response.json();
+  });
+};
+
+
+// FUNCION DE PETICION PARA ELIMINAR USUARIO
+export const deleteUserFetch = (userId, token) => { 
+  let Url = UrlBase + 'users/' + userId;
+  return fetch(Url, {
+    method: 'DELETE',
+    headers: {
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
+    },
+  }).then((response) => {
+    if (!response.ok) {
+      throw Error('Error al eliminar usuario');
+    }
+    return response.json();
+  });
+};
