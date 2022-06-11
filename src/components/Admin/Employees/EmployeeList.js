@@ -1,67 +1,86 @@
 // IMPORTACION HOOKS Y OTROS
-import { useState, useRef } from 'react';
-import { deleteUserFetch } from '../../../api/petitionsFetch.js';
+import { useState } from 'react';
+import { deleteUserPetition, updateUserPetition } from '../../../api/petitionsFetch.js';
 
 // COMPONENTE LISTA COLABORADORES  // value={this.state.value} onChange={this.handleChange}
 export const EmployeeList = ({ users, token }) => {
 
-  // hook para manejar el estado de edición de correo de colaborador
-  const [editing, setEditing] = useState(false)
+  // hook para mostrar u ocultar btn de guardar edicion
+  const [showBtn, setShowBtn] = useState(false);
+
+  // funcion para mostrar btn de guardar edicion
+  const showSaveButton = () => {
+    setShowBtn(true);
+  };
+
+  // hook para capturar id de colaborador a actualizar
+  const [editingId, setEditingId] = useState(false)
+
+  // funcion para setear id de colaborador a actualizar
+  const editemployeeEmail = (idToChange) => {
+    setEditingId(idToChange);
+    showSaveButton();
+  }
   
-  // hook para editar correo de colaborador
+  // hook para capturar cambio de email colaborador
   const [employeeEmail, setEmployeeEmail] = useState('');
 
-  const editEmail = user => {
-    setEditing(true) 
-    setEmployeeEmail({ id: user.id, email: user.email})
-  }
+  // funcion para setear y guardar cambio de email colaborador
+  const employeeEmailChange = ({target}) => {
+    setEmployeeEmail(target.value);
+  };
 
-  const inputs = useRef();
+  // funcion para ejecutar peticion de actualizacion
+  const updateEmail = (uId, usPassword, usRoles) => {
+    const userObj = {
+      email: employeeEmail,
+      password: usPassword, 
+      roles: usRoles,
+      id: uId
+    }
+    updateUserPetition(uId,token,userObj)
+      .then(()=>{
+        setShowBtn(false);
+      })
+      .catch((error)=>{
+        console.log(error);
+      })
+  };
 
-  const editemployeeEmail = (idToChange) => {
-    console.log('empleado a editar', idToChange, inputs.current.value);
-    inputs.current.readOnly = false;
-    users.forEach((input)=>{console.log(input.current.value)})
-    // if (textArea.id === buttonEditClicked) {
-    //   textArea.removeAttribute('readonly');
-    //   btnEdit.classList.add('hidenBtn');
-    //   saveButton[index].classList.remove('hidenBtn');
-    // }
-  }
-  
   const usersToPrint = users.map((user) => {
     return (
       <section key={user.id.toString()}>
-        <div>
-          <p><strong>id:</strong>{user.id}.</p>
-          <p><strong>Correo:</strong></p>
-          <input 
+          <p><strong>id: </strong>{user.id}.</p>
+          <p><strong>Correo: </strong></p>
+          <input
             type='text'
+            autoComplete='off'
             defaultValue={user.email}
-            readOnly
-            id={user.id}
-            ref={inputs}
-            onChange={(e) => setEmployeeEmail(e.target.value)}
+            readOnly = {editingId!==user.id}
+            onChange={(e) => employeeEmailChange(e)}
           ></input>
-          <p><strong>Rol:</strong>{Object.keys(user.roles)[0]}</p>
-          <button
-            className='waiter-add-btn' 
+          <p><strong>Rol: </strong>{Object.keys(user.roles)[0]}</p>
+          <button 
+            onClick={() => deleteUserPetition(user.id, token)}>
+            <i className='fa-regular fa-trash-can'></i>
+          </button>
+          <button 
             onClick={() => editemployeeEmail(user.id)}>
             <i className='fa-solid fa-pencil'></i>
           </button>
-          <button 
-            className='waiter-add-btn' 
-            onClick={() => deleteUserFetch(user.id, token)}>
-            <i className='fa-regular fa-trash-can'></i>
-          </button>
-        </div>
+          {showBtn && editingId===user.id
+            ? <button
+                onClick={() => updateEmail(user.id, user.password, user.roles)}
+              >GUARDAR</button>
+            : ''
+          }
       </section>
     );
   });
   
   return ( 
-    <div>
+    <>
       {usersToPrint}
-    </div>
+    </>
   );
 };

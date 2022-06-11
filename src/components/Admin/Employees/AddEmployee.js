@@ -1,7 +1,7 @@
 // IMPORTACION HOOKS Y OTROS
 import { useState } from 'react';
 import { useFormCustHook } from '../../../hooks/useFormCustHook.js';
-import { createUserFetch } from '../../../api/petitionsFetch.js';
+import { createUserPetition } from '../../../api/petitionsFetch.js';
 
 // COMPONENTE PARA REGISTRAR EMPLEADO
 export const AddEmployee = ({ token }) => {
@@ -21,10 +21,10 @@ export const AddEmployee = ({ token }) => {
       name: 'admin',
     },
     {
-      name: 'waiter',
+      name: 'kitchen',
     },
     {
-      name: 'kitchen',
+      name: 'waiter',
     },
   ];
 
@@ -44,20 +44,21 @@ export const AddEmployee = ({ token }) => {
     });
   };
 
-  // funcion para crear objeto de peticion createUserFetch
+  // funcion para crear objeto de peticion createUserPetition
   const objCreation = (formRecordValues) => {
     let selectedRol;
     switch (rol) {
       case 'admin':
         selectedRol = { admin: true };
         break;
-      case 'waiter':
-        selectedRol = { waiter: true };
-        break;
       case 'kitchen':
         selectedRol = { kitchen: true };
         break;
+      case 'waiter':
+        selectedRol = { waiter: true };
+        break;
       default:
+        selectedRol = { admin: true };
         break;
     }
 
@@ -97,7 +98,7 @@ export const AddEmployee = ({ token }) => {
       </select>
       <button
         className='btn btn-info'
-        onClick={() => createUserFetch(token, objCreation(formRecordValues))}
+        onClick={() => createUserPetition(token, objCreation(formRecordValues))}
       >crear usuario</button>
     </div>
   );

@@ -1,6 +1,6 @@
 // IMPORTACION HOOKS Y OTROS
 import { useState, useEffect } from 'react';
-import { totalOrdersFetch } from '../../../api/petitionsFetch.js';
+import { totalOrdersPetition } from '../../../api/petitionsFetch.js';
 import { OrderLists } from './OrdersLists.js';
 import { OrderToServer } from './OrderToServer.js';
 
@@ -15,7 +15,7 @@ export const Orders = () => {
 
   // funcion para peticion de ordenes
   const getDeliveringOrders = async () => {
-    totalOrdersFetch(activeSessionToken)
+    totalOrdersPetition(activeSessionToken)
     .then((response) => {
       setOrders(response);
     })

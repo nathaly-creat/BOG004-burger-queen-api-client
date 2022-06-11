@@ -1,6 +1,6 @@
 // IMPORTACION HOOKS Y OTROS
 import { useState, useEffect } from 'react';
-import { usersFetch } from '../../../api/petitionsFetch.js';
+import { usersPetition } from '../../../api/petitionsFetch.js';
 import { AddEmployee } from './AddEmployee.js';
 import { EmployeeList } from './EmployeeList.js';
 
@@ -14,7 +14,7 @@ export const Employees = () => {
 
   // funcion para peticion de usuarios
   const getUsers = async () => {
-    usersFetch(activeSessionToken)
+    usersPetition(activeSessionToken)
       .then((response) => {
         setUsers(response);
       })
@@ -29,11 +29,11 @@ export const Employees = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // estructura de hook para para visualizar usuarios actualizados cada 5 seg
+  // estructura de hook para para visualizar usuarios actualizados cada 10 seg
   useEffect(() => {
     const interval = setInterval(() => {
       getUsers();
-    }, 5000);
+    }, 10000);
     return () => clearInterval(interval);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

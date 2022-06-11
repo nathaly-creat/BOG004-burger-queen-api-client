@@ -1,5 +1,5 @@
 // IMPORTACION HOOKS Y OTROS
-import { statusDeliveredFetch } from '../../../api/petitionsFetch.js';
+import { statusDeliveredPetition } from '../../../api/petitionsFetch.js';
 
 // COMPONENTE PARA MOSTRAR PEDIDOS LISTOS PARA SERVIR
 export const OrderToServer = ({ orders, token }) => {
@@ -16,7 +16,7 @@ export const OrderToServer = ({ orders, token }) => {
           <button
             className='btn btn-success'
             onClick={() =>
-              statusDeliveredFetch(
+              statusDeliveredPetition(
                 order.id,
                 token,
                 new Date().toLocaleString('sv')

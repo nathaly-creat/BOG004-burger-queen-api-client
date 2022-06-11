@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useFormCustHook } from '../../hooks/useFormCustHook.js';
-import { loginFetch, saveLoginUser } from '../../api/petitionsFetch.js';
+import { loginPetition, saveLoginUser } from '../../api/petitionsFetch.js';
 import logoLaBurger from '../../assets/images/laBurgLogo.png';
 
-// FUNCION PARA RESOLVER loginFetch
-const handleLoginFetch = (user) => new Promise((resolve, reject) => {
-  loginFetch(user)
+// FUNCION PARA RESOLVER loginPetition
+const handleloginPetition = (user) => new Promise((resolve, reject) => {
+  loginPetition(user)
     .then((response) => {
       resolve(saveLoginUser(response));
     })
@@ -45,7 +45,7 @@ export const Login = () => {
 
   // funcion para envio de formulario login
   const handleSubmitLogin = () => {
-    return handleLoginFetch(formLoginValues)
+    return handleloginPetition(formLoginValues)
       .then(() => {
         const activeUser = JSON.parse(sessionStorage.user);
         const userRole = activeUser.user.roles;

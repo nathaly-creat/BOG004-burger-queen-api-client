@@ -1,5 +1,5 @@
 // IMPORTACION HOOKS Y OTROS
-import { statusDeliveringFetch } from '../../../api/petitionsFetch.js';
+import { statusDeliveringPetition } from '../../../api/petitionsFetch.js';
 import { OrderProducts } from './OrderProducts.js';
 
 // COMPONENTE ORDERSTOCOOKLIST
@@ -19,7 +19,7 @@ export const OrderToCookList = ({orders,token}) => {
           <OrderProducts products={order.products}/>
           <button 
             className='btn btn-primary'
-            onClick={() => statusDeliveringFetch(order.id, token)}
+            onClick={() => statusDeliveringPetition(order.id, token)}
           >¿Pedido Listo?</button>
         </div>
       </section>

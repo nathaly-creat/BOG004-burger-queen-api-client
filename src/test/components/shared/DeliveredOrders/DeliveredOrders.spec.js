@@ -3,7 +3,7 @@ import { createMemoryHistory } from 'history';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { render, screen } from '@testing-library/react';
-import { totalOrdersFetch } from '../../../../api/petitionsFetch.js';
+import { totalOrdersPetition } from '../../../../api/petitionsFetch.js';
 import { DeliveredOrders } from '../../../../components/shared/DeliveredOrders/DeliveredOrders.js';
 
 // mock de sessionStorage para token
@@ -57,7 +57,7 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 // test para peticion de ordenes con estatus delivered
-test('response of totalOrdersFetch petition with status delivered', async () => {
+test('response of totalOrdersPetition petition with status delivered', async () => {
   const activeSession = JSON.parse(sessionStorage.user);
   const activeSessionToken = activeSession.accessToken;
 
@@ -86,7 +86,7 @@ test('response of totalOrdersFetch petition with status delivered', async () => 
     },
   ];
 
-  const orderTestResult = await totalOrdersFetch(activeSessionToken);
+  const orderTestResult = await totalOrdersPetition(activeSessionToken);
   expect(orderTestResult).toEqual(orderListTest);
 });
 

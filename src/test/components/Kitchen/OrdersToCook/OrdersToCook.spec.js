@@ -5,8 +5,8 @@ import { setupServer } from 'msw/node';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { OrdersToCook } from '../../../../components/Kitchen/OrdersToCook/OrdersToCook.js';
 import {
-  totalOrdersFetch,
-  statusDeliveringFetch,
+  totalOrdersPetition,
+  statusDeliveringPetition,
 } from '../../../../api/petitionsFetch.js';
 
 // mock de sessionStorage para token
@@ -87,7 +87,7 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 // test para peticion de ordenes recibidas a cocinar
-test('response of totalOrdersFetch petition with status pending to cook', async () => {
+test('response of totalOrdersPetition petition with status pending to cook', async () => {
   const activeSession = JSON.parse(sessionStorage.user);
   const activeSessionToken = activeSession.accessToken;
 
@@ -115,7 +115,7 @@ test('response of totalOrdersFetch petition with status pending to cook', async 
     },
   ];
 
-  const orderTestResult = await totalOrdersFetch(activeSessionToken);
+  const orderTestResult = await totalOrdersPetition(activeSessionToken);
   expect(orderTestResult).toEqual(orderPendingListTest);
 });
 
@@ -164,7 +164,7 @@ test('change status orders to delivering', async () => {
     },
   ];
 
-  const deliveringTestResult = await statusDeliveringFetch(
+  const deliveringTestResult = await statusDeliveringPetition(
     1,
     activeSessionToken
   );

@@ -1,7 +1,7 @@
 // IMPORTACION HOOKS Y OTROS
 import { useState, useEffect } from 'react';
 import { useCart } from 'react-use-cart';
-import { onlyProductFetch, orderFetch } from '../../../api/petitionsFetch.js';
+import { onlyProductPetition, orderPetition } from '../../../api/petitionsFetch.js';
 import { ProductsToBill } from './ProductsToBill.js';
 
 // COMPONENTE PARA MOSTRAR ORDEN DE CLIENTE
@@ -54,7 +54,7 @@ export const OrderContainer = ({ activeSession }) => {
 
     // ciclo para recorrer productos a ordenar
     for (let product of total) {
-      onlyProductFetch(token, product.id)
+      onlyProductPetition(token, product.id)
         .then((response) => {
           products.push({ qty: product.quantity, product: response });
           const orderPetitionObj = {
@@ -66,7 +66,7 @@ export const OrderContainer = ({ activeSession }) => {
             totalPrice: cartTotal,
           };
           if (products.length === total.length) {
-            orderFetch(token, orderPetitionObj)
+            orderPetition(token, orderPetitionObj)
               .then(() => {
                 setOrderSuccess('Orden creada con éxito');
               })

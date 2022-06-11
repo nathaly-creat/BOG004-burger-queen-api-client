@@ -1,6 +1,6 @@
 // IMPORTACION HOOKS Y OTROS
 import { useState, useEffect } from 'react';
-import { totalOrdersFetch } from '../../../api/petitionsFetch.js';
+import { totalOrdersPetition } from '../../../api/petitionsFetch.js';
 import { DeliveredList } from './DeliveredList.js';
 
 // COMPONENTE COMPARTIDO DE ORDENES ENTREGADAS
@@ -13,7 +13,7 @@ export const DeliveredOrders = () => {
 
   // funcion para peticion de pedidos entregados
   const getDeliveredOrders = async () => {
-    totalOrdersFetch(activeSessionToken)
+    totalOrdersPetition(activeSessionToken)
       .then((response) => {
         setOrdersDelivered(response);
       })

@@ -1,6 +1,6 @@
 // IMPORTACION HOOKS Y OTROS
 import { useState, useEffect } from 'react';
-import { totalOrdersFetch } from '../../../api/petitionsFetch.js';
+import { totalOrdersPetition } from '../../../api/petitionsFetch.js';
 import { OrderToCookList } from './OrderToCookList.js'
 
 // COMPONENTE ORDERSTOCOOK PARA KITCHEN
@@ -14,7 +14,7 @@ export const OrdersToCook = () => {
 
   // funcion para peticion de pedidos totales a preparar
   const getPendingOrders = async () => {
-    totalOrdersFetch(activeSessionToken)
+    totalOrdersPetition(activeSessionToken)
     .then((response) => {
       setOrders(response);
     })
