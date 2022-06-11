@@ -50,7 +50,7 @@ export const EmployeeList = ({ users, token }) => {
   const usersToPrint = users.map((user) => {
     return (
       <section key={user.id.toString()}>
-          <p><strong>id: </strong>{user.id}.</p>
+          <p data-testid='employee-id'><strong>id: </strong>{user.id}.</p>
           <p><strong>Correo: </strong></p>
           <input
             type='text'
@@ -58,18 +58,22 @@ export const EmployeeList = ({ users, token }) => {
             defaultValue={user.email}
             readOnly = {editingId!==user.id}
             onChange={(e) => employeeEmailChange(e)}
+            data-testid={user.id.toString()+'-emailSaved'}
           ></input>
           <p><strong>Rol: </strong>{Object.keys(user.roles)[0]}</p>
-          <button 
+          <button
+            data-testid={user.id.toString()+'-delete'}
             onClick={() => deleteUserPetition(user.id, token)}>
             <i className='fa-regular fa-trash-can'></i>
           </button>
-          <button 
+          <button
+            data-testid={user.id.toString()+'-edit'}
             onClick={() => editemployeeEmail(user.id)}>
             <i className='fa-solid fa-pencil'></i>
           </button>
           {showBtn && editingId===user.id
             ? <button
+                data-testid={user.id.toString()+'-save'}
                 onClick={() => updateEmail(user.id, user.password, user.roles)}
               >GUARDAR</button>
             : ''

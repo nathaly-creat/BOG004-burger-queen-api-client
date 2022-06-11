@@ -6,6 +6,7 @@ import { ProductsToBill } from './ProductsToBill.js';
 
 // COMPONENTE PARA MOSTRAR ORDEN DE CLIENTE
 export const OrderContainer = ({ activeSession }) => {
+  
   // estructura de hook para cambio en input de nombre cliente
   const [inputNameCus, setInputNameCust] = useState({
     customerName: '',

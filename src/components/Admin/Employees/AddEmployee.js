@@ -1,105 +1,129 @@
 // IMPORTACION HOOKS Y OTROS
-import { useState } from 'react';
-import { useFormCustHook } from '../../../hooks/useFormCustHook.js';
-import { createUserPetition } from '../../../api/petitionsFetch.js';
+import { useState, useEffect } from "react";
+import { createUserPetition } from "../../../api/petitionsFetch.js";
 
 // COMPONENTE PARA REGISTRAR EMPLEADO
 export const AddEmployee = ({ token }) => {
 
-  // estructura de hook para cambio en inputs de form login
-  const [formRecordValues, handleInputChange] = useFormCustHook({
-    email: '',
-    password: '',
-  });
-
-  // desestructuracion de formRecordValues
-  const { email, password } = formRecordValues;
-
   // objeto para pintar valores en select
   const rolesValues = [
     {
-      name: 'admin',
+      name: "admin",
     },
     {
-      name: 'kitchen',
+      name: "kitchen",
     },
     {
-      name: 'waiter',
+      name: "waiter",
     },
   ];
 
-  // estructura de hook para cambio en select option
-  const [selectedRol, setSelectedRol] = useState({
-    rol: '',
+  // estructura de hook para cambio en inputs y select option
+  const [selectedInfo, setSelectedInfo] = useState({
+    email: "",
+    password: "",
+    rol: "",
   });
 
-  // desestructuracion de selectedRol
-  const { rol } = selectedRol;
+  // desestructuracion de selectedInfo
+  const { email, password, rol } = selectedInfo;
 
-  // funcion para manejo de cambio de select
+  // funcion para manejo de cambio de inputs y select option
   const handleSelectRol = ({ target }) => {
-    setSelectedRol({
-      ...selectedRol,
+    setSelectedInfo({
+      ...selectedInfo,
       [target.id]: target.value,
     });
   };
 
   // funcion para crear objeto de peticion createUserPetition
-  const objCreation = (formRecordValues) => {
+  const objCreation = (objValues) => {
     let selectedRol;
     switch (rol) {
-      case 'admin':
+      case "admin":
         selectedRol = { admin: true };
         break;
-      case 'kitchen':
+      case "kitchen":
         selectedRol = { kitchen: true };
         break;
-      case 'waiter':
+      case "waiter":
         selectedRol = { waiter: true };
         break;
       default:
-        selectedRol = { admin: true };
+        selectedRol = { waiter: true };
         break;
     }
 
     return {
-      email: formRecordValues.email,
-      password: formRecordValues.password,
-      roles:  selectedRol,
+      email: objValues.email,
+      password: objValues.password,
+      roles: selectedRol,
     };
   };
 
+  // se declara el estado de la orden
+  const [userSuccess, setUserSuccess] = useState('');
+
+  // funcion para validar creación de usuario satisfactorio
+  const createUser = () => {
+    createUserPetition(token, objCreation(selectedInfo))
+      .then(()=>{
+        setUserSuccess('Usuario creado exitosamente')
+        setSelectedInfo({
+          email: '',
+          password: '',
+          rol: 'admin'
+        });
+      }).catch(()=>{
+        setUserSuccess('Error al crear usuario');
+      })
+  };
+  
+  // hook para cambio de mensaje de userSuccess
+  useEffect(() => {
+    if (userSuccess !== '') {
+      setTimeout(() => {
+        setUserSuccess('');
+      }, 3000);
+    }
+  }, [userSuccess]);
+
   return (
-    <div className='employee-register' >
+    <div className="employee-register">
       <h1>Registrar Empleado</h1>
       <label>Correo:</label>
       <input
-        type='text'
-        name='email'
-        placeholder='ejemplo@email.com'
+        type="text"
+        id="email"
+        placeholder="ejemplo@email.com"
         value={email}
-        onChange={handleInputChange}
+        onChange={handleSelectRol}
       />
       <label>Contraseña:</label>
       <input
-        type='text'
-        name='password'
+        type="text"
+        id="password"
         value={password}
-        placeholder='Contraseña'
-        onChange={handleInputChange}
+        placeholder="Contraseña"
+        onChange={handleSelectRol}
       />
       <label>Rol:</label>
-      <select id='rol' value={rol.name} onChange={handleSelectRol}>
+      <select id="rol" value={rol.name} onChange={handleSelectRol}>
         {rolesValues.map((rol) => (
-          <option key={rol.name} name='rol' value={rol.name}>
+          <option key={rol.name} name="rol" value={rol.name}>
             {rol.name}
           </option>
         ))}
       </select>
       <button
-        className='btn btn-info'
-        onClick={() => createUserPetition(token, objCreation(formRecordValues))}
-      >crear usuario</button>
+        className="btn btn-info"
+        onClick={() => createUser()}
+      >Crear usuario</button>
+      {userSuccess && (
+        <span className="" data-testid="user-success-notification">
+          {userSuccess}
+        </span>
+      )}
     </div>
   );
 };

@@ -119,7 +119,7 @@ test('response of totalOrdersPetition petition with status pending to cook', asy
   expect(orderTestResult).toEqual(orderPendingListTest);
 });
 
-// test para visualizar ordenes en el componente.
+// test para visualizar ordenes en el componente
 test('print of orders pending in OrdersToCook component', async () => {
   const history = createMemoryHistory();
   render(

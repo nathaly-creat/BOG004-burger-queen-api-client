@@ -22,7 +22,7 @@ export const Admin = () => {
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto general-nav-dir'>
               <Link to='/admin'>Colaboradores</Link>
-              <Link to='/admin/delivered-orders'>Pedidos Entregados</Link>
+              <Link to='/admin/delivered-orders' data-testid='nav-kitchen-delivered-orders'>Pedidos Entregados</Link>
               <LogOut/>
             </Nav>
           </Navbar.Collapse>
