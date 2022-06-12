@@ -1,19 +1,19 @@
-import { Router } from "react-router-dom";
-import { createMemoryHistory } from "history";
-import { rest } from "msw";
-import { setupServer } from "msw/node";
-import { fireEvent, waitFor, render, screen } from "@testing-library/react";
-import { Employees } from "../../../../components/Admin/Employees/Employees.js";
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
+import { fireEvent, waitFor, render, screen } from '@testing-library/react';
+import { Employees } from '../../../../components/Admin/Employees/Employees.js';
 import {
   deleteUserPetition,
   updateUserPetition,
-} from "../../../../api/petitionsFetch.js";
+} from '../../../../api/petitionsFetch.js';
 
 // mock de sessionStorage para token
 sessionStorage.user = JSON.stringify({
-  accessToken: "tokenfortestKitchen",
+  accessToken: 'tokenfortestKitchen',
   user: {
-    email: "grace.hopper@systers.xyz",
+    email: 'grace.hopper@systers.xyz',
     roles: {
       admin: true,
     },
@@ -23,23 +23,23 @@ sessionStorage.user = JSON.stringify({
 
 // mock de servidor peticiones | edicion | eliminar de usuarios
 const server = setupServer(
-  rest.get("http://localhost:8080/users", (_req, res, ctx) => {
+  rest.get('http://localhost:8080/users', (_req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json([
         {
-          email: "grace.hopper@systers.xyz",
+          email: 'grace.hopper@systers.xyz',
           password:
-            "$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey",
+            '$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey',
           roles: {
             admin: true,
           },
           id: 2,
         },
         {
-          email: "test.hopper@systers.xyz",
+          email: 'test.hopper@systers.xyz',
           password:
-            "$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey",
+            '$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey',
           roles: {
             waiter: true,
           },
@@ -48,14 +48,14 @@ const server = setupServer(
       ])
     );
   }),
-  rest.delete("http://localhost:8080/users/3", (_req, res, ctx) => {
+  rest.delete('http://localhost:8080/users/3', (_req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json([
         {
-          email: "grace.hopper@systers.xyz",
+          email: 'grace.hopper@systers.xyz',
           password:
-            "$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey",
+            '$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey',
           roles: {
             admin: true,
           },
@@ -64,14 +64,14 @@ const server = setupServer(
       ])
     );
   }),
-  rest.patch("http://localhost:8080/users/2", (_req, res, ctx) => {
+  rest.patch('http://localhost:8080/users/2', (_req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json([
         {
-          email: "grace2.hopper@systers.xyz",
+          email: 'grace2.hopper@systers.xyz',
           password:
-            "$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey",
+            '$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey',
           roles: {
             admin: true,
           },
@@ -88,14 +88,14 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 // test de respuesta deleteUserPetition
-test("response of deleteUserPetition", async () => {
+test('response of deleteUserPetition', async () => {
   const activeSession = JSON.parse(sessionStorage.user);
   const activeSessionToken = activeSession.accessToken;
 
   let usersList = [
     {
-      email: "grace.hopper@systers.xyz",
-      password: "$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey",
+      email: 'grace.hopper@systers.xyz',
+      password: '$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey',
       roles: {
         admin: true,
       },
@@ -108,7 +108,7 @@ test("response of deleteUserPetition", async () => {
 });
 
 // test de render inicial
-test("initial render employee list", async () => {
+test('initial render employee list', async () => {
   const history = createMemoryHistory();
   render(
     <Router location={history.location} navigator={history}>
@@ -116,21 +116,21 @@ test("initial render employee list", async () => {
     </Router>
   );
 
-  const deleteUserBtn = await screen.findByTestId("3-delete");
+  const deleteUserBtn = await screen.findByTestId('3-delete');
   fireEvent.click(deleteUserBtn);
 });
 
 // evento de boton para eliminar usuario
-test("delete user event", async () => {
+test('delete user event', async () => {
   server.use(
-    rest.get("http://localhost:8080/users", (_req, res, ctx) => {
+    rest.get('http://localhost:8080/users', (_req, res, ctx) => {
       return res(
         ctx.status(200),
         ctx.json([
           {
-            email: "grace.hopper@systers.xyz",
+            email: 'grace.hopper@systers.xyz',
             password:
-              "$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey",
+              '$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey',
             roles: {
               admin: true,
             },
@@ -149,20 +149,20 @@ test("delete user event", async () => {
   );
 
   await waitFor(() => {
-    const screenAfterDelete = screen.getByTestId("employee-id");
-    expect(screenAfterDelete.textContent).toBe("id: 2.");
+    const screenAfterDelete = screen.getByTestId('employee-id');
+    expect(screenAfterDelete.textContent).toBe('id: 2.');
   });
 });
 
 // test de respuesta updateUserPetition
-test("response of updateUserPetition", async () => {
+test('response of updateUserPetition', async () => {
   const activeSession = JSON.parse(sessionStorage.user);
   const activeSessionToken = activeSession.accessToken;
 
   let usersList = [
     {
-      email: "grace2.hopper@systers.xyz",
-      password: "$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey",
+      email: 'grace2.hopper@systers.xyz',
+      password: '$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey',
       roles: {
         admin: true,
       },
@@ -179,7 +179,7 @@ test("response of updateUserPetition", async () => {
 });
 
 // test de segundo render
-test("second render employee list", async () => {
+test('second render employee list', async () => {
   const history = createMemoryHistory();
   render(
     <Router location={history.location} navigator={history}>
@@ -187,36 +187,36 @@ test("second render employee list", async () => {
     </Router>
   );
 
-  const editUserBtn = await screen.findByTestId("2-edit");
+  const editUserBtn = await screen.findByTestId('2-edit');
   fireEvent.click(editUserBtn);
   
-  // const saveBtn = await screen.findByTestId("2-save");
+  // const saveBtn = await screen.findByTestId('2-save');
   
-  const userEditInput = screen.getByDisplayValue("grace.hopper@systers.xyz");
+  const userEditInput = screen.getByDisplayValue('grace.hopper@systers.xyz');
   fireEvent.change(userEditInput, {
-    target: { value: "grace2.hopper@systers.xyz" },
+    target: { value: 'grace2.hopper@systers.xyz' },
   });
   
   //fireEvent.click(saveBtn);
-  // const screenAfterSave = screen.getByTestId("2-emailSave");
-  // expect(screenAfterSave.textContent).toEqual("grace2.hopper@systers.xyz");
+  // const screenAfterSave = screen.getByTestId('2-emailSave');
+  // expect(screenAfterSave.textContent).toEqual('grace2.hopper@systers.xyz');
   
-  const saveBtn = await screen.findByTestId("2-save");
-  expect(saveBtn.textContent).toBe("GUARDAR");
+  const saveBtn = await screen.findByTestId('2-save');
+  expect(saveBtn.textContent).toBe('GUARDAR');
   fireEvent.click(saveBtn);
 });
 
 // evento de boton para edicion de usuario
-test("edit user event", async () => {
+test('edit user event', async () => {
   server.use(
-    rest.get("http://localhost:8080/users", (_req, res, ctx) => {
+    rest.get('http://localhost:8080/users', (_req, res, ctx) => {
       return res(
         ctx.status(200),
         ctx.json([
           {
-            email: "grace2.hopper@systers.xyz",
+            email: 'grace2.hopper@systers.xyz',
             password:
-              "$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey",
+              '$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey',
             roles: {
               admin: true,
             },
@@ -233,6 +233,6 @@ test("edit user event", async () => {
     </Router>
   );
 
-  const screenAfterSave = await screen.findByTestId("2-emailSaved");
-  expect(screenAfterSave.value).toBe("grace2.hopper@systers.xyz");
+  const screenAfterSave = await screen.findByTestId('2-emailSaved');
+  expect(screenAfterSave.value).toBe('grace2.hopper@systers.xyz');
 });

@@ -1,18 +1,18 @@
-import { Router } from "react-router-dom";
-import { createMemoryHistory } from "history";
-import { rest } from "msw";
-import { setupServer } from "msw/node";
-import { fireEvent, render, screen } from "@testing-library/react";
-import { Employees} from "../../../../components/Admin/Employees/Employees.js";
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { Employees} from '../../../../components/Admin/Employees/Employees.js';
 import {
   usersPetition
-} from "../../../../api/petitionsFetch.js";
+} from '../../../../api/petitionsFetch.js';
 
 // mock de sessionStorage para token
 sessionStorage.user = JSON.stringify({
-  accessToken: "tokenfortestKitchen",
+  accessToken: 'tokenfortestKitchen',
   user: {
-    email: "grace.hopper@systers.xyz",
+    email: 'grace.hopper@systers.xyz',
     roles: {
       admin: true,
     },
@@ -22,14 +22,14 @@ sessionStorage.user = JSON.stringify({
 
 // mock de servidor peticiones de usuarios | creacion
 const server = setupServer(
-  rest.get("http://localhost:8080/users", (_req, res, ctx) => {
+  rest.get('http://localhost:8080/users', (_req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json([
         {
-          email: "grace.hopper@systers.xyz",
+          email: 'grace.hopper@systers.xyz',
           password:
-            "$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey",
+            '$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey',
           roles: {
             admin: true,
           },
@@ -38,14 +38,14 @@ const server = setupServer(
       ])
     );
   }),
-  rest.post("http://localhost:8080/users", (_req, res, ctx) => {
+  rest.post('http://localhost:8080/users', (_req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json([
         {
-          email: "test.hopper@systers.xyz",
+          email: 'test.hopper@systers.xyz',
           password:
-            "$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey",
+            '$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey',
           roles: {
             waiter: true,
           },
@@ -62,14 +62,14 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 // test para peticion de usuarios
-test("response of usersPetition", async () => {
+test('response of usersPetition', async () => {
   const activeSession = JSON.parse(sessionStorage.user);
   const activeSessionToken = activeSession.accessToken;
 
   let usersList = [
     {
-      email: "grace.hopper@systers.xyz",
-      password: "$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey",
+      email: 'grace.hopper@systers.xyz',
+      password: '$2a$10$JABwR1UAtJqr2DCJ41ypMOgOqlh8eRXmTBO6DXfKG3ybxhABY4rey',
       roles: {
         admin: true,
       },
@@ -82,7 +82,7 @@ test("response of usersPetition", async () => {
 });
 
 // test para visualizar los usuarios
-test("print of users in Employees component", async () => {
+test('print of users in Employees component', async () => {
   const history = createMemoryHistory();
   render(
     <Router location={history.location} navigator={history}>

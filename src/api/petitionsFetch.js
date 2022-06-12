@@ -1,16 +1,16 @@
 // IMPORTACION DE FETCH
-let UrlBase = "http://localhost:8080/";
+let UrlBase = 'http://localhost:8080/';
 
 // FUNCION DE PETICION PARA LOGIN USER
 export const loginPetition = (loginObj) => {
-  let Url = UrlBase + "login";
+  let Url = UrlBase + 'login';
   return fetch(Url, {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify(loginObj),
-    headers: { "content-type": "application/json" },
+    headers: { 'content-type': 'application/json' },
   }).then((response) => {
     if (!response.ok) {
-      throw Error("Confirmar email y contraseña");
+      throw Error('Confirmar email y contraseña');
     } else {
       return response.json();
     }
@@ -19,21 +19,21 @@ export const loginPetition = (loginObj) => {
 
 // FUNCION PARA GUARDAR USUARIO LOGUEADO EN SESSIONSTORAGE
 export const saveLoginUser = (user) => {
-  return sessionStorage.setItem("user", JSON.stringify(user));
+  return sessionStorage.setItem('user', JSON.stringify(user));
 };
 
 // FUNCION DE PETICION PRODUCTOS
 export const productPetition = (token) => {
-  let Url = UrlBase + "products";
+  let Url = UrlBase + 'products';
   return fetch(Url, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "content-type": "application/json",
-      authorization: "Bearer " + token,
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
     },
   }).then((response) => {
     if (!response.ok) {
-      throw Error("Error al traer productos");
+      throw Error('Error al traer productos');
     }
     return response.json();
   });
@@ -41,16 +41,16 @@ export const productPetition = (token) => {
 
 // FUNCION DE PETICION PARA UN SOLO PRODUCTO
 export const onlyProductPetition = (token, productId) => {
-  let Url = UrlBase + "products/" + productId;
+  let Url = UrlBase + 'products/' + productId;
   return fetch(Url, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "content-type": "application/json",
-      authorization: "Bearer " + token,
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
     },
   }).then((response) => {
     if (!response.ok) {
-      throw Error("Error al traer el producto solicitado");
+      throw Error('Error al traer el producto solicitado');
     }
     return response.json();
   });
@@ -58,17 +58,17 @@ export const onlyProductPetition = (token, productId) => {
 
 // FUNCION DE PETICION PARA REALIZAR PEDIDO
 export const orderPetition = (token, orderObj) => {
-  let Url = UrlBase + "orders";
+  let Url = UrlBase + 'orders';
   return fetch(Url, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "content-type": "application/json",
-      authorization: "Bearer " + token,
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
     },
     body: JSON.stringify(orderObj),
   }).then((response) => {
     if (!response.ok) {
-      throw Error("Error de creacion orden");
+      throw Error('Error de creacion orden');
     }
     return response.json();
   });
@@ -76,16 +76,16 @@ export const orderPetition = (token, orderObj) => {
 
 // FUNCION DE PETICION PEDIDOS ORDENADOS
 export const totalOrdersPetition = (token) => {
-  let Url = UrlBase + "orders";
+  let Url = UrlBase + 'orders';
   return fetch(Url, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "content-type": "application/json",
-      authorization: "Bearer " + token,
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
     },
   }).then((response) => {
     if (!response.ok) {
-      throw Error("Error al traer pedidos ordenados");
+      throw Error('Error al traer pedidos ordenados');
     }
     return response.json();
   });
@@ -93,19 +93,19 @@ export const totalOrdersPetition = (token) => {
 
 // FUNCION DE PETICION CAMBIO DE ESTADO a'delivering'
 export const statusDeliveringPetition = (orderId, token) => {
-  let Url = UrlBase + "orders/" + orderId;
+  let Url = UrlBase + 'orders/' + orderId;
   return fetch(Url, {
-    method: "PATCH",
+    method: 'PATCH',
     headers: {
-      "content-type": "application/json",
-      authorization: "Bearer " + token,
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
     },
     body: JSON.stringify({
-      status: "delivering",
+      status: 'delivering',
     }),
   }).then((response) => {
     if (!response.ok) {
-      throw Error("Error al cambiar status de pending a delivering del pedido");
+      throw Error('Error al cambiar status de pending a delivering del pedido');
     }
     return response.json();
   });
@@ -113,21 +113,21 @@ export const statusDeliveringPetition = (orderId, token) => {
 
 // FUNCION DE PETICION CAMBIO DE ESTADO a 'delivered'
 export const statusDeliveredPetition = (orderId, token, finalDate) => {
-  let Url = UrlBase + "orders/" + orderId;
+  let Url = UrlBase + 'orders/' + orderId;
   return fetch(Url, {
-    method: "PATCH",
+    method: 'PATCH',
     headers: {
-      "content-type": "application/json",
-      authorization: "Bearer " + token,
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
     },
     body: JSON.stringify({
-      status: "delivered",
+      status: 'delivered',
       dateProcessed: finalDate,
     }),
   }).then((response) => {
     if (!response.ok) {
       throw Error(
-        "Error al cambiar status de delivering a delivered del pedido"
+        'Error al cambiar status de delivering a delivered del pedido'
       );
     }
     return response.json();
@@ -136,16 +136,16 @@ export const statusDeliveredPetition = (orderId, token, finalDate) => {
 
 // FUNCION DE PETICION USUARIOS
 export const usersPetition = (token) => {
-  let Url = UrlBase + "users";
+  let Url = UrlBase + 'users';
   return fetch(Url, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "content-type": "application/json",
-      authorization: "Bearer " + token,
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
     },
   }).then((response) => {
     if (!response.ok) {
-      throw Error("Error al traer usuarios");
+      throw Error('Error al traer usuarios');
     }
     return response.json();
   });
@@ -153,17 +153,17 @@ export const usersPetition = (token) => {
 
 // FUNCION DE PETICION PARA CREAR USUARIOS
 export const createUserPetition = (token, userObj) => {
-  let Url = UrlBase + "users";
+  let Url = UrlBase + 'users';
   return fetch(Url, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "content-type": "application/json",
-      authorization: "Bearer " + token,
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
     },
     body: JSON.stringify(userObj),
   }).then((response) => {
     if (!response.ok) {
-      throw Error("Error al crear usuario");
+      throw Error('Error al crear usuario');
     }
     return response.json();
   });
@@ -189,16 +189,16 @@ export const updateUserPetition = (userId, token, userObj) => {
 
 // FUNCION DE PETICION PARA ELIMINAR USUARIO
 export const deleteUserPetition = (userId, token) => {
-  let Url = UrlBase + "users/" + userId;
+  let Url = UrlBase + 'users/' + userId;
   return fetch(Url, {
-    method: "DELETE",
+    method: 'DELETE',
     headers: {
-      "content-type": "application/json",
-      authorization: "Bearer " + token,
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
     },
   }).then((response) => {
     if (!response.ok) {
-      throw Error("Error al eliminar usuario");
+      throw Error('Error al eliminar usuario');
     }
     return response.json();
   });
