@@ -90,12 +90,12 @@ export const AddEmployee = ({ token }) => {
 
   return (
     <div className='employee-register'>
-      <h1>Registrar Empleado</h1>
+      <h3>Registrar Empleado.</h3>
       <label>Correo:</label>
       <input
         type='text'
         id='email'
-        placeholder='ejemplo@email.com'
+        placeholder='Ejemplo@email.com'
         value={email}
         onChange={handleSelectRol}
       />
@@ -108,7 +108,7 @@ export const AddEmployee = ({ token }) => {
         onChange={handleSelectRol}
       />
       <label>Rol:</label>
-      <select id='rol' value={rol.name} onChange={handleSelectRol}>
+      <select className='employee-register-select'id='rol' value={rol.name} onChange={handleSelectRol}>
         {rolesValues.map((rol) => (
           <option key={rol.name} name='rol' value={rol.name}>
             {rol.name}

@@ -49,9 +49,9 @@ export const EmployeeList = ({ users, token }) => {
 
   const usersToPrint = users.map((user) => {
     return (
-      <section key={user.id.toString()}>
+      <section key={user.id.toString()} className='employee-list-general'>
           <p data-testid='employee-id'><strong>id: </strong>{user.id}.</p>
-          <p><strong>Correo: </strong></p>
+          <label><strong>Correo: </strong></label>
           <input
             type='text'
             autoComplete='off'
@@ -60,24 +60,26 @@ export const EmployeeList = ({ users, token }) => {
             onChange={(e) => employeeEmailChange(e)}
             data-testid={user.id.toString()+'-emailSaved'}
           ></input>
-          <p><strong>Rol: </strong>{Object.keys(user.roles)[0]}</p>
-          <button
-            data-testid={user.id.toString()+'-delete'}
-            onClick={() => deleteUserPetition(user.id, token)}>
-            <i className='fa-regular fa-trash-can'></i>
-          </button>
-          <button
-            data-testid={user.id.toString()+'-edit'}
-            onClick={() => editemployeeEmail(user.id)}>
-            <i className='fa-solid fa-pencil'></i>
-          </button>
-          {showBtn && editingId===user.id
-            ? <button
-                data-testid={user.id.toString()+'-save'}
-                onClick={() => updateEmail(user.id, user.password, user.roles)}
-              >GUARDAR</button>
-            : ''
-          }
+          <label><strong>Rol: </strong>{Object.keys(user.roles)[0]}</label>
+          <div>
+            <button
+              data-testid={user.id.toString()+'-delete'}
+              onClick={() => deleteUserPetition(user.id, token)}>
+              <i className='fa-regular fa-trash-can'></i>
+            </button>
+            <button
+              data-testid={user.id.toString()+'-edit'}
+              onClick={() => editemployeeEmail(user.id)}>
+              <i className='fa-solid fa-pencil'></i>
+            </button>
+            {showBtn && editingId===user.id
+              ? <button
+                  data-testid={user.id.toString()+'-save'}
+                  onClick={() => updateEmail(user.id, user.password, user.roles)}
+                >GUARDAR</button>
+              : ''
+            }
+          </div>
       </section>
     );
   });
