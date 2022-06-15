@@ -35,12 +35,16 @@ export const Employees = () => {
       getUsers();
     }, 4000);
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <>
-      <AddEmployee token={activeSessionToken}/>
-      <EmployeeList users={users} token={activeSessionToken} />  
-    </>
+    <div className='admin-view-components'>
+        <AddEmployee token={activeSessionToken}/>
+        <h2>Lista de Colaboradores.</h2>
+      <div className='admin-view-components-list'>
+        <EmployeeList users={users} token={activeSessionToken} />  
+      </div>
+    </div>
   );
 };

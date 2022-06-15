@@ -10,6 +10,30 @@
     --textwhite: #fcf9f9;
     --textwhite2: #fcf9f9be;
 }
+/* Admin View */
+.admin-view {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--black);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+.admin-view-components {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.admin-view-components h2 {
+    padding-top: 25px;
+    padding-bottom: 3px;
+    text-decoration: underline var(--yellow1);
+    font-size: 1.5em;
+    color: var(--textwhite);
+}
 .employee-register {
     width: 90vw;
     display: flex;
@@ -21,11 +45,11 @@
     gap: 7px;
     margin-top: 10px;
     border: 1px solid var(--yellow1);
-    /* background-color:rgb(189, 25, 189); */
     font-size: 0.8rem;
 }
 .employee-register h3 {
     font-size: 1.2rem;
+    align-self: center;
     color: var(--yellow1);
     margin: 0;
     padding: 0;
@@ -70,7 +94,6 @@
     border-radius: 7px;
     position: relative;
     transition: all 0.25s ease;
-    /* overflow: auto; */
 }
 .employee-register-select:focus {
    width: min-content;
@@ -89,8 +112,20 @@
     background-color: var(--yellow2);
     color: var(--textblack);
 }
+.admin-view-components-list {
+    width: 95vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 10px;
+    gap: 7px;
+    margin-top: 10px;
+    border: 1px solid var(--yellow1);
+    font-size: 0.8rem;
+}
 .employee-list-general {
-    /* background-color: blue; */
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -100,7 +135,6 @@
     gap: 7px;
     padding: 5px;
     margin-top: 10px;
-    border: #fab300 groove 2px;
     -webkit-box-shadow: 0px -1px 7px 0px rgba(128,128,128,1);
     -moz-box-shadow: 0px -1px 7px 0px rgba(128,128,128,1);
     box-shadow: 0px -1px 7px 0px rgba(128,128,128,1);
@@ -137,30 +171,38 @@
 }
 
 
+@media only screen and (min-width: 768px) {
+    .admin-view-components {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50vw;
+        height: 60%;
+    }
+    .admin-view-components-list {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        padding-top: 25px;
+        width: 98vw;
+        height: 60%;
+        overflow: auto;
+    }
+    .employee-list-general {
+        margin-top: 5px;
+        margin-left: 20px;
+        min-width: 45vw;
+        max-width: 45vw;
+        border: none;
+    }
+    .employee-register {
+        min-width: 45vw;
+        max-width: 45vw;
+        margin-right: 20px;
+   
+    }
+
+}
 
 
 
-
-
-/* ===== Scrollbar CSS =====
-  /* Firefox */
-  /* * {
-    scrollbar-width: auto;
-    scrollbar-color: #d57a2f #ffffff;
-  }
-
-  /* Chrome, Edge, and Safari */
-  /* *::-webkit-scrollbar {
-    width: px;
-  } */
-
-  /* *::-webkit-scrollbar-track {
-    background: #ffffff;
-  } */
-
-  /* *::-webkit-scrollbar-thumb {
-    background-color: #d57a2f;
-    border-radius: 10px;
-    border: 3px outset #ffffff;
-  } 
-   */ 

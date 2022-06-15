@@ -76,7 +76,7 @@ export const EmployeeList = ({ users, token }) => {
               ? <button
                   data-testid={user.id.toString()+'-save'}
                   onClick={() => updateEmail(user.id, user.password, user.roles)}
-                >GUARDAR</button>
+                >Guardar</button>
               : ''
             }
           </div>
