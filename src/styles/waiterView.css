@@ -117,17 +117,26 @@
 .waiter-card img{
   width: 130px;
 }
-.waiter-card-body{
+/* .waiter-card-body{
   display: flex;
   align-items: baseline;
   justify-content: center;
   gap: 15px;
   min-width: 90%;
   max-width: 90%;
+} */
+.waiter-card-body td, tr{
+  color: white;
+  /* display: flex; */
+  align-items: baseline;
+  justify-content: center;
+  gap: 15px;
+  min-width: 90%;
+  max-width: 90%;
 }
-.waiter-card-body p{
+/* .waiter-card-body p{
   font-size: 15px;
-}
+} */
 .waiter-add-btn {
   border: none;
   padding: 3px;

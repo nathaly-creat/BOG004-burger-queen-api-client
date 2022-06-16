@@ -61,7 +61,7 @@ export const AddEmployee = ({ token }) => {
     };
   };
 
-  // se declara el estado de la orden
+  // se declara el estado de la creacion de usuario
   const [userSuccess, setUserSuccess] = useState('');
 
   // funcion para validar creación de usuario satisfactorio

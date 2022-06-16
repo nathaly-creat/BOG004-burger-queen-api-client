@@ -1,3 +1,4 @@
+import { Table } from "react-bootstrap";
 // IMPORTACION HOOKS Y OTROS
 import { useCart } from 'react-use-cart';
 
@@ -11,7 +12,7 @@ export const ProductsToBill = () => {
   const prodsToBill = items.map((product, index) => {
     return (
       <div key={index} className='waiter-order-products'>
-        <table className='table table-dark'>
+        < Table className='table table-dark' data-testid='orders-to-deliver' >
           <tbody>
             <tr>
               <td>
@@ -45,7 +46,7 @@ export const ProductsToBill = () => {
               </td>
             </tr>
           </tbody>
-        </table>
+        </Table>
       </div>
     );
   });
@@ -56,3 +57,4 @@ export const ProductsToBill = () => {
     </>
   );
 }
+
