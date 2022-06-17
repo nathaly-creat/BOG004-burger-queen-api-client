@@ -1,4 +1,3 @@
-// import { card } from "react-bootstrap";
 // COMPONENTE PARA MOSTRAR PEDIDOS PENDIENTES
 export const OrderLists = ({ orders }) => {
   // captura de ordenes con status pending
@@ -6,17 +5,19 @@ export const OrderLists = ({ orders }) => {
     let statusPending;
     if (order.status === "pending") {
       statusPending = (
-        <div className="waiter-card-body-orders" key={order.id.toString()}>
-          <p>{order.id}</p>
-          <p className="waiter-card-title">{order.client}</p>
-          <p>{order.dateEntry}</p>
-          {/* <div class="card">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{order.id}</li>
-              <li class="list-group-item">{order.client}</li>
-              <li class="list-group-item">{order.dateEntry}</li>
-            </ul>
-          </div> */}
+        <div className="card text-bg-dark mb-3 waiter-orders-pending-card">
+          <ul className="waiter-card-body-orders" key={order.id.toString()}>
+            <div className="card-header">
+              <li className="li-card-header">Orden: {order.id}</li>
+            </div>
+            <div className="card-body">
+              <li className="waiter-card-title" data-testid="prueba">
+                Cliente: {order.client}
+              </li>
+              <li>Hora de Pedido: {order.dateEntry}</li>
+              <li>Estatus: Pendiente</li>
+            </div>
+          </ul>
         </div>
       );
     }
@@ -26,8 +27,12 @@ export const OrderLists = ({ orders }) => {
   return (
     <>
       <section className="waiter-orders-pending">
-        <p>Pedidos en preparación</p>
-        <div>{pendingOrders}</div>
+        <div className="waiter-orders-pending-card">
+          {/* <div className="waiter-orders-pending-h2">
+            <h2>Pedidos pendientes</h2>
+          </div> */}
+          {pendingOrders}
+        </div>
       </section>
     </>
   );

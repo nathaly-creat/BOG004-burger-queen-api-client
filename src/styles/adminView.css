@@ -1,14 +1,14 @@
 :root {
-    --red1: #ff0202;
-    --orange1: #ff3f00;
-    --orange2: #ff7700;
-    --yellow1: #fab300;
-    --yellow2: #fff1a4;
-    --yellow3: #fff9d6;
-    --textblack: #0a0909;
-    --black: #0a0909;
-    --textwhite: #fcf9f9;
-    --textwhite2: #fcf9f9be;
+  --red1: #ff0202;
+  --orange1: #ff3f00;
+  --orange2: #ff7700;
+  --yellow1: #fab300;
+  --yellow2: #fff1a4;
+  --yellow3: #fff9d6;
+  --textblack: #0a0909;
+  --black: #0a0909;
+  --textwhite: #fcf9f9;
+  --textwhite2: #fcf9f9be;
 }
 /* Admin View */
 .admin-view {
@@ -22,187 +22,183 @@
   overflow-x: hidden;
 }
 .admin-view-components {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.admin-view-components h2 {
+  padding-top: 25px;
+  padding-bottom: 3px;
+  text-decoration: underline var(--yellow1);
+  font-size: 1.5em;
+  color: var(--textwhite);
+  position: static;
+  inline-size: 1.5;
+}
+.employee-register {
+  width: 90vw;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  padding: 6px;
+  gap: 7px;
+  margin-top: 10px;
+  border: 1px solid var(--yellow1);
+  font-size: 0.8rem;
+}
+.employee-register h3 {
+  font-size: 1.2rem;
+  align-self: center;
+  color: var(--yellow1);
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+}
+.employee-register input {
+  font-size: 0.9rem;
+  height: 35px;
+  background-color: var(--yellow3);
+  color: var(--textblack);
+  margin: 0;
+  padding: 0;
+  border: 1px outset var(--yellow1);
+  border-radius: 5px;
+}
+.employee-register input:focus {
+  background-color: var(--yellow2);
+  outline-style: groove;
+}
+.employee-register label {
+  font-size: 1.1rem;
+  color: var(--yellow3);
+  margin: 0;
+  padding: 0;
+}
+.employee-register-select {
+  display: inline-block;
+  width: 45%;
+  cursor: pointer;
+  padding: 7px 10px;
+  height: 37px;
+  outline: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: var(--yellow3);
+  color: var(--textblack);
+  font-size: 1.4em;
+  font-family: 'Quicksand', sans-serif;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
+  position: relative;
+  transition: all 0.25s ease;
+}
+.employee-register-select:focus {
+  width: min-content;
+  background-color: var(--yellow3);
+}
+.employee-register button {
+  font-size: 1rem;
+  width: 20;
+  font-weight: bold;
+  background-color: var(--yellow1);
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: var(--textblack);
+}
+.employee-register button:hover {
+  background-color: var(--yellow2);
+  color: var(--textblack);
+}
+.admin-view-components-list {
+  width: 95vw;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  padding: 10px;
+  gap: 7px;
+  margin-top: 10px;
+  border: 1px solid var(--yellow1);
+  font-size: 0.8rem;
+}
+.employee-list-general {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  width: 90vw;
+  gap: 7px;
+  padding: 5px;
+  margin-top: 10px;
+  -webkit-box-shadow: 0px -1px 7px 0px rgba(128, 128, 128, 1);
+  -moz-box-shadow: 0px -1px 7px 0px rgba(128, 128, 128, 1);
+  box-shadow: 0px -1px 7px 0px rgba(128, 128, 128, 1);
+}
+.employee-list-general p,
+label {
+  font-size: 1.2rem;
+  color: var(--yellow2);
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+}
+.employee-list-general input {
+  font-size: 0.9rem;
+  height: 35px;
+  background-color: var(--yellow3);
+  color: var(--textblack);
+  margin: 0;
+  padding: 0;
+  border: 1px outset var(--yellow1);
+  border-radius: 5px;
+}
+.employee-list-general input:focus {
+  background-color: var(--yellow2);
+  outline-style: groove;
+}
+.employee-list-general button {
+  font-size: 1.1rem;
+  background-color: var(--orange2);
+  color: var(--black);
+  width: 45px;
+  height: 35px;
+  margin: 0;
+  padding: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .admin-view-components {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.admin-view-components h2 {
+    width: 50vw;
+    height: 60%;
+  }
+  .admin-view-components-list {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
     padding-top: 25px;
-    padding-bottom: 3px;
-    text-decoration: underline var(--yellow1);
-    font-size: 1.5em;
-    color: var(--textwhite);
-}
-.employee-register {
-    width: 90vw;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    padding: 6px;
-    gap: 7px;
-    margin-top: 10px;
-    border: 1px solid var(--yellow1);
-    font-size: 0.8rem;
-}
-.employee-register h3 {
-    font-size: 1.2rem;
-    align-self: center;
-    color: var(--yellow1);
-    margin: 0;
-    padding: 0;
-    margin-bottom: 10px;
-    
-}
-.employee-register input {
-    font-size: 0.9rem;
-    height: 35px;
-    background-color: var(--yellow3);
-    color: var(--textblack);
-    margin: 0;
-    padding: 0;
-    border: 1px outset var(--yellow1);
-    border-radius: 5px;
-}
-.employee-register input:focus {
-    background-color: var(--yellow2);
-    outline-style: groove;
-}
-.employee-register label {
-    font-size: 1.1rem;
-    color: var(--yellow3);
-    margin: 0;
-    padding: 0;
-}
-.employee-register-select {
-    display: inline-block;
-    width: 45%;
-	cursor: pointer;
-  	padding: 7px 10px;
-  	height: 37px;
-  	outline: 0; 
-  	border: 0;
-	border-radius: 0;
-    background-color: var(--yellow3);
-	color: var(--textblack);
-	font-size: 1.4em;
-	font-family: 
-	'Quicksand', sans-serif;
-	border:2px solid rgba(0,0,0,0.2);
-    border-radius: 7px;
-    position: relative;
-    transition: all 0.25s ease;
-}
-.employee-register-select:focus {
-   width: min-content;
-   background-color: var(--yellow3);
-}
-.employee-register button {
-    font-size: 1rem;
-    width: 20;
-    font-weight: bold;
-    background-color: var(--yellow1);
+    width: 98vw;
+    height: 60%;
+    overflow: auto;
+  }
+  .employee-list-general {
     margin-top: 5px;
-    margin-bottom: 10px;
-    color: var(--textblack);
+    margin-left: 20px;
+    min-width: 45vw;
+    max-width: 45vw;
+    border: none;
+  }
+  .employee-register {
+    padding: 15px;
+    min-width: 45vw;
+    max-width: 45vw;
+    margin-right: 20px;
+  }
 }
-.employee-register button:hover {
-    background-color: var(--yellow2);
-    color: var(--textblack);
-}
-.admin-view-components-list {
-    width: 95vw;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    padding: 10px;
-    gap: 7px;
-    margin-top: 10px;
-    border: 1px solid var(--yellow1);
-    font-size: 0.8rem;
-}
-.employee-list-general {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    width: 90vw;
-    gap: 7px;
-    padding: 5px;
-    margin-top: 10px;
-    -webkit-box-shadow: 0px -1px 7px 0px rgba(128,128,128,1);
-    -moz-box-shadow: 0px -1px 7px 0px rgba(128,128,128,1);
-    box-shadow: 0px -1px 7px 0px rgba(128,128,128,1);
-}
-.employee-list-general p, label {
-    font-size: 1.2rem;
-    color: var(--yellow2);
-    margin: 0;
-    padding: 0;
-    margin-bottom: 10px;
-}
-.employee-list-general input {
-    font-size: 0.9rem;
-    height: 35px;
-    background-color: var(--yellow3);
-    color: var(--textblack);
-    margin: 0;
-    padding: 0;
-    border: 1px outset var(--yellow1);
-    border-radius: 5px;
-}
-.employee-list-general input:focus {
-    background-color: var(--yellow2);
-    outline-style: groove;
-}
-.employee-list-general button{
-    font-size: 1.1rem;
-    background-color: var(--orange2);
-    color: var(--black);
-    width: 45px;
-    height: 35px;
-    margin: 0;
-    padding: 0;
-}
-
-
-@media only screen and (min-width: 768px) {
-    .admin-view-components {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 50vw;
-        height: 60%;
-    }
-    .admin-view-components-list {
-        display: grid;
-        grid-template-columns: 2fr 2fr;
-        padding-top: 25px;
-        width: 98vw;
-        height: 60%;
-        overflow: auto;
-    }
-    .employee-list-general {
-        margin-top: 5px;
-        margin-left: 20px;
-        min-width: 45vw;
-        max-width: 45vw;
-        border: none;
-    }
-    .employee-register {
-        padding: 15px;
-        min-width: 45vw;
-        max-width: 45vw;
-        margin-right: 20px;
-    }
-
-}
-
-
-

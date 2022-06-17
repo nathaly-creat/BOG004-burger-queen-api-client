@@ -97,6 +97,6 @@ test('print of orders pending in Orders component', async () => {
     </Router>
   );
 
-  const clientOrder = await screen.findByText('Juanes');
-  expect(clientOrder.textContent).toEqual('Juanes');
+  const clientOrder = await screen.findByTestId('prueba');
+  expect(clientOrder.textContent).toEqual('Cliente: Juanes');
 });
