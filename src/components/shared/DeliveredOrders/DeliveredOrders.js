@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { totalOrdersPetition } from '../../../api/petitionsFetch.js';
 import { DeliveredList } from './DeliveredList.js';
+import { Table, Col} from 'react-bootstrap';
 
 // COMPONENTE COMPARTIDO DE ORDENES ENTREGADAS
 export const DeliveredOrders = () => {
@@ -39,8 +40,8 @@ export const DeliveredOrders = () => {
 
   return (
     <>
-      <div className='waiter-kitchen-selected-component'>
-        <table className='table table-dark'>
+      <Col lg={11} className='waiter-kitchen-selected-component'>
+        <Table dark= "true" className='waiter-kitchen-selected-component-table' responsive="sm">
           <thead className='thead-dark'>
             <tr>
               <th scope='col'>Id</th>
@@ -52,8 +53,8 @@ export const DeliveredOrders = () => {
             </tr>
           </thead>
           <DeliveredList orders={ordersDelivered} />
-        </table>
-      </div>
+        </Table>
+      </Col>
     </>
   );
 };

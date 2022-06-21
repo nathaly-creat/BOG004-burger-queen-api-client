@@ -203,3 +203,21 @@ export const deleteUserPetition = (userId, token) => {
     return response.json();
   });
 };
+
+// FUNCION DE PETICION PARA CREAR PRODUCTOS
+export const createProductPetition = (token, productObj) => {
+  let Url = UrlBase + 'products';
+  return fetch(Url, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
+    },
+    body: JSON.stringify(productObj),
+  }).then((response) => {
+    if (!response.ok) {
+      throw Error('Error al crear producto');
+    }
+    return response.json();
+  });
+};

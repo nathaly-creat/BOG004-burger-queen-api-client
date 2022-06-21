@@ -20,12 +20,12 @@
   background-repeat: no-repeat;
   overflow-x: hidden;
 }
-.general-nav{
+.general-nav {
   background-color: var(--black);
 }
 .general-nav-img {
-  width:120px;
-  height:50px;
+  width: 120px;
+  height: 50px;
 }
 .general-nav-toggle {
   width: 20%;
@@ -34,7 +34,7 @@
   align-items: center;
   background-color: var(--orange2);
 }
-.general-nav-dir{
+.general-nav-dir {
   width: 100%;
   height: 100%;
   gap: 8%;
@@ -63,7 +63,7 @@
   border: none;
   background-color: transparent;
 }
-.general-selected-component{
+.general-selected-component {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,7 +78,7 @@
 .accordion-button {
   min-width: 90vw;
   max-width: 90vw;
-  font-family:'verdana', sans-serif;
+  font-family: 'verdana', sans-serif;
   font-weight: bold;
   color: var(--black);
   background-color: var(--orange2);
@@ -88,7 +88,7 @@
   max-width: 90vw;
   box-shadow: 0px 0px 6px 0px var(--yellow1);
 }
-.accordion-button:not(.collapsed){
+.accordion-button:not(.collapsed) {
   color: var(--black);
   background-color: var(--yellow2);
 }
@@ -114,26 +114,36 @@
   gap: 5px;
   color: var(--textwhite);
 }
-.waiter-card img{
+.waiter-card img {
   width: 130px;
 }
-.waiter-card-body{
+/* .waiter-card-body{
   display: flex;
   align-items: baseline;
   justify-content: center;
   gap: 15px;
   min-width: 90%;
   max-width: 90%;
+} */
+.waiter-card-body td,
+tr {
+  color: white;
+  /* display: flex; */
+  align-items: baseline;
+  justify-content: center;
+  gap: 15px;
+  min-width: 90%;
+  max-width: 90%;
 }
-.waiter-card-body p{
+/* .waiter-card-body p{
   font-size: 15px;
-}
+} */
 .waiter-add-btn {
   border: none;
   padding: 3px;
   border-radius: 15px;
   background-color: var(--yellow2);
-  color:  var(--black);
+  color: var(--black);
 }
 
 /*INICIO seccion pedidos a facturar*/
@@ -157,7 +167,6 @@
   margin-bottom: 20px;
   padding: 5px;
   border-radius: 10px;
-  
 }
 .waiter-order-products {
   height: 100px;
@@ -181,14 +190,71 @@
 /*FIN seccion pedidos a facturar*/
 
 /*INICIO seccion pedidos Pending*/
-.waiter-orders-pending, .waiter-orders-to-serve {
+.waiter-orders-pending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: var(--black);
-  border: 1px solid var(--orange2);
+  box-shadow: var(--orange2) 0px 0px 10px;
   margin-left: 10px;
-  text-align: center;
-  color: var(--yellow1);
+  text-align: justify;
+  color: var(--textwhite2);
   padding: 25px;
+  padding-top: 540%;
+  margin-top: 40px;
   width: 90vw;
+  height: 90vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.waiter-orders-pending-h2 {
+  padding-top: 10px;
+  padding-bottom: 3px;
+  text-decoration: underline var(--yellow1);
+  font-size: 1.5em;
+  color: var(--textwhite);
+  position: static;
+  inline-size: 1.5;
+}
+.waiter-orders-pending-card {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  margin-top: 30px;
+  padding-top: 10px;
+  width: 75vw;
+}
+.waiter-orders-to-serve {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--black);
+  /* border: 1px solid var(--orange2); */
+  margin-top: 50px;
+  margin-left: 10px;
+  text-align: justify;
+  color: var(--textwhite2);
+  width: 100%;
+  /* padding: 25px;
+  height: 90vh; */
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.waiter-orders-to-serve h2 {
+  padding-top: 25px;
+  padding-bottom: 3px;
+  text-decoration: underline var(--yellow1);
+  font-size: 1.2em;
+  color: var(--textwhite);
+  position: static;
+  inline-size: 1.5;
+}
+.waiter-orders-to-serve-table tr, th, td {
+  font-size: 1rem;
+  justify-content: baseline;
+  vertical-align: middle;
 }
 .waiter-orders-to-serve .btn {
   background-color: var(--yellow2);
@@ -198,8 +264,6 @@
   font-size: 1em;
   border-radius: 10px;
 }
-/*FIN de la seccion pedidos pending*/
-
 .waiter-orders-total {
   background-color: var(--black);
   border: 1px outset var(--orange2);
@@ -208,38 +272,71 @@
   font-size: 1.1em;
   color: var(--textwhite);
   padding: 10px;
-  width: 10%; 
+  width: 10%;
 }
+.card {
+  background-color: #0a0909;
+}
+.card-header {
+  background-color: var(--orange2);
+  width: 70vw;
+}
+/*FIN de la seccion pedidos pending*/
 .waiter-card-body-orders {
-  background-color: var(--black);
-  display: flex;
+  /* background-color: #fff1a468; */
+  color: var(--textwhite);
+  font-size: 1.1em;
+  display: block;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
   border: none;
+  list-style: none;
+}
+.waiter-kitchen-selected-component{
+  background-color: var(--black);
+  margin-left: 10px;
+  text-align: justify;
+  color: var(--textwhite2);
+  width: 90vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.thead-dark {
+  background-color: var(--orange2);
+  color: var(--textwhite);
+  align-items: baseline;  
+}
+.thead-dark th, td {
+  font-size: 0.6rem;
+  vertical-align: middle;
 }
 
 @media only screen and (min-width: 768px) {
   .general-nav {
     height: 10vh;
     margin-top: 15px;
+    font-size: 2rem;
+   
     /* display: flex;
     justify-content: space-between; */
   }
   .general-nav-img {
-    width:150px;
-    height:70px;
+    width: 150px;
+    height: 70px;
   }
   .general-nav-dir {
     display: flex;
     justify-content: flex-end;
   }
   .general-nav-dir a {
+    color: var(--textwhite);
     padding: 20px;
     justify-content: center;
     gap: 10px;
+    font-size: 1.25em;
   }
-  .general-selected-component{
+  .general-selected-component {
     margin-top: 40px;
     flex-direction: row;
     align-items: flex-start;
@@ -249,17 +346,11 @@
     align-items: flex-start;
     min-width: 45vw;
     max-width: 45vw;
-  } 
+  }
   .waiter-card {
     flex-direction: row;
     gap: 30px;
     padding: 15px;
-  }
-  .waiter-card-body{
-    flex-direction: column;
-    gap: 3px;
-    min-width: 35%;
-    max-width: 35%;
   }
   .waiter-accordion {
     max-width: 45vw;
@@ -271,7 +362,7 @@
   }
   .accordion-button:focus {
     min-width: 45vw;
-    max-width: 45vw; 
+    max-width: 45vw;
   }
   .waiter-order-container {
     margin-top: 5px;
@@ -282,16 +373,119 @@
   .waiter-order-products {
     width: 80%;
   }
-  .waiter-orders-pending {
-    min-width: 45vw;
-    max-width: 45vw;
+  .waiter-orders-pending  {
+    /* background-color: blue; */
+    padding-top: 87%;
+    max-height: 90vh;
+  }
+  .waiter-orders-pending-card {
+    /* background-color: purple; */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    min-width: 100%;
+    max-width: 20vw;
+  }
+  .waiter-card-body-orders {
+    /* background-color: #ff00e6; */
+    width: 110%;
+    margin-left: 8px
+  }
+  .card-header {
+    background-color: var(--yellow2);
+    color: var(--textblack);
+    min-width: 70%;
+    max-width: 18vw;
+  }
+  .li-card-header {
+    background-color: var(--orange2);
+    align-self: center;
+    min-width: 120%;
+    font-size: 1.3em;
+    margin: 0 auto;
+    border-radius: 10px 10px 0 10px;
   }
   .waiter-orders-to-serve {
-    min-width: 45vw;
-    max-width: 45vw;
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    margin-top: 10px;
+    padding-left: 10px;
+    width: 80vw;
+    height: 50%;
+  }
+  .waiter-orders-to-serve h2 {
+    /* background-color: greenyellow; */
+    padding-top: 25px;
+    padding-bottom: 10px;
+    text-decoration: underline var(--yellow1);
+    font-size: 1.2em;
+    color: var(--textwhite);
+    position: static;
+  }
+  .waiter-orders-to-serve .btn {
+    background-color: var(--yellow2);
+    color: var(--textblack);
+    border: none;
+    width: 80px;
+    height: 60px;
+    padding: 3px;
+    font-size: 1em;
+    border-radius: 6px;
   }
   .waiter-orders-total {
     min-width: 45vw;
     max-width: 45vw;
+  }
+  .waiter-kitchen-selected-component {
+    width: 90vw;
+    height: 90vh;
+  }
+  .thead-dark {
+    background-color: var(--orange2);
+    color: var(--textwhite);
+    align-items: baseline;
+    /* gap: 10px; */
+  }
+  .thead-dark th, td {
+    font-size: 1rem;
+    vertical-align: middle;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 115px;
+  }
+  ::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(145, 145, 124);
+    border: 10px none #ffffff;
+    border-radius: 50px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background:var(--red1)
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background: rgba(0,0,15,1);
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--black);
+    border: 0px outset var(--orange1);
+    border-radius: 50px;
+  }
+  ::-webkit-scrollbar-track:hover {
+    background: var(--black)
+  }
+  ::-webkit-scrollbar-track:active {
+    background: var(--orange1)
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
   }
 }

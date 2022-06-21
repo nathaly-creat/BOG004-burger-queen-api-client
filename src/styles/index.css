@@ -5,3 +5,26 @@
   padding: 0;
   font-size: 1rem;
 }
+
+/* ===== Scrollbar CSS =====
+  Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #d57a2f black;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: rgb(95, 94, 94)
+  }
+
+ *::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 7px;
+    border: 1px solid #d57a2f ;
+ } 
+   

@@ -28,6 +28,66 @@
   background-color: var(--black);
   color: var(--textwhite);
 } */
-.kitchen-orders{
-  background-color:  var(--black);
+.cocina {
+  /* background-color: blue; */
+  /* border: 1px red solid; */
+  margin-top: 25px;
+  width: 90vw;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: #fab30079 0px 0px 10px;
+}
+.kitchen-orders .card-body {
+  /* background-color: var(--black); */
+  /* background-color: purple; */
+  color: var(--textwhite);
+  margin-top: 10px;
+  border-radius: 5px 10px 5px 5px;
+  box-shadow: var(--yellow3) 0px 0px 7px;
+}
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--textwhite);
+  border: #fab300 1px outset;
+  background-color: green;
+  border-radius: 8px;
+  align-self: center;
+}
+.kitchen-orders .btn {
+  background-color: var(--yellow2);
+  color: var(--textblack);
+  border: none;
+  width: 50vw;
+}
+@media only screen and (min-width: 768px) {
+  .general-nav {
+    height: 10vh;
+    margin-top: 15px;
+    font-size: 2rem;
+   
+    /* display: flex;
+    justify-content: space-between; */
+  }
+  .cocina {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .card-body {
+    word-wrap: break-word;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .card-body li {
+    word-wrap: break-word;
+    /* overflow-y: scroll; */
+    overflow-x: hidden;
+  }
+  .kitchen-orders .btn {
+    width: 15vw;
+  }
 }

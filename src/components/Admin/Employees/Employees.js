@@ -39,9 +39,12 @@ export const Employees = () => {
   }, []);
 
   return (
-    <>
-      <AddEmployee token={activeSessionToken}/>
-      <EmployeeList users={users} token={activeSessionToken} />
-    </>
+    <div className='admin-view-components'>
+        <AddEmployee token={activeSessionToken}/>
+        <h2>Lista de Colaboradores.</h2>
+      <div className='admin-view-components-list'>
+        <EmployeeList users={users} token={activeSessionToken} />  
+      </div>
+    </div>
   );
 };
