@@ -77,8 +77,14 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
-  .card-body li {
+  .card-body {
+    word-wrap: break-word;
     overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .card-body li {
+    word-wrap: break-word;
+    /* overflow-y: scroll; */
     overflow-x: hidden;
   }
   .kitchen-orders .btn {

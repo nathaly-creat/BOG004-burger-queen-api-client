@@ -8,48 +8,48 @@ export const OrderToServer = ({ orders, token }) => {
   return (
     <>
       <h2 data-testid="orders-to-deliver">Pedidos listos para entregar</h2>
-    <Col lg={11}>
-      <Table dark="true" key={orders}>
-        <thead>
-          <tr>
-            <th>id</th>
-            <th>Cliente</th>
-            <th>Hora Pedido</th>
-            <th>Estatus</th>
-          </tr>
-        </thead>
-        {orders.map((order) => {
-          let statusDelivering = order.status === "delivering";
-          if (statusDelivering) {
-            return (
-              <tbody>
-                <tr key={order.id.toString()} data-testid="order-to-delivered">
-                  <th scope="row">{order.id}</th>
-                  <td>{order.client}</td>
-                  <td>{order.dateEntry}</td>
-                  <td>
-                    <button
-                      className="btn btn-warning"
-                      onClick={() =>
-                        statusDeliveredPetition(
-                          order.id,
-                          token,
-                          new Date().toLocaleString("sv")
+      <Col lg={11}>
+        <Table dark="true" key={orders}>
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Cliente</th>
+              <th>Hora Pedido</th>
+              <th>Estatus</th>
+            </tr>
+          </thead>
+          {orders.map((order) => {
+            let statusDelivering = order.status === "delivering";
+            if (statusDelivering) {
+              return (
+                <tbody key={order.id.toString()}>
+                  <tr data-testid="order-to-delivered">
+                    <th scope="row">{order.id}</th>
+                    <td>{order.client}</td>
+                    <td>{order.dateEntry}</td>
+                    <td>
+                      <button
+                        className="btn btn-warning"
+                        onClick={() =>
+                          statusDeliveredPetition(
+                            order.id,
+                            token,
+                            new Date().toLocaleString("sv")
                           )
                         }
-                        >
-                      Entregar pedido
-                    </button>
-                  </td>
-                </tr>
-            </tbody>
-            );
-          } else {
-            return null;
-          }
-        })}
-      </Table>
-    </Col>
+                      >
+                        Entregar pedido
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              );
+            } else {
+              return null;
+            }
+          })}
+        </Table>
+      </Col>
     </>
   );
 };
