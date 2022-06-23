@@ -3,25 +3,32 @@
   --orange1: #ff3f00;
   --orange2: #ff7700;
   --yellow1: #fab300;
+  --salmon: #eb7c68;
+  --light-salmon: #55363c;
   --yellow2: #fff1a4;
   --yellow3: #fff9d6;
   --textblack: #0a0909;
   --black: #0a0909;
+  --bg: #262837;
+  --bg2: #1f1d2c; 
   --textwhite: #fcf9f9;
   --textwhite2: #fcf9f9be;
 }
 .waiter-view {
   width: 100vw;
   height: 100vh;
-  background-color: var(--black);
+  background-color: var(--bg);
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   overflow-x: hidden;
 }
+
+/*INICIO navbar*/
 .general-nav {
-  background-color: var(--black);
+  background-color: var(--bg2);
+  padding: 8px 8px 0 8px;
 }
 .general-nav-img {
   width: 120px;
@@ -32,45 +39,47 @@
   height: 25%;
   border: none;
   align-items: center;
-  background-color: var(--orange2);
+  background-color: var(--salmon);
 }
 .general-nav-dir {
   width: 100%;
   height: 100%;
-  gap: 8%;
+  align-items: flex-end;
 }
 .general-nav-dir a {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
-  color: var(--yellow1);
+  color:  var(--textwhite);
   text-decoration: none;
-  padding: 6px;
-  font-size: 1em;
+  padding: 4px;
 }
 .general-nav-dir a:hover {
-  color: var(--textwhite);
+  color: var(--salmon);
+}
+.general-nav-dir a:active:before{
+  color: var(--salmon);
 }
 .general-nav-dir .fa-right-from-bracket {
-  color: var(--orange2);
-  text-decoration: none;
-  padding: 10px;
-  font-size: 1.4em;
+  padding: 8px;
   float: left;
+  font-size: 1.4em;
+  text-decoration: none;
+  color: var(--salmon);
 }
 .logout-btn {
   border: none;
   background-color: transparent;
 }
+/*FIN navbar*/
+
 .general-selected-component {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--black);
+  background-color: var(--bg);
   color: var(--textwhite);
 }
+
+/*INICIO seccion productos disponibles*/
 .waiter-accordion {
   margin-top: 8px;
   max-width: 90vw;
@@ -80,17 +89,17 @@
   max-width: 90vw;
   font-family: 'verdana', sans-serif;
   font-weight: bold;
-  color: var(--black);
-  background-color: var(--orange2);
+  color: var(--textwhite);
+  background-color: var(--salmon);
 }
 .accordion-button:focus {
   min-width: 90vw;
   max-width: 90vw;
-  box-shadow: 0px 0px 6px 0px var(--yellow1);
+  box-shadow: 0px 0px 6px 0px  var(--textwhite);
 }
 .accordion-button:not(.collapsed) {
-  color: var(--black);
-  background-color: var(--yellow2);
+  color: var(--textwhite);
+  background-color: var(--light-salmon);
 }
 .waiter-accordion-body {
   min-width: 90vw;
@@ -99,7 +108,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--black);
+  background-color: var(--bg2);
 }
 .waiter-acordion-product {
   display: flex;
@@ -125,8 +134,7 @@
   min-width: 90%;
   max-width: 90%;
 } */
-.waiter-card-body td,
-tr {
+.waiter-card-body td tr {
   color: white;
   /* display: flex; */
   align-items: baseline;
@@ -135,57 +143,66 @@ tr {
   min-width: 90%;
   max-width: 90%;
 }
-/* .waiter-card-body p{
-  font-size: 15px;
-} */
 .waiter-add-btn {
   border: none;
   padding: 3px;
   border-radius: 15px;
-  background-color: var(--yellow2);
-  color: var(--black);
+  background-color: var(--salmon);
+  color: var(--textwhite);
 }
+/*FIN seccion productos disponibles*/
 
 /*INICIO seccion pedidos a facturar*/
 .waiter-order-container {
-  margin-top: 20px;
-  width: 90vw;
-  min-height: 60vh;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 90vw;
+  min-height: 80vh;
+  margin-top: 15px;
+  padding: 5px;
+  gap: 10px;
   border-radius: 10px;
-  border: 1px solid var(--orange2);
-  background-color: transparent;
+  border: 1px solid var(--salmon);
+  background-color: var(--bg2);
 }
 .waiter-order-container p {
   font-size: 1.5em;
-  color: var(--yellow1);
+  color: var(--salmon);
+  margin: 0;
 }
 .waiter-order-container-input {
-  margin-bottom: 20px;
-  padding: 5px;
   border-radius: 10px;
 }
 .waiter-order-products {
-  height: 100px;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  min-width: 90%;
 }
+.waiter-order-products tbody{
+  min-width: 100%;
+  gap: 20px;
+}
+/* .waiter-order-products td{
+  padding: 5px;
+} */
 .waiter-order-products-text {
   font-size: 9px;
 }
-.btn-info {
-  border: none;
-  background-color: var(--yellow2);
-}
 .waiter-order-products-btns-qty {
   display: flex;
-  height: 81px;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #ffffff; */
+  height: 63px;
 }
 .waiter-order-products button {
   width: 20px;
   height: 20px;
+}
+.btn-order-request{
+  background-color: var(--salmon);
+  color: white;
 }
 /*FIN seccion pedidos a facturar*/
 
@@ -194,19 +211,19 @@ tr {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: var(--black);
-  box-shadow: var(--orange2) 0px 0px 10px;
+  /* justify-content: center; */
+  /* background-color: var(--black); */
+  /* box-shadow: var(--orange2) 0px 0px 10px; */
   margin-left: 10px;
   text-align: justify;
   color: var(--textwhite2);
-  padding: 25px;
-  padding-top: 540%;
-  margin-top: 40px;
+  padding: 15px;
+  /* padding-top: 200px; */
+  /* margin-top: 40px; */
   width: 90vw;
-  height: 90vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  /* height: 90vh; */
+  /* overflow-y: scroll; */
+  /* overflow-x: hidden; */
 }
 .waiter-orders-pending-h2 {
   padding-top: 10px;
@@ -214,17 +231,17 @@ tr {
   text-decoration: underline var(--yellow1);
   font-size: 1.5em;
   color: var(--textwhite);
-  position: static;
+  /* position: static; */
   inline-size: 1.5;
 }
-.waiter-orders-pending-card {
+/* .waiter-orders-pending-card {
   display: flex;
   justify-content: left;
   flex-direction: column;
-  margin-top: 30px;
-  padding-top: 10px;
+  margin-top: 15px;
+  padding-top: 8px;
   width: 75vw;
-}
+} */
 .waiter-orders-to-serve {
   display: flex;
   flex-direction: column;
@@ -239,7 +256,7 @@ tr {
   width: 100%;
   /* padding: 25px;
   height: 90vh; */
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   overflow-x: hidden;
 }
 .waiter-orders-to-serve h2 {
@@ -282,15 +299,16 @@ tr {
   width: 70vw;
 }
 /*FIN de la seccion pedidos pending*/
+
 .waiter-card-body-orders {
   /* background-color: #fff1a468; */
   color: var(--textwhite);
   font-size: 1.1em;
-  display: block;
+  /* display: block; */
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  border: none;
+  /* padding: 10px; */
+  /* border: none; */
   list-style: none;
 }
 .waiter-kitchen-selected-component{
@@ -314,27 +332,27 @@ tr {
 
 @media only screen and (min-width: 768px) {
   .general-nav {
-    height: 10vh;
-    margin-top: 15px;
-    font-size: 2rem;
-   
-    /* display: flex;
-    justify-content: space-between; */
+    display: flex;
+    justify-content: space-evenly;
+    height: 11vh;
+    padding: 0 50px 0 50px;
+  }
+  .general-nav-container{
+    height: 11vh;
   }
   .general-nav-img {
     width: 150px;
-    height: 70px;
+    height: 55px;
   }
   .general-nav-dir {
-    display: flex;
-    justify-content: flex-end;
+    justify-content: space-evenly;
+    height: 11vh;
+    align-items: center;
   }
   .general-nav-dir a {
-    color: var(--textwhite);
-    padding: 20px;
-    justify-content: center;
-    gap: 10px;
-    font-size: 1.25em;
+    display: flex;
+    align-items: center;
+    height: 11vh;
   }
   .general-selected-component {
     margin-top: 40px;
@@ -375,17 +393,22 @@ tr {
   }
   .waiter-orders-pending  {
     /* background-color: blue; */
-    padding-top: 87%;
+    /* padding-top: 87%; */
     max-height: 90vh;
+    max-width: 45vw;
+    overflow-y: scroll;
   }
   .waiter-orders-pending-card {
+    max-width: 80%;
     /* background-color: purple; */
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px;
-    min-width: 100%;
-    max-width: 20vw;
+    /* margin: 0 auto;
+    display: grid; */
+    /* grid-template-columns: 1fr 1fr; */
+    /* gap: 5px; */
+    /* max-width: 50%;
+    max-width: 100%; */
+    /* min-width: 100%;
+    max-width: 20vw; */
   }
   .waiter-card-body-orders {
     /* background-color: #ff00e6; */

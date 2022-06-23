@@ -5,11 +5,7 @@ export const OrderLists = ({ orders }) => {
     let statusPending;
     if (order.status === "pending") {
       statusPending = (
-        <div
-          className="card text-bg-dark mb-3 waiter-orders-pending-card"
-          key={order.id.toString()}
-        >
-          <ul className="waiter-card-body-orders">
+          <ul className="waiter-card-body-orders" key={order.id.toString()}>
             <div className="card-header">
               <li className="li-card-header">Orden: {order.id}</li>
             </div>
@@ -21,7 +17,6 @@ export const OrderLists = ({ orders }) => {
               <li>Estatus: Pendiente</li>
             </div>
           </ul>
-        </div>
       );
     }
     return statusPending;

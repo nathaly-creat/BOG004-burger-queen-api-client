@@ -41,7 +41,7 @@ export const Employees = () => {
   return (
     <div className='admin-view-components'>
         <AddEmployee token={activeSessionToken}/>
-        <h2>Lista de Colaboradores.</h2>
+        <h2>Lista de Colaboradores</h2>
       <div className='admin-view-components-list'>
         <EmployeeList users={users} token={activeSessionToken} />  
       </div>

@@ -112,16 +112,16 @@ export const OrderContainer = ({ activeSession }) => {
           className='waiter-order-container-input'
         ></input>
         <span>{inputNameError}</span>
-        <ProductsToBill />
+        <ProductsToBill/>
         <h2>Total: $ {cartTotal}</h2>
         <div>
           <button
-            className='btn btn-dark m-2'
+            className='btn btn-secondary m-2'
             onClick={() => emptyCart()}
           >Cancelar</button>
           <button
             type='button'
-            className='btn btn-warning m-2'
+            className='btn btn-order-request m-2'
             id='btn-order'
             onClick={() => nameValidation()}
           >Ordenar</button>
