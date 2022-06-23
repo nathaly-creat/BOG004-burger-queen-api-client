@@ -100,7 +100,7 @@ export const OrderContainer = ({ activeSession }) => {
   return (
     <>
       <div className='waiter-order-container'>
-        <p>Resumen del pedido</p>
+        <h3>Resumen del pedido</h3>
         <input
           id='customerName'
           type='text'

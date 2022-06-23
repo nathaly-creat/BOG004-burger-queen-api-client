@@ -36,8 +36,9 @@
   padding: 8px 8px 0 8px;
 }
 .general-nav-img {
-  width: 120px;
-  height: 50px;
+  padding: 10px;
+  width: 100px;
+  height: 100px;
 }
 .general-nav-toggle {
   width: 20%;
@@ -92,9 +93,9 @@
 .accordion-button {
   min-width: 90vw;
   max-width: 90vw;
-  font-family: 'verdana', sans-serif;
+  font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
   font-weight: bold;
-  color: var(--textwhite);
+  color: var(--bg2);
   background-color: var(--salmon);
 }
 .accordion-button:focus {
@@ -107,12 +108,12 @@
   background-color: var(--light-salmon);
 }
 .waiter-accordion-body {
-  min-width: 90vw;
-  max-width: 90vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-width: 90vw;
+  max-width: 90vw;
   background-color: var(--bg2);
 }
 .waiter-acordion-product {
@@ -123,37 +124,25 @@
 .waiter-card {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 6px;
+  justify-content: space-between;
+  align-items: baseline;
+  width:100%;
+  min-width: 85vw;
   color: var(--textwhite);
 }
 .waiter-card img {
-  width: 80px;
+  width: 5rem;
 }
-.waiter-card-body{
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 15px;
-  /* min-width: 90%; */
-  /* max-width: 90%; */
-}
-.waiter-card-body td tr {
-  color: white;
-  /* display: flex; */
-  align-items: baseline;
-  justify-content: center;
-  gap: 15px;
-  min-width: 90%;
-  max-width: 90%;
+.waiter-card p {
+  font-size: 1rem;
 }
 .waiter-add-btn {
-  border: none;
-  padding: 3px;
-  border-radius: 15px;
   background-color: var(--salmon);
-  color: var(--textwhite);
+  border: none;
+  padding: 6px;
+  border-radius: 15px;
+  color: var(--bg2);
+  font-weight: bold;
 }
 /*FIN seccion productos disponibles*/
 
@@ -163,15 +152,16 @@
   flex-direction: column;
   align-items: center;
   width: 90vw;
-  min-height: 80vh;
+  min-height: 70vh;
   margin-top: 15px;
   padding: 5px;
+  padding-top: 15px;
   gap: 10px;
   border-radius: 10px;
   border: 1px solid var(--salmon);
   background-color: var(--bg2);
 }
-.waiter-order-container p {
+.waiter-order-container h3{
   font-size: 1.5em;
   color: var(--salmon);
   margin: 0;
@@ -183,33 +173,24 @@
 
 .waiter-order-products {
   display: flex;
-  /* align-items: center; */
-  /* justify-content: center; */
-  min-width: 90%;
+  min-width: 88vw;
 }
-
-/* .waiter-order-products tbody{
-  min-width: 300px;
-  display: flex;
-  justify-content: space-evenly;
-  gap: 20px;
-} */
 .waiter-order-products td{
-  /* margin: auto; */
   padding: 0 5px 0 5px;
-  /* gap: 100%; */
-  /* padding: 5px; */
+  margin-top: 15px;
+  align-items: baseline;
+}
+.waiter-order-products-img {
+  width: 3.5rem;
 }
 .waiter-order-products-text {
-  font-size: 9px;
+  font-size: 0.7rem;
 }
 .waiter-order-products-btns-qty {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  /* background-color: #ffffff; */
-  height: 63px;
 }
 .btn-decrease{
   display: flex;
@@ -305,7 +286,7 @@
   width: 75vw;
 } */
 
-.status-pending {
+.status-pending { 
   border: 1px solid var(--dark-blue);
   background-color: var(--dark-blue2);
   color: var(--light-blue);
@@ -407,8 +388,9 @@
     height: 11vh;
   }
   .general-nav-img {
+    padding: 35px;
     width: 150px;
-    height: 55px;
+    height: 150px;
   }
   .general-nav-dir {
     justify-content: space-evenly;
@@ -421,7 +403,7 @@
     height: 11vh;
   }
   .general-selected-component {
-    margin-top: 40px;
+    margin-top: 30px;
     flex-direction: row;
     align-items: flex-start;
   }
@@ -432,9 +414,9 @@
     max-width: 45vw;
   }
   .waiter-card {
+    min-width: 40vw;
     flex-direction: row;
     gap: 30px;
-    padding: 15px;
   }
   .waiter-accordion {
     max-width: 45vw;
@@ -449,19 +431,23 @@
     max-width: 45vw;
   }
   .waiter-order-container {
+    padding-top: 15px;
     margin-top: 5px;
     margin-left: 20px;
     width: 45vw;
     height: 60%;
   }
   .waiter-order-products {
-    width: 80%;
+    min-width: 43vw;
   }
   .waiter-order-products td{
-    /* margin: auto; */
-    padding: 0 20px 0 25px;
-    /* gap: 100%; */
-    /* padding: 5px; */
+    padding: 0 20px 0 20px; 
+  }
+  .waiter-order-products-img {
+    width: 4rem;
+  }
+  .waiter-order-products-text {
+    font-size: 1rem;
   }
   .waiter-orders-pending  {
     /* background-color: blue; */
