@@ -23,7 +23,7 @@ export const ProductsToBill = () => {
             <td className='waiter-order-products-text'>{product.name}</td>
             <td className='waiter-order-products-btns-qty'>
               <button
-                className='btn-danger ms-2'
+                className='btn-decrease ms-2'
                 onClick={() =>
                   updateItemQuantity(product.id, product.quantity - 1)
                 }
@@ -34,7 +34,7 @@ export const ProductsToBill = () => {
                 data-testid='product-quantity'
               >{product.quantity}</p>
               <button
-                className='btn-success ms-2'
+                className='btn-increase ms-2'
                 onClick={() =>
                   updateItemQuantity(product.id, product.quantity + 1)
                 }

@@ -9,7 +9,7 @@ export const OrderToServer = ({ orders, token }) => {
     <>
       <h2 data-testid="orders-to-deliver">Pedidos listos para entregar</h2>
       <Col lg={11}>
-        <Table dark="true" key={orders}>
+        <Table light="true" key={orders}>
           <thead>
             <tr>
               <th>id</th>
