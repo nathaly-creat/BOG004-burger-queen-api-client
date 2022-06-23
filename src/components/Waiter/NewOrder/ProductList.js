@@ -20,7 +20,7 @@ export const ProductList = ({products}) => {
               </figure>
               <div className='waiter-card-body'>
                 <p><strong>{product.name}</strong></p>
-                <p><strong>{product.price}</strong></p>
+                <p><strong>${product.price}</strong></p>
                 <button className='waiter-add-btn' 
                   onClick={() => addItem(product)}
                 >Agregar</button>

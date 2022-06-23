@@ -14,7 +14,7 @@ export const OrderLists = ({ orders }) => {
                 Cliente: {order.client}
               </li>
               <li>Hora de Pedido: {order.dateEntry}</li>
-              <li>Estatus: Pendiente</li>
+              <li className='status-pending'>Estatus: {order.status}</li>
             </div>
           </ul>
       );
