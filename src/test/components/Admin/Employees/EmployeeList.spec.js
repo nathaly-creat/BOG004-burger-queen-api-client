@@ -202,7 +202,7 @@ test('second render employee list', async () => {
   // expect(screenAfterSave.textContent).toEqual('grace2.hopper@systers.xyz');
   
   const saveBtn = await screen.findByTestId('2-save');
-  expect(saveBtn.textContent).toBe('Guardar');
+  expect(saveBtn.textContent).toBe('');
   fireEvent.click(saveBtn);
 });
 

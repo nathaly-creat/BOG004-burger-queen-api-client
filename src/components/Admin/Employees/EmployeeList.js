@@ -53,7 +53,7 @@ export const EmployeeList = ({ users, token }) => {
   return users.map((user) => (
     <section key={user.id.toString()} className='employee-list-general'>
       <p data-testid='employee-id'>
-        <strong>id:</strong>
+        <strong>id: </strong>
         {user.id}.
       </p>
       <label>
@@ -90,7 +90,7 @@ export const EmployeeList = ({ users, token }) => {
                 data-testid={user.id.toString() + '-save'}
                 onClick={() => updateEmail(user.id, user.password, user.roles)}
               >
-                <i class='fa-solid fa-floppy-disk'></i>
+                <i className='fa-solid fa-floppy-disk'></i>
               </button>
             ) 
           : (
