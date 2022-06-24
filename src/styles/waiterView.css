@@ -18,6 +18,9 @@
   --bg2: #1f1d2c; 
   --textwhite: #fcf9f9;
   --textwhite2: #fcf9f9be;
+  --decrease:  #4e2c3a;
+  --increase: #384c43;
+  --decrease2: #924a61;
 }
 .waiter-view {
   width: 100vw;
@@ -126,12 +129,11 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
-  width:100%;
   min-width: 85vw;
   color: var(--textwhite);
 }
 .waiter-card img {
-  width: 5rem;
+  width: 4.5rem;
 }
 .waiter-card p {
   font-size: 1rem;
@@ -139,7 +141,7 @@
 .waiter-add-btn {
   background-color: var(--salmon);
   border: none;
-  padding: 6px;
+  padding: 2px;
   border-radius: 15px;
   color: var(--bg2);
   font-weight: bold;
@@ -152,7 +154,7 @@
   flex-direction: column;
   align-items: center;
   width: 90vw;
-  min-height: 70vh;
+  min-height: 65vh;
   margin-top: 15px;
   padding: 5px;
   padding-top: 15px;
@@ -170,13 +172,14 @@
   border-radius: 10px;
   padding: 5px;
 }
-
 .waiter-order-products {
   display: flex;
-  min-width: 88vw;
+  justify-content: center;
+  min-width: 75vw;
+  height: 100%;
 }
 .waiter-order-products td{
-  padding: 0 5px 0 5px;
+  padding: 0 2px 0 2px;
   margin-top: 15px;
   align-items: baseline;
 }
@@ -188,30 +191,35 @@
 }
 .waiter-order-products-btns-qty {
   display: flex;
-  justify-content: center;
+  justify-content: baseline;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
+  height: 20px;
+}
+.waiter-order-products-btns-qty p {
+  font-size: 0.7rem;
 }
 .btn-decrease{
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 17px;
+  width: 17px;
   border-radius: 50px;
-  padding: 12px;
   border: none;
-  background-color: #4e2c3a;
-  /* color: #924a61; */
-  color: white;
+  background-color: var(--decrease);
+  color: var(--textwhite);
 }
 .btn-increase{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 12px;
+  height: 17px;
+  width: 17px;
   border-radius: 50px;
   border: none;
-  background-color: #384c43;
-  color: white;
+  background-color: var(--increase);
+  color: var(--textwhite);
 }
 .btn-delete {
   display: flex;
@@ -221,18 +229,15 @@
   border: 1px solid var(--light-salmon);
   border-radius: 5px;
   color: var(--salmon);
-  padding: 15px;
+  padding: 5px;
 }
 .btn-delete:hover {
   background-color: #eb7c68;
 }
-.waiter-order-products button {
-  width: 20px;
-  height: 20px;
-}
 .btn-order-request{
+  font-weight: bold;
   background-color: var(--salmon);
-  color: white;
+  color: var(--bg2);
 }
 /*FIN seccion pedidos a facturar*/
 
@@ -285,7 +290,6 @@
   padding-top: 8px;
   width: 75vw;
 } */
-
 .status-pending { 
   border: 1px solid var(--dark-blue);
   background-color: var(--dark-blue2);
@@ -347,6 +351,7 @@
 }
 /*FIN de la seccion pedidos pending*/
 
+/*INICIO seccion pedidos Delivering*/
 .waiter-card-body-orders {
   /* background-color: #fff1a468; */
   color: var(--textwhite);
@@ -376,49 +381,40 @@
   font-size: 0.6rem;
   vertical-align: middle;
 }
+/*FIN seccion pedidos Delivering*/
 
 @media only screen and (min-width: 768px) {
   .general-nav {
     display: flex;
     justify-content: space-evenly;
-    height: 11vh;
+    height: 12vh;
     padding: 0 50px 0 50px;
   }
   .general-nav-container{
-    height: 11vh;
+    height: 12vh;
   }
   .general-nav-img {
     padding: 35px;
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
   }
   .general-nav-dir {
     justify-content: space-evenly;
-    height: 11vh;
     align-items: center;
+    height: 12vh;
   }
   .general-nav-dir a {
     display: flex;
     align-items: center;
-    height: 11vh;
+    height: 12vh;
   }
   .general-selected-component {
-    margin-top: 30px;
+    margin-top: 15px;
     flex-direction: row;
     align-items: flex-start;
-  }
-  .waiter-accordion-body {
-    flex-direction: row;
-    align-items: flex-start;
-    min-width: 45vw;
-    max-width: 45vw;
-  }
-  .waiter-card {
-    min-width: 40vw;
-    flex-direction: row;
-    gap: 30px;
   }
   .waiter-accordion {
+    margin-top: 5px;
     max-width: 45vw;
     min-width: 45vw;
   }
@@ -429,6 +425,17 @@
   .accordion-button:focus {
     min-width: 45vw;
     max-width: 45vw;
+  }
+  .waiter-accordion-body {
+    flex-direction: row;
+    align-items: flex-start;
+    min-width: 45vw;
+    max-width: 45vw;
+  }
+  .waiter-card {
+    flex-direction: row;
+    min-width: 40vw;
+    gap: 15px;
   }
   .waiter-order-container {
     padding-top: 15px;
@@ -441,7 +448,7 @@
     min-width: 43vw;
   }
   .waiter-order-products td{
-    padding: 0 20px 0 20px; 
+    padding: 0 9px 0 9px;
   }
   .waiter-order-products-img {
     width: 4rem;
@@ -449,6 +456,18 @@
   .waiter-order-products-text {
     font-size: 1rem;
   }
+  .btn-decrease{
+    height: 22px;
+    width: 22px;
+  }
+  .btn-increase{
+    height: 22px;
+    width: 22px;
+  }
+
+
+
+
   .waiter-orders-pending  {
     /* background-color: blue; */
     /* padding-top: 87%; */

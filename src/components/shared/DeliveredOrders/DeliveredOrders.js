@@ -29,11 +29,11 @@ export const DeliveredOrders = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // estructura de hook para para visualizar pedidos entregados cada 5 seg
+  // estructura de hook para para visualizar pedidos entregados cada seg
   useEffect(() => {
     const interval = setInterval(() => {
       getDeliveredOrders();
-    }, 5000);
+    }, 1000);
     return () => clearInterval(interval);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -41,7 +41,7 @@ export const DeliveredOrders = () => {
   return (
     <>
       <Col lg={11} className='waiter-kitchen-selected-component'>
-        <Table dark= "true" className='waiter-kitchen-selected-component-table' responsive="sm">
+        <Table dark= 'true' className='waiter-kitchen-selected-component-table' responsive='sm'>
           <thead className='thead-dark'>
             <tr>
               <th scope='col'>Id</th>

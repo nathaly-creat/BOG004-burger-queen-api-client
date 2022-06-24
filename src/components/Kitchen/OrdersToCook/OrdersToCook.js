@@ -29,11 +29,11 @@ export const OrdersToCook = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // estructura de hook para para visualizar pedidos a preparar cada 5 seg
+  // estructura de hook para para visualizar pedidos a preparar cada seg
   useEffect(() => {
     const interval = setInterval(() => {
       getPendingOrders();
-    }, 5000);
+    }, 1000);
     return () => clearInterval(interval);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

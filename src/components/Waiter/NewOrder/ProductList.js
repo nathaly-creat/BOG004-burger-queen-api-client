@@ -1,6 +1,6 @@
 // IMPORTACION HOOKS Y OTROS
-import { Accordion } from "react-bootstrap";
-import { useCart } from "react-use-cart";
+import { Accordion } from 'react-bootstrap';
+import { useCart } from 'react-use-cart';
 
 // COMPONENTE PARA MOSTRAR PRODUCTOS
 export const ProductList = ({ products }) => {
@@ -13,13 +13,13 @@ export const ProductList = ({ products }) => {
       let prodToPrint;
       if (product.type === typeToPrint) {
         prodToPrint = (
-          <section className="waiter-card" key={product.id.toString()}>
+          <section className='waiter-card' key={product.id.toString()}>
             <figure>
-              <img src={product.image} alt="products" />
+              <img src={product.image} alt='products' />
             </figure>
             <p>{product.name}</p>
             <p>${product.price}</p>
-            <button className="waiter-add-btn" onClick={() => addItem(product)}>
+            <button className='waiter-add-btn' onClick={() => addItem(product)}>
               Agregar
             </button>
           </section>
@@ -31,24 +31,24 @@ export const ProductList = ({ products }) => {
 
   return (
     <>
-      <Accordion defaultActiveKey={["0"]} alwaysOpen>
-        <Accordion.Item className="waiter-accordion" eventKey="0">
-          <Accordion.Header className="waiter-accordion-header">
+      <Accordion defaultActiveKey={['0']} alwaysOpen>
+        <Accordion.Item className='waiter-accordion' eventKey='0'>
+          <Accordion.Header className='waiter-accordion-header'>
             DESAYUNOS
           </Accordion.Header>
-          <Accordion.Body className="waiter-accordion-body">
-            <div className="waiter-accordion-product">
-              {printProduct("Desayuno")}
+          <Accordion.Body className='waiter-accordion-body'>
+            <div className='waiter-accordion-product'>
+              {printProduct('Desayuno')}
             </div>
           </Accordion.Body>
         </Accordion.Item>
-        <Accordion.Item className="waiter-accordion" eventKey="1">
-          <Accordion.Header className="waiter-accordion-header">
+        <Accordion.Item className='waiter-accordion' eventKey='1'>
+          <Accordion.Header className='waiter-accordion-header'>
             ALMUERZOS
           </Accordion.Header>
-          <Accordion.Body className="waiter-accordion-body">
-            <div className="waiter-accordion-product">
-              {printProduct("Almuerzo")}
+          <Accordion.Body className='waiter-accordion-body'>
+            <div className='waiter-accordion-product'>
+              {printProduct('Almuerzo')}
             </div>
           </Accordion.Body>
         </Accordion.Item>

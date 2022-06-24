@@ -84,7 +84,7 @@ export const AddEmployee = ({ token }) => {
     if (userSuccess !== '') {
       setTimeout(() => {
         setUserSuccess('');
-      }, 3000);
+      }, 2000);
     }
   }, [userSuccess]);
 

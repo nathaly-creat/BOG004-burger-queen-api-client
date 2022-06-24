@@ -34,7 +34,7 @@ export const OrderContainer = ({ activeSession }) => {
     if (orderSuccess !== '') {
       setTimeout(() => {
         setOrderSuccess('');
-      }, 3000);
+      }, 2000);
     }
   }, [orderSuccess]);
 

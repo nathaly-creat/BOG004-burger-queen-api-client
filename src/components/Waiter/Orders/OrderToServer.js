@@ -1,15 +1,15 @@
 // IMPORTACION HOOKS Y OTROS
-import { statusDeliveredPetition } from "../../../api/petitionsFetch.js";
-import { Table, Col } from "react-bootstrap";
+import { statusDeliveredPetition } from '../../../api/petitionsFetch.js';
+import { Table, Col } from 'react-bootstrap';
 
 // COMPONENTE PARA MOSTRAR PEDIDOS LISTOS PARA SERVIR
 export const OrderToServer = ({ orders, token }) => {
   // captura de ordenes con status delivering
   return (
     <>
-      <h2 data-testid="orders-to-deliver">Pedidos listos para entregar</h2>
+      <h2 data-testid='orders-to-deliver'>Pedidos listos para entregar</h2>
       <Col lg={11}>
-        <Table light="true" key={orders}>
+        <Table light='true' key={orders}>
           <thead>
             <tr>
               <th>id</th>
@@ -19,22 +19,22 @@ export const OrderToServer = ({ orders, token }) => {
             </tr>
           </thead>
           {orders.map((order) => {
-            let statusDelivering = order.status === "delivering";
+            let statusDelivering = order.status === 'delivering';
             if (statusDelivering) {
               return (
                 <tbody key={order.id.toString()}>
-                  <tr data-testid="order-to-delivered">
-                    <th scope="row">{order.id}</th>
+                  <tr data-testid='order-to-delivered'>
+                    <th scope='row'>{order.id}</th>
                     <td>{order.client}</td>
                     <td>{order.dateEntry}</td>
                     <td>
                       <button
-                        className="btn btn-warning"
+                        className='btn btn-warning'
                         onClick={() =>
                           statusDeliveredPetition(
                             order.id,
                             token,
-                            new Date().toLocaleString("sv")
+                            new Date().toLocaleString('sv')
                           )
                         }
                       >

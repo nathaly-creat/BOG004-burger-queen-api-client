@@ -11,7 +11,7 @@ export const OrderToCookList = ({orders,token}) => {
     let statusPendingToCook;
     if(order.status === 'pending') {
       statusPendingToCook = (
-      <Card className='card kitchen-orders' key={order.id.toString()}>
+      <Card className='kitchen-orders' key={order.id.toString()}>
         <div className='card-body'>
           <h5 className='card-title'>Orden N° {order.id}</h5>
           <p className='card-text'>Cliente: {order.client}</p>

@@ -25,7 +25,7 @@ export const Waiter = () => {
               Pedidos
             </Link>
             <Link to='/waiter/delivered-orders'>Pedidos Entregados</Link>
-            <LogOut />
+            <LogOut/>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

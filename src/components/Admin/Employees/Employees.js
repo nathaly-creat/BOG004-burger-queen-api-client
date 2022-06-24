@@ -29,11 +29,11 @@ export const Employees = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // estructura de hook para para visualizar usuarios actualizados cada 4 seg
+  // estructura de hook para para visualizar usuarios actualizados cada seg
   useEffect(() => {
     const interval = setInterval(() => {
       getUsers();
-    }, 4000);
+    }, 1000);
     return () => clearInterval(interval);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
