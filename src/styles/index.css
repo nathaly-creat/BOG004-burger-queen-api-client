@@ -6,24 +6,25 @@
   font-size: 1rem;
 }
 
-/* ===== Scrollbar CSS =====
-  Firefox */
-  * {
-    scrollbar-width: auto;
-    scrollbar-color:  #55363c #1f1d2c;
-  }
+/* Scrollbar  */
 
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 12px;
-  }
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color:  #55363c #1f1d2c;
+}
 
-  *::-webkit-scrollbar-track {
-    background: rgb(95, 94, 94)
-  }
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
 
- *::-webkit-scrollbar-thumb {
-    background-color: #1f1d2c;
-    border-radius: 7px;
-    border: 1px solid  #55363c ;
-  }
+*::-webkit-scrollbar-track {
+  background: rgb(95, 94, 94)
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #1f1d2c;
+  border-radius: 7px;
+  border: 1px solid  #55363c ;
+}

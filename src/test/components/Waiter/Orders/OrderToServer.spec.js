@@ -183,5 +183,5 @@ test('component after delivered button event', async () => {
   );
 
   const orderToServerRes = await screen.findByTestId('orders-to-deliver');
-  expect(orderToServerRes.textContent).toEqual('Pedidos listos para entregar');
+  expect(orderToServerRes.textContent).toEqual('Pedidos a entregar');
 });
