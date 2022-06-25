@@ -84,6 +84,7 @@ h3{
 }
 /*FIN navbar*/
 
+/*INICIO seccion general de seleccion de nav*/
 .general-selected-component {
   display: flex;
   flex-direction: column;
@@ -91,7 +92,9 @@ h3{
   justify-content: center;
   background-color: var(--bg);
   color: var(--textwhite);
+  overflow-x: scroll;
 }
+/*FIN seccion general de seleccion de nav*/
 
 /*INICIO seccion productos disponibles*/
 .waiter-accordion {
@@ -144,10 +147,11 @@ h3{
   font-size: 1rem;
 }
 .waiter-add-btn {
+  font-size: 0.8rem;
   background-color: var(--salmon);
   border: none;
-  padding: 2px;
-  border-radius: 15px;
+  padding: 3px;
+  border-radius: 10px;
   color: var(--bg2);
   font-weight: bold;
 }
@@ -159,7 +163,6 @@ h3{
   flex-direction: column;
   align-items: center;
   width: 90vw;
-  min-height: 65vh;
   margin-top: 15px;
   padding: 5px;
   padding-top: 15px;
@@ -245,6 +248,7 @@ h3{
 .waiter-orders-pending {
   width: 90vw;
   padding: 15px 15px 0 15px;
+  margin-top: 8px;
   gap: 12px;
   display: flex;
   flex-direction: column;
@@ -263,6 +267,9 @@ h3{
   background-color: var(--light-salmon);
   align-self: center;
 }
+.card-header:first-child{
+  border-radius: 5px 12px 0 0;
+}
 .card-body-status-pending { 
   width: 55%;
   padding: 5px;
@@ -274,23 +281,24 @@ h3{
 /*INICIO seccion pedidos Delivering*/
 .waiter-orders-to-serve {
   width: 90vw;
-  margin-top: 20px;
+  margin-top: 15px;
   padding: 15px;
   gap: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: justify;
   overflow-x: hidden;
   border: none;
   background-color: var(--bg2);
 }
-.waiter-orders-to-serve-table tr, th, td {
-  font-size: 1rem;
-  justify-content: baseline;
-  vertical-align: middle;
+.waiter-orders-to-serve tr, th, td {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 0.8rem;
   color: var(--textwhite);
+  vertical-align: middle;
 }
 .waiter-orders-to-serve .btn {
   padding: 5px;
@@ -303,35 +311,20 @@ h3{
 /*FIN seccion pedidos Delivering*/
 
 /*INICIO seccion pedidos Delivered*/
-.waiter-kitchen-selected-component{
-  background-color: var(--black);
-  margin-left: 10px;
-  text-align: justify;
-  color: var(--textwhite2);
-  width: 90vw;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-.thead-dark {
-  background-color: var(--orange2);
+.waiter-orders-table{
+  max-width: 80vw;
+  margin: 15px 10px 15px 10px;
   color: var(--textwhite);
-  align-items: baseline;  
+  background-color: var(--bg2);
 }
-.thead-dark th, td {
-  font-size: 0.6rem;
-  vertical-align: middle;
+.delivered-thead th {
+  font-size: 0.58rem;
+  background-color: var(--light-salmon);
 }
-.waiter-orders-total {
-  background-color: var(--black);
-  border: 1px outset var(--orange2);
-  justify-content: center;
-  text-align: center;
-  font-size: 1.1em;
-  color: var(--textwhite);
-  padding: 10px;
-  width: 10%;
+.delivered-tbody td {
+  font-size: 0.58rem;
 }
-/*FIN seccion pedidos Delivering*/
+/*FIN seccion pedidos Delivered*/
 
 @media only screen and (min-width: 768px) {
   .general-nav {
@@ -362,6 +355,7 @@ h3{
     margin-top: 15px;
     flex-direction: row;
     align-items: flex-start;
+    overflow-x: hidden;
   }
   .waiter-accordion {
     margin-top: 5px;
@@ -387,12 +381,15 @@ h3{
     min-width: 40vw;
     gap: 15px;
   }
+  .waiter-add-btn{
+    font-size: 1rem;
+  }
   .waiter-order-container {
     padding-top: 15px;
     margin-top: 5px;
     margin-left: 20px;
     width: 45vw;
-    height: 60%;
+    min-height: 65vh;
   }
   .waiter-order-products {
     min-width: 43vw;
@@ -415,8 +412,8 @@ h3{
     width: 22px;
   }
   .waiter-orders-pending  {
-    height: 80vh;
-    max-height: 90vh;
+    min-height: 80vh;
+    max-height: 80vh;
     min-width: 50vw;
     max-width: 50vw;
     margin: 5px 0 0 10px;
@@ -434,31 +431,17 @@ h3{
     width: 90%;
   }
   .waiter-orders-to-serve {
+    min-height: 80vh;
+    max-height: 80vh;
     margin: 5px 10px 0 10px;
   }
-  /* .waiter-orders-to-serve .btn {
-    color: var(--textblack);
-    background-color: var(--yellow2);
-  } */
-
-
-  .waiter-orders-total {
-    min-width: 45vw;
-    max-width: 45vw;
-  }
-  .waiter-kitchen-selected-component {
-    width: 90vw;
-    height: 90vh;
-  }
-  .thead-dark {
-    background-color: var(--orange2);
-    color: var(--textwhite);
-    align-items: baseline;
-    /* gap: 10px; */
-  }
-  .thead-dark th, td {
+  .waiter-orders-to-serve tr, th, td {
     font-size: 1rem;
-    vertical-align: middle;
   }
-
+  .delivered-thead th {
+    font-size: 1rem;
+  }
+  .delivered-tbody td {
+    font-size: 1rem;
+  }
 }

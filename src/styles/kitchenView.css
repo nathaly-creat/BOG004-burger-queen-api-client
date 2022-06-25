@@ -55,7 +55,7 @@
   border-radius: 5px 10px 5px 5px;
   box-shadow: var(--yellow3) 0px 0px 7px;
 } */
-.card-title {
+/* .card-title {
   font-size: 1.2rem;
   font-weight: bold;
   color: var(--textwhite);
@@ -63,7 +63,7 @@
   background-color: green;
   border-radius: 8px;
   align-self: center;
-}
+} */
 .kitchen-orders .btn {
   background-color: var(--yellow2);
   color: var(--textblack);
@@ -72,13 +72,13 @@
 }
 @media only screen and (min-width: 768px) {
 
-  .cocina {
+  /* .cocina {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
   .card-body {
     word-wrap: break-word;
-    /* overflow-y: scroll; */
+    overflow-y: scroll; 
     overflow-x: hidden;
   }
   /* .card-body li {
@@ -86,7 +86,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
   } */
-  .kitchen-orders .btn {
+  /* .kitchen-orders .btn {
     width: 15vw;
-  }
+  }  */
 }
