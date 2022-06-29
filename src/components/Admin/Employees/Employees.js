@@ -1,12 +1,12 @@
 // IMPORTACION HOOKS Y OTROS
-import { useState, useEffect } from 'react';
-import { usersPetition } from '../../../api/petitionsFetch.js';
-import { AddEmployee } from './AddEmployee.js';
-import { EmployeeList } from './EmployeeList.js';
+import { useState, useEffect } from "react";
+import { usersPetition } from "../../../api/petitionsFetch.js";
+import { AddEmployee } from "./AddEmployee.js";
+import { EmployeeCard } from "./EmployeeCard.js";
 
 // COMPONENTE COLABORADOR
 export const Employees = () => {
-  // extraccion de token 
+  // extraccion de token
   const activeSessionToken = JSON.parse(sessionStorage.user).accessToken;
 
   // estructura de hook para declarar lista de usuarios
@@ -39,11 +39,13 @@ export const Employees = () => {
   }, []);
 
   return (
-    <section className='admin-view-components'>
-        <AddEmployee token={activeSessionToken}/>
-        <h2>Lista de Colaboradores</h2>
-      <section className='admin-view-components-list'>
-        <EmployeeList users={users} token={activeSessionToken} />  
+    <section className="admin-view-components">
+      <AddEmployee token={activeSessionToken}/>
+      <section className="admin-view-components-list">
+        <h3>Listado de Colaboradores</h3>
+        <section className='employee-list-general'>
+          <EmployeeCard users={users} token={activeSessionToken} />
+        </section>
       </section>
     </section>
   );

@@ -110,8 +110,8 @@
     width: 60vw;
   }
   .login-pic img {
-    width: 530px;
-    height: 550px;
+    width: 100%;
+    height: 100%;
   }
   .login-form {
     width: 40vw;
@@ -136,8 +136,8 @@
     width: 60vw;
   }
   .login-pic img {
-    width: 580px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
   }
   .login-form {
     width: 40vw;

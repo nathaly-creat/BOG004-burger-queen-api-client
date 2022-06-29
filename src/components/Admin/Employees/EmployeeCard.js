@@ -6,7 +6,7 @@ import {
 } from '../../../api/petitionsFetch.js';
 
 // COMPONENTE LISTA COLABORADORES  // value={this.state.value} onChange={this.handleChange}
-export const EmployeeList = ({ users, token }) => {
+export const EmployeeCard = ({ users, token }) => {
   // hook para mostrar u ocultar btn de guardar edicion
   const [showBtn, setShowBtn] = useState(false);
 
@@ -33,10 +33,9 @@ export const EmployeeList = ({ users, token }) => {
   };
 
   // funcion para ejecutar peticion de actualizacion
-  const updateEmail = (uId, usPassword, usRoles) => {
+  const updateEmail = (uId, usRoles) => {
     const userObj = {
       email: employeeEmail,
-      password: usPassword,
       roles: usRoles,
       id: uId,
     };
@@ -50,14 +49,19 @@ export const EmployeeList = ({ users, token }) => {
       });
   };
 
+  //Funcion para ejecutar confirmacion de eliminar usuario 
+  const deleteEmployee = (uId) => {
+  if (window.confirm('¿Está seguro que desea eliminar el usuario?')) {
+    deleteUserPetition(uId, token)
+  }}
+
   return users.map((user) => (
-    <section key={user.id.toString()} className='employee-list-general'>
+    <section key={user.id.toString()} className='employee-card'>
       <p data-testid='employee-id'>
-        <strong>id: </strong>
-        {user.id}.
+        id: {user.id}.
       </p>
       <label>
-        <strong>Correo: </strong>
+        Correo: 
       </label>
       <input
         type='text'
@@ -68,13 +72,12 @@ export const EmployeeList = ({ users, token }) => {
         data-testid={user.id.toString() + '-emailSaved'}
       ></input>
       <label>
-        <strong>Rol: </strong>
-        {Object.keys(user.roles)[0]}
+        Rol: {Object.keys(user.roles)[0]}
       </label>
       <div>
         <button
           data-testid={user.id.toString() + '-delete'}
-          onClick={() => deleteUserPetition(user.id, token)}
+          onClick={() => deleteEmployee(user.id)}
         >
           <i className='fa-regular fa-trash-can'></i>
         </button>
@@ -88,7 +91,7 @@ export const EmployeeList = ({ users, token }) => {
           ? (
               <button
                 data-testid={user.id.toString() + '-save'}
-                onClick={() => updateEmail(user.id, user.password, user.roles)}
+                onClick={() => updateEmail(user.id, user.roles)}
               >
                 <i className='fa-solid fa-floppy-disk'></i>
               </button>
