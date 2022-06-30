@@ -49,7 +49,7 @@ export const EmployeeCard = ({ users, token }) => {
       });
   };
 
-  //Funcion para ejecutar confirmacion de eliminar usuario 
+  // funcion para ejecutar confirmacion de eliminar usuario 
   const deleteEmployee = (uId) => {
   if (window.confirm('¿Está seguro que desea eliminar el usuario?')) {
     deleteUserPetition(uId, token)

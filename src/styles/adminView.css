@@ -1,28 +1,3 @@
-:root {
-  --red1: #ff0202;
-  --orange1: #ff3f00;
-  --orange2: #ff7700;
-  --yellow1: #fab300;
-  --salmon: #eb7c68;
-  --light-salmon: #55363c;
-  --light-yellow: #4c3b39;
-  --light-yellow2: #ba865c;
-  --dark-blue: #1f1d2b;
-  --light-blue:#5d9fde;
-  --dark-blue2:#252836;
-  --yellow2: #fff1a4;
-  --yellow3: #fff9d6;
-  --textblack: #0a0909;
-  --black: #0a0909;
-  --bg: #262837;
-  --bg2: #1f1d2c; 
-  --textwhite: #fcf9f9;
-  --textwhite2: #fcf9f9be;
-  --decrease:  #4e2c3a;
-  --increase: #384c43;
-  --decrease2: #924a61;
-}
-/* Admin View */
 .admin-view {
   width: 100vw;
   height: 100vh;
@@ -33,26 +8,22 @@
   background-repeat: no-repeat;
   overflow-x: hidden;
 }
-h3 {
-  font-size: 1.5em;
-  align-self: center;
-  color: var(--salmon);
-  align-items: center;
-}
 .admin-view-components {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
+/*INICIO seccion para agregar empleados*/
 .employee-register {
   width: 90vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 5px;
+  padding: 15px 5px 5px 5px;
   margin-top: 10px;
-  gap: 5px;
+  gap: 15px;
   border-radius: 10px;
   background-color: var(--bg2);
 }
@@ -61,12 +32,14 @@ h3 {
   height: 35px;
   padding: 5px;
   border-radius: 5px;
-  border: 1px outset var(--light-salmon);
   color: var(--textblack);
+  border: 1px outset var(--light-salmon);
   background-color: var(--textwhite);
 }
+.employee-register input:focus-visible{
+  outline:none;
+}
 .employee-register input:focus {
-  outline-style: groove;
   color: var(--textwhite);
   background-color: var(--light-salmon);
 }
@@ -109,16 +82,11 @@ h3 {
   background-color: var(--light-yellow);
 }
 .employee-register-success {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
-  width: 35vw;
-  height: 60%;
-  margin: 5px;
-  margin-left: 25px;
-  border-radius: 10px;
+  margin: auto;
 }
+/*FIN seccion para agregar empleados*/
+
+/*INICIO seccion para visualizar lista de empleados*/
 .admin-view-components-list {
   width: 90vw;
   display: flex;
@@ -162,10 +130,12 @@ h3 {
   margin-bottom: 10px;
   border-radius: 7px;
 }
+.employee-card  input:focus-visible{
+  outline:none;
+}
 .employee-card input:focus {
   background-color: var(--decrease2);
   color: var(--textwhite);
-  outline-style: groove;
 }
 .employee-list-general button {
   width: 45px;
@@ -177,6 +147,7 @@ h3 {
   color: var(--bg2);
   background-color: var(--salmon);
 }
+/*FIN seccion para visualizar lista de empleados*/
 
 @media only screen and (min-width: 768px) {
   a {
@@ -192,7 +163,7 @@ h3 {
     min-width: 35vw;
     max-width: 35vw;
     margin: 0;
-    padding: 10px;
+    padding: 15px 10px 10px 10px;
   }
   .employee-register input {
     font-size: 1rem;
@@ -204,11 +175,12 @@ h3 {
     font-size: 1rem;
   }
   .admin-view-components-list {
-    max-height: 80vh;
+    max-height: 82vh;
     max-width: 55vw;
     min-width: 55vw;
-    overflow-y: scroll;
     margin: 0;
+    padding-top: 15px;
+    overflow-y: scroll;
     align-items: center;
   }
   .employee-list-general{

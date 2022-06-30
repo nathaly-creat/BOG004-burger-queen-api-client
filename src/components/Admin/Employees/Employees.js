@@ -1,8 +1,8 @@
 // IMPORTACION HOOKS Y OTROS
-import { useState, useEffect } from "react";
-import { usersPetition } from "../../../api/petitionsFetch.js";
-import { AddEmployee } from "./AddEmployee.js";
-import { EmployeeCard } from "./EmployeeCard.js";
+import { useState, useEffect } from 'react';
+import { usersPetition } from '../../../api/petitionsFetch.js';
+import { AddEmployee } from './AddEmployee.js';
+import { EmployeeCard } from './EmployeeCard.js';
 
 // COMPONENTE COLABORADOR
 export const Employees = () => {
@@ -39,12 +39,12 @@ export const Employees = () => {
   }, []);
 
   return (
-    <section className="admin-view-components">
+    <section className='admin-view-components'>
       <AddEmployee token={activeSessionToken}/>
-      <section className="admin-view-components-list">
+      <section className='admin-view-components-list'>
         <h3>Listado de Colaboradores</h3>
         <section className='employee-list-general'>
-          <EmployeeCard users={users} token={activeSessionToken} />
+          <EmployeeCard users={users} token={activeSessionToken}/>
         </section>
       </section>
     </section>

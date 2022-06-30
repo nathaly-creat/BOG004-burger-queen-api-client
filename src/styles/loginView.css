@@ -1,47 +1,24 @@
-:root {
-  --red1: #ff0202;
-  --orange1: #ff3f00;
-  --orange2: #ff7700;
-  --yellow1: #fab300;
-  --salmon: #eb7c68;
-  --light-salmon: #55363c;
-  --light-yellow: #4c3b39;
-  --light-yellow2: #ba865c;
-  --dark-blue: #1f1d2b;
-  --light-blue:#5d9fde;
-  --dark-blue2:#252836;
-  --yellow2: #fff1a4;
-  --yellow3: #fff9d6;
-  --textblack: #0a0909;
-  --black: #0a0909;
-  --bg: #262837;
-  --bg2: #1f1d2c; 
-  --textwhite: #fcf9f9;
-  --textwhite2: #fcf9f9be;
-}
+/*INICIO seccion login*/
 .login-view {
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  background-color: var(--bg2);
+  background-image: url(../assets/images/bg.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   overflow-x: hidden;
 }
-.login-pic {
-  width: 0vw;
+.login-bag{
+  width: 100vw;
   height: 100vh;
+  background-color: var(--bg3);
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.login-pic img {
-  width: 0px;
-  height: 0px;
 }
 .login-form {
   width: 100vw;
@@ -50,99 +27,95 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  gap: 9%;
-  box-shadow: 0px 0px 10px 0px var(--salmon);
+  gap: 40px;
+  background-color: var(--bg2);
 }
 .login-logo {
-  margin-bottom: 2%;
+  padding-bottom: 8%;
 }
 .login-logo img {
-  width: 200px;
-  height: 200px;
-}
-.login-error-1 {
-  width: 60%;
-  height: 4.5%;
-  text-align: center;
-  color: var(--black);
-  font-size: 0.9rem;
-  background-color: var(--yellow3);
-  border-radius: 50px ridge var(--textwhite);
-  box-shadow: 0px 0px 5px 0px var(--yellow3);
-}
-.login-error-2 {
-  width: 40%;
-  height: 7.5%;
-  padding: 0.5%;
-  text-align: center;
-  font-size: 0.7rem;
-  color: var(--textwhite);
-  background-color: var(--red1);
-  border-radius: 50px outset var(--textwhite);
-  box-shadow: 0px 0px 5px 0px var(--red1);
+  width: 150px;
+  height: 150px;
 }
 .login-form input {
   width: 60%;
   align-content: center;
-  color: var(--textwhite);
   font-size: 0.9rem;
   font-weight: bold;
-  background-color: transparent;
   border: none;
+  color: var(--textwhite);
+  background-color: transparent;
   border-bottom: 1px solid var(--light-salmon);
 }
-/* .login-form input:focus{
-  border: 10px solid aqua; 
-} */
-.login-form button {
+.login-form input:focus-visible{
+  outline:none;
+}
+.login-form input:focus{
+  border: 1.5px solid var(--salmon);
+}
+.login-error-1 {
+  width: 60%;
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--textwhite);
+}
+.login-error-2 {
   width: 40%;
-  height: 6%;
-  color: var(--bg2);
+  font-size: 0.8rem;
+  padding: 0.5%;
+  text-align: center;
+  color: var(--dark-blue2);
+  background-color: var(--yellow2);
+}
+.login-btn {
+  width: 35%;
+  padding: 2%;
   font-size: 0.8rem;
   font-weight: bold;
-  background-color: var(--salmon);
-  border: var(--light-salmon) solid 2px;
   border-radius: 10px;
+  color: var(--bg2);
+  border: var(--light-salmon) solid 2px;
+  background-color: var(--salmon);
 }
+/*FIN seccion login*/
 
 @media only screen and (min-width: 576px) and (max-width: 1000px){
-  .login-pic {
-    width: 60vw;
-  }
-  .login-pic img {
-    width: 100%;
-    height: 100%;
-  }
   .login-form {
-    width: 40vw;
+    width: 35vw;
+    height: 90vh;
+    gap: 28px;
+    border-radius: 10px;
   }
   .login-form input {
     width: 70%;
   }
-  .login-form button {
-    width: 55%;
-    height: 5%;
-  }
   .login-error-1 {
     width: 70%;
-    height: 4.5%;
+    font-size: 0.9rem;
   }
   .login-error-2 {
     width: 60%;
+    font-size: 0.9rem;
+  }
+  .login-btn{
+    width: 30%;
   }
 }
 @media only screen and (min-width: 1001px) {
-  .login-pic {
-    width: 60vw;
-  }
-  .login-pic img {
-    width: 100%;
-    height: 100%;
-  }
   .login-form {
-    width: 40vw;
+    width: 35vw;
+    height: 95vh;
+    gap: 48px;
+    border-radius: 10px;
+  }
+  .login-error-1 {
+    font-size: 0.9rem;
   }
   .login-error-2 {
-    height: 6%;
-  } 
+    font-size: 0.9rem;
+  }
+  .login-btn {
+    width: 25%;
+    margin: 5px 0 0 0;
+  }
 }

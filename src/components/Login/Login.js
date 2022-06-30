@@ -1,5 +1,5 @@
 // IMPORTACION HOOKS Y OTROS
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useFormCustHook } from '../../hooks/useFormCustHook.js';
@@ -62,6 +62,15 @@ export const Login = () => {
       });
   };
 
+  // hook para cambio de mensaje de loginError
+  useEffect(() => {
+    if (loginError) {
+      setTimeout(() => {
+        setLoginError('');
+      }, 2000);
+    }
+  }, [loginError]);
+
   // retorno de estructura de form login
   return (
     <>
@@ -79,7 +88,7 @@ export const Login = () => {
           {...register('email', {
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-              message: 'El formato no es correcto',
+              message: 'Formato no correcto',
             },
           })}
           onChange={handleInputChange}
@@ -96,7 +105,7 @@ export const Login = () => {
           {...register('password', {
             minLength: {
               value: 6,
-              message: 'La contraseña debe tener al menos 6 caracteres'
+              message: 'Mínimo 6 caracteres'
             }
           })}
           onChange={handleInputChange}

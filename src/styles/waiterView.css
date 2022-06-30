@@ -1,27 +1,3 @@
-:root {
-  --red1: #ff0202;
-  --orange1: #ff3f00;
-  --orange2: #ff7700;
-  --yellow1: #fab300;
-  --salmon: #eb7c68;
-  --light-salmon: #55363c;
-  --light-yellow: #4c3b39;
-  --light-yellow2: #ba865c;
-  --dark-blue: #1f1d2b;
-  --light-blue:#5d9fde;
-  --dark-blue2:#252836;
-  --yellow2: #fff1a4;
-  --yellow3: #fff9d6;
-  --textblack: #0a0909;
-  --black: #0a0909;
-  --bg: #262837;
-  --bg2: #1f1d2c; 
-  --textwhite: #fcf9f9;
-  --textwhite2: #fcf9f9be;
-  --decrease:  #4e2c3a;
-  --increase: #384c43;
-  --decrease2: #924a61;
-}
 .waiter-view {
   width: 100vw;
   height: 100vh;
@@ -31,11 +7,6 @@
   background-position: center center;
   background-repeat: no-repeat;
   overflow-x: hidden;
-}
-h3{
-  font-size: 1.5em;
-  color: var(--salmon);
-  margin: 0;
 }
 
 /*INICIO navbar*/

@@ -126,9 +126,7 @@ export const statusDeliveredPetition = (orderId, token, finalDate) => {
     }),
   }).then((response) => {
     if (!response.ok) {
-      throw Error(
-        'Error al cambiar status de delivering a delivered del pedido'
-      );
+      throw Error('Error al cambiar status de delivering a delivered del pedido');
     }
     return response.json();
   });

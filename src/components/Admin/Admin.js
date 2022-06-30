@@ -29,7 +29,7 @@ export const Admin = () => {
         </Navbar.Collapse>
       </Navbar>
       <section className='general-selected-component'>
-        <Outlet />
+        <Outlet/>
       </section>
     </>
   )

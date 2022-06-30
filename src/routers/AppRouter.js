@@ -5,10 +5,6 @@ import { RolesRoutes } from './RolesRoutes.js';
 
 // ROUTER PRINCIPAL
 export default function AppRouter() {
-  // const activeUser = JSON.parse(sessionStorage.getItem('user'));
-  // console.log('active us', activeUser);
-  // console.log('khe onda contigo', activeUser?.user);
-
   return (
     <BrowserRouter>
       <Routes>
@@ -18,19 +14,3 @@ export default function AppRouter() {
     </BrowserRouter>
   );
 }
-
-// {
-//   activeUser?.user
-//     ? (
-//       <>
-//         <Route path='/*' element={<Navigate to = '/'/>}/>
-//         <Route path='/' element={<LoginView/>}/>
-//       </>
-//       )
-//     : (
-//         <>
-//           <Route path='/' element={<LoginView/>}/>
-//           <Route path='*' element={<RolesRoutes/>}/>
-//         </>
-//       )
-// }
