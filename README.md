@@ -17,7 +17,7 @@
 * [<span style="color:#5d9fde;">**Autores**</span>](#-Autores)
 # Descripción de Producto
 
-LaBurguer es una *single page application (SPA)* desarrollado usando *React* para un restaurante de hamburguesas. Nuestra aplicación es una interfaz con estado sincrónico para la gestión de las operaciones del restaurante,las funcionalidades a las que es posible acceder dependerán del perfil de usuario que se asigne al momento del registro.
+LaBurguer es una *single page application (SPA)* desarrollado usando *React* para un restaurante de hamburguesas. Nuestra aplicación es una interfaz con estado sincrónico para la gestión de las operaciones del restaurante, las funcionalidades a las que es posible acceder dependerán del perfil de usuario que se asigne al momento del registro.
 
 El diseño de nuestra aplicación tiene como concepto el diseño web optimizado para Tablets y Smartphones. 
 
@@ -41,15 +41,14 @@ El diseño de nuestra aplicación tiene como concepto el diseño web optimizado 
 ## *Roles de los usuarios.*
 
 * <span style="color:#eb7c68;">**Administrador:**</span> El alcance de su acceso incluye creación de usuarios, actualización del registro de usuario y la visualización del estado de las ordenes generadas en las operaciones del restaurante.
-* <span style="color:#eb7c68;">**Mesero:**</span> El alcance de su acceso incluye tomar pedidos y editarlas antes de crear la orden. El mesero tiene acceso a el set de ordenes listas para entregar a la mesa y al historial de ordenes entregadas. 
-* <span style="color:#eb7c68;">**Chef**</span> El alcence de su acceso incluye ver la lista de ordenes enviadas por el mesero que necesitan ser preparadas, puede marcarlas como listas adicionalmente puede ver el historial de ordenes entregadas y el record de tiempo que tomó prepararlas.
+* <span style="color:#eb7c68;">**Mesero:**</span> El alcance de su acceso incluye tomar pedidos y editarlos antes de crear la orden. El mesero tiene acceso a el set de ordenes listas para entregar a la mesa y al historial de ordenes entregadas. 
+* <span style="color:#eb7c68;">**Chef**</span> El alcance de su acceso incluye ver la lista de ordenes enviadas por el mesero que necesitan ser preparadas, puede marcarlas como listas adicionalmente puede ver el historial de ordenes entregadas y el record de tiempo que tomó prepararlas.
 
 <br>
 
 # Producto terminado.
 
 ## *Credenciales de acceso:*
-* admin_1@laburguer.xyz
 * mesero@laburguer.xyz
 * chef@laburguer.xyz
 
@@ -69,20 +68,17 @@ El diseño de nuestra aplicación tiene como concepto el diseño web optimizado 
 
 <span style="color:#eb7c68;">*Vista Chef.*</span>
 
-![kitchen](https://res.cloudinary.com/dtaq1ip2g/image/upload/v1656698831/kitchenLaBurguer_mjmcoe.png)
+![kitchen](https://res.cloudinary.com/dtaq1ip2g/image/upload/v1656702557/kitchenLaBurguer_o0akhh.png)
 
-<span style="color:#eb7c68;">*Vista Error404.*</span>
-
-![error404](https://res.cloudinary.com/dtaq1ip2g/image/upload/v1656694667/pag404LaBurguer_e1uyx0.png)
 
 # Historias de Usuario
 
-- <span style="color:#eb7c68;">**HU 1:**</span> Mesero(a) debe poder ingresar al sistema, si el administrador ya le ha asignado credenciales. *"Yo como meserx quiero poder ingresar al sistema de pedidos."*
-- <span style="color:#eb7c68;">**HU 2:**</span> Mesero/a debe poder tomar pedido de cliente. *"Yo como mesero(a) quiero tomar el pedido de un cliente para no depender de mi mala memoria, para saber cuánto cobrar, y enviarlo a la cocina para evitar errores y que se puedan ir preparando en orden."*
-- <span style="color:#eb7c68;">**HU 3:**</span> Jefe de cocina debe ver los pedidos. *Yo como jefe(a) de cocina quiero ver los pedidos de los clientes en orden y marcar cuáles están listos para saber qué se debe cocinar y avisar a los meseros que un pedido está listo para servirlo a un cliente.*
-- <span style="color:#eb7c68;">**HU 4:**</span> Mesero(a) debe ver pedidos listos para servir. *"Yo como mesero(a) quiero ver los pedidos que están preparados para entregarlos rápidamente a los clientxs que las hicieron."*
-- <span style="color:#eb7c68;">**HU 5:**</span> Administrador(a) de tienda debe administrar a sus trabajadorxs
-Yo como administrador(a) de tienda quiero gestionar a los usuarios de la plataforma para mantener actualizado la información de mis trabajadores.
+- <span style="color:#eb7c68;">**HU 1:**</span> Mesero(a) debe poder ingresar al sistema, si el administrador ya le ha asignado credenciales. *"Yo como mesero(a) quiero poder ingresar al sistema de pedidos."*
+- <span style="color:#eb7c68;">**HU 2:**</span> Mesero(a) debe poder tomar pedido de cliente. *"Yo como mesero(a) quiero tomar el pedido de un cliente para no depender de mi mala memoria, para saber cuánto cobrar, y enviarlo a la cocina para evitar errores y que se puedan ir preparando en orden."*
+- <span style="color:#eb7c68;">**HU 3:**</span> Jefe de cocina debe ver los pedidos. *"Yo como jefe(a) de cocina quiero ver los pedidos de los clientes en orden y marcar cuáles están listos para saber qué se debe cocinar y avisar a los meseros que un pedido está listo para servirlo a un cliente."*
+- <span style="color:#eb7c68;">**HU 4:**</span> Mesero(a) debe ver pedidos listos para servir. *"Yo como mesero(a) quiero ver los pedidos que están preparados para entregarlos rápidamente a los clientes que las hicieron."*
+- <span style="color:#eb7c68;">**HU 5:**</span> Administrador(a) de tienda debe administrar a sus trabajadores.
+*"Yo como administrador(a) de tienda quiero gestionar a los usuarios de la plataforma para mantener actualizado la información de mis trabajadores."*
 # Test Unitarios (gitHub actions)
 
 # Autores
