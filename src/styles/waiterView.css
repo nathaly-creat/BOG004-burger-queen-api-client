@@ -250,43 +250,42 @@
 @media only screen and (min-width: 768px) {
   .waiter-accordion {
     margin-top: 5px;
-    max-width: 45vw;
-    min-width: 45vw;
+    max-width: 40vw;
+    min-width: 40vw;
   }
   .accordion-button {
-    min-width: 45vw;
-    max-width: 45vw;
+    min-width: 40vw;
+    max-width: 40vw;
   }
   .accordion-button:focus {
-    min-width: 45vw;
-    max-width: 45vw;
+    min-width: 40vw;
+    max-width: 40vw;
   }
   .waiter-accordion-body {
     flex-direction: row;
     align-items: flex-start;
-    min-width: 45vw;
-    max-width: 45vw;
+    min-width: 40vw;
+    max-width: 40vw;
   }
   .waiter-card {
     flex-direction: row;
-    min-width: 40vw;
-    gap: 15px;
+    min-width: 38vw;
+    gap: 9px;
   }
   .waiter-add-btn{
     font-size: 1rem;
   }
   .waiter-order-container {
-    padding-top: 15px;
     margin-top: 5px;
     margin-left: 20px;
-    width: 45vw;
+    width: 55vw;
     min-height: 65vh;
   }
   .waiter-order-products {
-    min-width: 43vw;
+    min-width: 50vw;
   }
   .waiter-order-products td{
-    padding: 0 9px 0 9px;
+    padding: 0 10px 0 10px;
   }
   .waiter-order-products-img {
     width: 4rem;
