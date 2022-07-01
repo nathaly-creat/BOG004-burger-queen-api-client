@@ -7,14 +7,15 @@
 
 # Contenido
 
-* [<span style="color:#5d9fde;">**Descripción del Producto**</span>](#-Descripción-del-Producto)
-     * [<span style="color:#dbdddf;">**Roles de los usuarios.**</span>](#-Roles-de-los-usuarios)
-     * [<span style="color:#dbdddf;">**Tecnologías Usadas.**</span>](#-Tecnologías-Usadas.)
-* [<span style="color:#5d9fde;">**Producto Terminado**</span>](#-Producto-Terminado)
-    * [<span style="color:#dbdddf;">**Credenciales.**</span>](#-Credenciales)
-* [<span style="color:#5d9fde;">**Historias de Usuarios**</span>](#-Historias-de-Usuarios)
-* [<span style="color:#5d9fde;">**Test Unitario**</span>](#-Test-Unitario)
-* [<span style="color:#5d9fde;">**Autores**</span>](#-Autores)
+* [Descripción del Producto](#Descripción-del-Producto)
+     * [Roles de los usuarios.](#Roles-de-los-usuarios)
+     * [Tecnologías Usadas.](#Tecnologías-Usadas.)
+* [Producto Terminado](#Producto-Terminado)
+    * [Credenciales.](#Credenciales)
+* [Historias de Usuarios](#Historias-de-Usuarios)
+* [Test Unitario](#Test-Unitario)
+* [Autores](#Autores)
+
 # Descripción de Producto
 
 LaBurguer es una *single page application (SPA)* desarrollado usando *React* para un restaurante de hamburguesas. Nuestra aplicación es una interfaz con estado sincrónico para la gestión de las operaciones del restaurante, las funcionalidades a las que es posible acceder dependerán del perfil de usuario que se asigne al momento del registro.
