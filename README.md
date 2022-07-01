@@ -8,8 +8,8 @@
 # Contenido
 
 * [Descripción del Producto](#Descripción-del-Producto)
-     * [Roles de los usuarios.](#Roles-de-los-usuarios)
      * [Tecnologías Usadas.](#Tecnologías-Usadas.)
+     * [Roles de los usuarios.](#Roles-de-los-usuarios)
 * [Producto Terminado](#Producto-Terminado)
     * [Credenciales.](#Credenciales)
 * [Historias de Usuarios](#Historias-de-Usuarios)
@@ -45,7 +45,6 @@ El diseño de nuestra aplicación tiene como concepto el diseño web optimizado 
 * <span style="color:#eb7c68;">**Mesero:**</span> El alcance de su acceso incluye tomar pedidos y editarlos antes de crear la orden. El mesero tiene acceso a el set de ordenes listas para entregar a la mesa y al historial de ordenes entregadas. 
 * <span style="color:#eb7c68;">**Chef**</span> El alcance de su acceso incluye ver la lista de ordenes enviadas por el mesero que necesitan ser preparadas, puede marcarlas como listas adicionalmente puede ver el historial de ordenes entregadas y el record de tiempo que tomó prepararlas.
 
-<br>
 
 # Producto terminado.
 
@@ -81,6 +80,9 @@ El diseño de nuestra aplicación tiene como concepto el diseño web optimizado 
 - <span style="color:#eb7c68;">**HU 5:**</span> Administrador(a) de tienda debe administrar a sus trabajadores.
 *"Yo como administrador(a) de tienda quiero gestionar a los usuarios de la plataforma para mantener actualizado la información de mis trabajadores."*
 # Test Unitarios (gitHub actions)
+
+![test-1](https://res.cloudinary.com/dtaq1ip2g/image/upload/v1656706670/test_parte1_fnv0yx.png)
+![test-2](https://res.cloudinary.com/dtaq1ip2g/image/upload/v1656706670/test_parte2_lqf9u8.png)
 
 # Autores
  Developers | Contact |

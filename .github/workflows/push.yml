@@ -1,0 +1,15 @@
+on: push
+name: push
+jobs:
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Setup Node.js environment
+      uses: actions/setup-node@main
+      with:
+        node-version: '16'
+        cache: 'npm'
+    - run: npm i
+    - run: npm test -- --watchAll=false
