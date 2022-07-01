@@ -1,4 +1,3 @@
-// import { Table } from 'react-bootstrap';
 // IMPORTACION HOOKS Y OTROS
 import { useCart } from 'react-use-cart';
 
@@ -28,9 +27,7 @@ export const ProductsToBill = () => {
                 }
                 data-testid='decrease-quantity'
               >-</button>
-              <p
-                data-testid='product-quantity'
-              >{product.quantity}</p>
+              <p data-testid='product-quantity'>{product.quantity}</p>
               <button
                 className='btn-increase'
                 onClick={() =>
