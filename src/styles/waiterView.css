@@ -9,64 +9,6 @@
   overflow-x: hidden;
 }
 
-/*INICIO navbar*/
-.general-nav {
-  background-color: var(--bg2);
-  padding: 8px 8px 0 8px;
-}
-.general-nav-img {
-  padding: 10px;
-  width: 100px;
-  height: 100px;
-}
-.general-nav-toggle {
-  width: 20%;
-  height: 25%;
-  border: none;
-  align-items: center;
-  background-color: var(--salmon);
-}
-.general-nav-dir {
-  width: 100%;
-  height: 100%;
-  align-items: flex-end;
-}
-.general-nav-dir a {
-  color:  var(--textwhite);
-  text-decoration: none;
-  padding: 4px;
-}
-.general-nav-dir a:hover {
-  color: var(--salmon);
-}
-.general-nav-dir a:active:before{
-  color: var(--salmon);
-}
-.general-nav-dir .fa-right-from-bracket {
-  padding: 8px;
-  float: left;
-  font-size: 1.4em;
-  text-decoration: none;
-  color: var(--salmon);
-}
-.logout-btn {
-  border: none;
-  background-color: transparent;
-}
-/*FIN navbar*/
-
-/*INICIO seccion general de seleccion de nav*/
-.general-selected-component {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--bg);
-  color: var(--textwhite);
-  overflow-x: scroll;
-}
-/*FIN seccion general de seleccion de nav*/
-
 /*INICIO seccion productos disponibles*/
 .waiter-accordion {
   margin-top: 8px;
@@ -126,6 +68,11 @@
   color: var(--bg2);
   font-weight: bold;
 }
+.waiter-add-btn:hover{
+  border: 1px solid var(--textwhite);
+  color: var(--textwhite);
+  background-color: var(--bg2);
+}
 /*FIN seccion productos disponibles*/
 
 /*INICIO seccion pedidos a facturar*/
@@ -151,6 +98,9 @@
   justify-content: center;
   min-width: 75vw;
   height: 100%;
+}
+.waiter-order-products tr{
+  justify-content: baseline;
 }
 .waiter-order-products td{
   padding: 0 2px 0 2px;
@@ -206,7 +156,7 @@
   padding: 5px;
 }
 .btn-delete:hover {
-  background-color: #eb7c68;
+  background-color: var(--salmon);
 }
 .btn-order-request{
   font-weight: bold;
@@ -298,36 +248,6 @@
 /*FIN seccion pedidos Delivered*/
 
 @media only screen and (min-width: 768px) {
-  .general-nav {
-    display: flex;
-    justify-content: space-evenly;
-    height: 12vh;
-    padding: 0 50px 0 50px;
-  }
-  .general-nav-container{
-    height: 12vh;
-  }
-  .general-nav-img {
-    padding: 35px;
-    width: 130px;
-    height: 130px;
-  }
-  .general-nav-dir {
-    justify-content: space-evenly;
-    align-items: center;
-    height: 12vh;
-  }
-  .general-nav-dir a {
-    display: flex;
-    align-items: center;
-    height: 12vh;
-  }
-  .general-selected-component {
-    margin-top: 15px;
-    flex-direction: row;
-    align-items: flex-start;
-    overflow-x: hidden;
-  }
   .waiter-accordion {
     margin-top: 5px;
     max-width: 45vw;

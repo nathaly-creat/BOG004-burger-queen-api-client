@@ -5,7 +5,7 @@ import {
   updateUserPetition,
 } from '../../../api/petitionsFetch.js';
 
-// COMPONENTE LISTA COLABORADORES  // value={this.state.value} onChange={this.handleChange}
+// COMPONENTE LISTA COLABORADORES
 export const EmployeeCard = ({ users, token }) => {
   // hook para mostrar u ocultar btn de guardar edicion
   const [showBtn, setShowBtn] = useState(false);

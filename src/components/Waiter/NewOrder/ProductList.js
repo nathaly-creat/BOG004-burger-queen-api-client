@@ -15,7 +15,7 @@ export const ProductList = ({ products }) => {
         prodToPrint = (
           <section className='waiter-card' key={product.id.toString()}>
             <figure>
-              <img src={product.image} alt='products' />
+              <img src={product.image} alt='products'/>
             </figure>
             <p>{product.name}</p>
             <p>${product.price}</p>

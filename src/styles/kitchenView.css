@@ -8,61 +8,76 @@
   background-repeat: no-repeat;
   overflow-x: hidden;
 }
-.cocina {
-  /* background-color: blue; */
-  /* border: 1px red solid; */
-  margin-top: 25px;
+
+/*INICIO seccion ordenes a preparar*/
+.kitchen-orders-component {
+  margin-top: 8px;
   width: 90vw;
-  margin-bottom: 15px;
+  gap: 10px;
+  padding: 10px 0 10px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  box-shadow: #fab30079 0px 0px 10px;
+  background-color: var(--bg2);
 }
 .kitchen-orders{
-  background-color: purple;
+  width: 95%;
+  padding: 10px;
+  border: 2px outset var(--dark-blue2);
+  border-radius: 10px;
+  color: var(--textwhite);
+  background-color: var(--bg2);
 }
-/* .kitchen-orders .card-body {
-  background-color: purple;
-  color: var(--textwhite);
-  margin-top: 10px;
-  border-radius: 5px 10px 5px 5px;
-  box-shadow: var(--yellow3) 0px 0px 7px;
-} */
-/* .card-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: var(--textwhite);
-  border: #fab300 1px outset;
-  background-color: green;
-  border-radius: 8px;
+.kitchen-orders-card-body{
+  padding: 0;
+}
+.card-details-1{
+  padding-bottom: 15px;
+}
+.card-title {
+  border-radius: 5px 12px 0 0;
+  background-color: var(--light-salmon);
   align-self: center;
-} */
-.kitchen-orders .btn {
-  background-color: var(--yellow2);
-  color: var(--textblack);
-  border: none;
-  width: 50vw;
 }
-@media only screen and (min-width: 768px) {
+.kitchen-orders button{
+  width: 50%;
+  margin-left: 50%;
+  border: none;
+  color: var(--textwhite);
+  background-color: var(--cooking-ready);
+}
+.kitchen-orders button:hover{
+  background-color: var(--cooking-ready-letter);
+}
+/*FIN seccion ordenes a preparar*/
 
-  /* .cocina {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+@media only screen and (min-width: 768px) {
+  .kitchen-orders-component {
+    margin-top: 5px;
   }
-  .card-body {
-    word-wrap: break-word;
-    overflow-y: scroll; 
-    overflow-x: hidden;
+  .kitchen-orders{
+    width: 75%;
+    padding: 15px 0 10px 0;
   }
-  /* .card-body li {
-    word-wrap: break-word;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  } */
-  /* .kitchen-orders .btn {
-    width: 15vw;
-  }  */
+  .kitchen-orders-card-body{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    width: 55vw;
+  }
+  .card-details-1{
+    width: 55%;
+    padding-right: 20px;
+  }
+  .card-details-2{
+    width: 45%;
+  }
+  .card-title {
+    width: 90%;
+  }
+  .kitchen-orders button{
+    width: 25%;
+    margin-left: 66%;
+  }
 }

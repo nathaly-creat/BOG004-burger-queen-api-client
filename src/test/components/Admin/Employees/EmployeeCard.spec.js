@@ -189,17 +189,11 @@ test('second render employee list', async () => {
 
   const editUserBtn = await screen.findByTestId('2-edit');
   fireEvent.click(editUserBtn);
-  
-  // const saveBtn = await screen.findByTestId('2-save');
-  
+
   const userEditInput = screen.getByDisplayValue('grace.hopper@systers.xyz');
   fireEvent.change(userEditInput, {
     target: { value: 'grace2.hopper@systers.xyz' },
   });
-  
-  //fireEvent.click(saveBtn);
-  // const screenAfterSave = screen.getByTestId('2-emailSave');
-  // expect(screenAfterSave.textContent).toEqual('grace2.hopper@systers.xyz');
   
   const saveBtn = await screen.findByTestId('2-save');
   expect(saveBtn.textContent).toBe('');

@@ -30,7 +30,7 @@ export const Waiter = () => {
         </Navbar.Collapse>
       </Navbar>
       <section className='general-selected-component'>
-        <Outlet />
+        <Outlet/>
       </section>
     </>
   );

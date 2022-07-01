@@ -131,7 +131,7 @@ test('print of orders pending in OrdersToCook component', async () => {
   const orderToCook = await screen.findByTestId('date-entry');
   expect(orderToCook.textContent).toEqual('Hora orden: 2022-06-06 18:14:08');
 
-  const orderDeliveringButton = screen.getByText('¿Pedido Listo?');
+  const orderDeliveringButton = screen.getByText('Preparado');
   fireEvent.click(orderDeliveringButton);
 });
 

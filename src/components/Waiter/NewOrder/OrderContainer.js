@@ -1,12 +1,14 @@
 // IMPORTACION HOOKS Y OTROS
 import { useState, useEffect } from 'react';
 import { useCart } from 'react-use-cart';
-import { onlyProductPetition, orderPetition } from '../../../api/petitionsFetch.js';
+import {
+  onlyProductPetition,
+  orderPetition,
+} from '../../../api/petitionsFetch.js';
 import { ProductsToBill } from './ProductsToBill.js';
 
 // COMPONENTE PARA MOSTRAR ORDEN DE CLIENTE
 export const OrderContainer = ({ activeSession }) => {
-  
   // estructura de hook para cambio en input de nombre cliente
   const [inputNameCus, setInputNameCust] = useState({
     customerName: '',
@@ -28,7 +30,7 @@ export const OrderContainer = ({ activeSession }) => {
 
   // se declara el estado de la orden
   const [orderSuccess, setOrderSuccess] = useState('');
-  
+
   // hook para cambio para mensaje de orderSuccess
   useEffect(() => {
     if (orderSuccess !== '') {
@@ -80,6 +82,7 @@ export const OrderContainer = ({ activeSession }) => {
           console.log(error);
         });
     }
+
   };
 
   // estructura de hook para mostrar error de login,
@@ -115,19 +118,20 @@ export const OrderContainer = ({ activeSession }) => {
         <ProductsToBill/>
         <h2>Total: $ {cartTotal}</h2>
         <div>
-          <button
-            className='btn btn-secondary m-2'
-            onClick={() => emptyCart()}
-          >Cancelar</button>
+          <button className='btn btn-secondary m-2' onClick={() => emptyCart()}>
+            Cancelar
+          </button>
           <button
             type='button'
             className='btn btn-order-request m-2'
             id='btn-order'
             onClick={() => nameValidation()}
-          >Ordenar</button>
+          >
+            Ordenar
+          </button>
         </div>
         {orderSuccess && (
-          <span className='' data-testid='order-success-notification'>
+          <span data-testid='order-success-notification'>
             {orderSuccess}
           </span>
         )}
@@ -135,4 +139,3 @@ export const OrderContainer = ({ activeSession }) => {
     </>
   );
 };
-

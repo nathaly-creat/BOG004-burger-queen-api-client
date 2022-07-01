@@ -39,7 +39,7 @@ export const OrdersToCook = () => {
   }, []);
 
   return (
-    <div className='cocina' data-testid='oders-to-cook-component'>
+    <div className='kitchen-orders-component' data-testid='oders-to-cook-component'>
       <OrderToCookList orders={orders} token={activeSessionToken}/>
     </div>
   )

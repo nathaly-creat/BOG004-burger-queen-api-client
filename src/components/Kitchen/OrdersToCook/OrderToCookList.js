@@ -12,17 +12,21 @@ export const OrderToCookList = ({orders,token}) => {
     if(order.status === 'pending') {
       statusPendingToCook = (
       <Card className='kitchen-orders' key={order.id.toString()}>
-        <div className='card-body'>
-          <h5 className='card-title'>Orden N° {order.id}</h5>
-          <p className='card-text'>Cliente: {order.client}</p>
-          <p className='card-text' data-testid = 'date-entry'>Hora orden: {order.dateEntry}</p>
-          <p className='card-text'>Pedido:</p>
-          <OrderProducts products={order.products}/>
-          <button 
-            className='btn btn-primary'
-            onClick={() => statusDeliveringPetition(order.id, token)}
-          >¿Pedido Listo?</button>
+        <div className='kitchen-orders-card-body'>
+          <div className='card-details-1'>
+            <p className='card-title'>Orden N° {order.id}</p>
+            <p className='card-text'>Cliente: {order.client}</p>
+            <p className='card-text' data-testid = 'date-entry'>Hora orden: {order.dateEntry}</p>
+          </div>
+          <div className='card-details-2'>
+            <p className='card-text'>Pedido:</p>
+            <OrderProducts products={order.products}/>
+          </div>
         </div>
+        <button
+          className='btn btn-primary'
+          onClick={() => statusDeliveringPetition(order.id, token)}
+        >Preparado</button>
       </Card>
       );
     }

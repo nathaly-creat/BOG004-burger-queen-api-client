@@ -8,13 +8,17 @@
   --dark-blue2:#252836;
   --yellow2: #fff1a4;
   --textblack: #0a0909;
-  --textwhite: #fcf9f9;
+  --textwhite: #dbdddf;
+  --textwhite2: #fcf9f9;
   --decrease:  #4e2c3a;
   --increase: #384c43;
   --decrease2: #924a61;
+  --cooking-ready: #355b58;
+  --cooking-ready-letter:  #3b786c;
   --bg: #262837;
   --bg2: #1f1d2c; 
-  --bg3: #1f1d2b9a;
+  --bg3: #1f1d2bbe;
+  --bg4: #f5f8fd;
 }
 *{
   box-sizing: border-box;
@@ -25,20 +29,110 @@
 }
 h3{
   font-size: 1.5em;
-  color: var(--salmon);
-  margin: auto;
+  color: var(--textwhite);
+  margin: 0;
   text-align: center;
 }
 
-/* Scrollbar  */
+/*INICIO navbar*/
+.general-nav {
+  background-color: var(--bg2);
+  padding: 8px 8px 0 8px;
+}
+.general-nav-img {
+  padding: 10px;
+  width: 100px;
+  height: 100px;
+}
+.general-nav-toggle {
+  width: 20%;
+  height: 25%;
+  border: none;
+  align-items: center;
+  background-color: var(--salmon);
+}
+.general-nav-dir {
+  width: 100%;
+  height: 100%;
+  align-items: flex-end;
+}
+.general-nav-dir a {
+  color:  var(--textwhite);
+  text-decoration: none;
+  padding: 4px;
+}
+.general-nav-dir a:hover {
+  color: var(--salmon);
+}
+.general-nav-dir a:active:before{
+  color: var(--salmon);
+}
+.general-nav-dir .fa-right-from-bracket {
+  padding: 8px;
+  float: left;
+  font-size: 1.4em;
+  text-decoration: none;
+  color: var(--salmon);
+}
+.logout-btn {
+  border: none;
+  background-color: transparent;
+}
+/*FIN navbar*/
 
-/* Firefox */
+/*INICIO seccion general de seleccion de nav*/
+.general-selected-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+  color: var(--textwhite);
+  overflow-x: scroll;
+}
+/*FIN seccion general de seleccion de nav*/
+
+/*INICIO seccion para vista sin acceso*/
+.without-access {
+  width: 100vw;
+  height: 100vh;
+  gap: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg4);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+.without-access button {
+  width: 22%;
+  border-radius: 10px;
+  font-weight: bold;
+  background-color: var(--salmon);
+}
+.without-access p {
+  font-size: larger;
+  text-align: center;
+  margin: 0;
+}
+.without-access img {
+  width: 170px;
+  height: 250px;
+}
+/*FIN seccion para vista sin acceso*/
+
+/*INICIO scrollbar*/
+/*inicio firefox */
 * {
   scrollbar-width: auto;
   scrollbar-color:  #55363c #1f1d2c;
 }
 
-/* Chrome, Edge, and Safari */
+/*chrome, edge, safari*/
 *::-webkit-scrollbar {
   width: 12px;
 }
@@ -51,4 +145,60 @@ h3{
   background-color: var(--bg2);
   border-radius: 7px;
   border: 1px solid  var(--light-salmon) ;
+}
+/*FIN scrollbar*/
+
+@media only screen and (min-width: 576px) and (max-width: 767px){
+  .general-nav-dir {
+    justify-content: space-evenly;
+    align-items: center;
+    height: 12vh;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .general-nav {
+    display: flex;
+    justify-content: space-evenly;
+    height: 12vh;
+    padding: 0 50px 0 50px;
+  }
+  .general-nav-container{
+    height: 12vh;
+  }
+  .general-nav-img {
+    padding: 35px;
+    width: 130px;
+    height: 130px;
+  }
+  .general-nav-dir {
+    justify-content: space-evenly;
+    align-items: center;
+    height: 12vh;
+  }
+  .general-nav-dir a {
+    display: flex;
+    align-items: center;
+    height: 12vh;
+  }
+  .general-nav-dir .fa-right-from-bracket {
+    margin-left: 140%;
+    font-size: 1.8em;
+  }
+  .general-selected-component {
+    margin-top: 15px;
+    flex-direction: row;
+    align-items: flex-start;
+    overflow-x: hidden;
+  }
+  .without-access {
+    gap: 8%;
+  }
+  .without-access button {
+    width: 8%;
+  }
+  .without-access img {
+    width: 23%;
+    height: 52%;
+  }
 }
