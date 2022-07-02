@@ -1,10 +1,8 @@
 <div align='center'>
-  <h1> La Burguer  </h1>
+  <h1>La Burguer</h1>
 
   ![Logo](./src/assets/images/laBurgLogo2.jpeg)
 </div>
-
-
 <br>
 
 # Contenido
