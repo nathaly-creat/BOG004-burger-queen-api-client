@@ -1,5 +1,10 @@
 // IMPORTACION DE FETCH
-let UrlBase = 'http://localhost:8080/';
+let UrlBase;
+if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'production') {
+  UrlBase = process.env.REACT_APP_API_URL;
+}else{
+  UrlBase = 'http://localhost:8080/';
+}
 
 // FUNCION DE PETICION PARA LOGIN USER
 export const loginPetition = (loginObj) => {
