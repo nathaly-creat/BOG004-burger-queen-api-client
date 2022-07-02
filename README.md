@@ -88,5 +88,4 @@ El diseño de nuestra aplicación tiene como concepto el diseño web optimizado 
  Developers | Contact |
 | ------------- | ------------- |
 | <span style="color:#dbdddf;">**Nathaly Huerta**</span> | [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nathalyhuertabermúdez/) [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nathaly-creat) |
-| <span style="color:#dbdddf;">**Ana Margarita García**</span>| [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ana-margarita-garcia/
-) [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/anagarcia791) |
+| <span style="color:#dbdddf;">**Ana Margarita García**</span>| [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ana-margarita-garcia/) [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/anagarcia791) |
