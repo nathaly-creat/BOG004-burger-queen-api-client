@@ -1,7 +1,8 @@
 // IMPORTACION HOOKS Y OTROS
 import { useState, useEffect } from 'react';
-import { totalOrdersFetch } from '../../../api/petitionsFetch.js';
+import { totalOrdersPetition } from '../../../api/petitionsFetch.js';
 import { DeliveredList } from './DeliveredList.js';
+import { Table } from 'react-bootstrap';
 
 // COMPONENTE COMPARTIDO DE ORDENES ENTREGADAS
 export const DeliveredOrders = () => {
@@ -13,7 +14,7 @@ export const DeliveredOrders = () => {
 
   // funcion para peticion de pedidos entregados
   const getDeliveredOrders = async () => {
-    totalOrdersFetch(activeSessionToken)
+    totalOrdersPetition(activeSessionToken)
       .then((response) => {
         setOrdersDelivered(response);
       })
@@ -25,35 +26,33 @@ export const DeliveredOrders = () => {
   // estructura de hook para visualizar pedidos entregados
   useEffect(() => {
     getDeliveredOrders();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // estructura de hook para para visualizar pedidos entregados cada 5 seg
+  // estructura de hook para para visualizar pedidos entregados cada seg
   useEffect(() => {
     const interval = setInterval(() => {
       getDeliveredOrders();
-    }, 5000);
+    }, 1000);
     return () => clearInterval(interval);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
-      <div className='waiter-kitchen-selected-component'>
-        <table className='table table-dark'>
-          <thead className='thead-dark'>
-            <tr>
-              <th scope='col'>Id</th>
-              <th scope='col'>Cliente</th>
-              <th scope='col'>Precio Total</th>
-              <th scope='col'>Hora Pedido</th>
-              <th scope='col'>Hora Entregado</th>
-              <th scope='col'>Tiempo Total</th>
-            </tr>
-          </thead>
-          <DeliveredList orders={ordersDelivered} />
-        </table>
-      </div>
+      <Table className='waiter-orders-table'>
+        <thead className='delivered-thead'>
+          <tr>
+            <th>Id</th>
+            <th>Cliente</th>
+            <th>Precio Total</th>
+            <th>Hora Pedido</th>
+            <th>Hora Entregado</th>
+            <th>Tiempo Total</th>
+          </tr>
+        </thead>
+        <DeliveredList orders={ordersDelivered} />
+      </Table>
     </>
   );
 };

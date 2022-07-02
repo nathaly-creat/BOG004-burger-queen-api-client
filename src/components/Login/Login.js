@@ -1,14 +1,14 @@
 // IMPORTACION HOOKS Y OTROS
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useFormCustHook } from '../../hooks/useFormCustHook.js';
-import { loginFetch, saveLoginUser } from '../../api/petitionsFetch.js';
+import { loginPetition, saveLoginUser } from '../../api/petitionsFetch.js';
 import logoLaBurger from '../../assets/images/laBurgLogo.png';
 
-// FUNCION PARA RESOLVER loginFetch
-const handleLoginFetch = (user) => new Promise((resolve, reject) => {
-  loginFetch(user)
+// FUNCION PARA RESOLVER loginPetition
+const handleloginPetition = (user) => new Promise((resolve, reject) => {
+  loginPetition(user)
     .then((response) => {
       resolve(saveLoginUser(response));
     })
@@ -45,7 +45,7 @@ export const Login = () => {
 
   // funcion para envio de formulario login
   const handleSubmitLogin = () => {
-    return handleLoginFetch(formLoginValues)
+    return handleloginPetition(formLoginValues)
       .then(() => {
         const activeUser = JSON.parse(sessionStorage.user);
         const userRole = activeUser.user.roles;
@@ -61,6 +61,15 @@ export const Login = () => {
         }
       });
   };
+
+  // hook para cambio de mensaje de loginError
+  useEffect(() => {
+    if (loginError) {
+      setTimeout(() => {
+        setLoginError('');
+      }, 2000);
+    }
+  }, [loginError]);
 
   // retorno de estructura de form login
   return (
@@ -79,7 +88,7 @@ export const Login = () => {
           {...register('email', {
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-              message: 'El formato no es correcto',
+              message: 'Formato no correcto',
             },
           })}
           onChange={handleInputChange}
@@ -96,7 +105,7 @@ export const Login = () => {
           {...register('password', {
             minLength: {
               value: 6,
-              message: 'La contraseña debe tener al menos 6 caracteres'
+              message: 'Mínimo 6 caracteres'
             }
           })}
           onChange={handleInputChange}

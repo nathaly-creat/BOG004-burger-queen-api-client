@@ -2,7 +2,7 @@
 let UrlBase = 'http://localhost:8080/';
 
 // FUNCION DE PETICION PARA LOGIN USER
-export const loginFetch = (loginObj) => {
+export const loginPetition = (loginObj) => {
   let Url = UrlBase + 'login';
   return fetch(Url, {
     method: 'POST',
@@ -23,7 +23,7 @@ export const saveLoginUser = (user) => {
 };
 
 // FUNCION DE PETICION PRODUCTOS
-export const productFetch = (token) => {
+export const productPetition = (token) => {
   let Url = UrlBase + 'products';
   return fetch(Url, {
     method: 'GET',
@@ -40,7 +40,7 @@ export const productFetch = (token) => {
 };
 
 // FUNCION DE PETICION PARA UN SOLO PRODUCTO
-export const onlyProductFetch = (token, productId) => {
+export const onlyProductPetition = (token, productId) => {
   let Url = UrlBase + 'products/' + productId;
   return fetch(Url, {
     method: 'GET',
@@ -57,7 +57,7 @@ export const onlyProductFetch = (token, productId) => {
 };
 
 // FUNCION DE PETICION PARA REALIZAR PEDIDO
-export const orderFetch = (token, orderObj) => {
+export const orderPetition = (token, orderObj) => {
   let Url = UrlBase + 'orders';
   return fetch(Url, {
     method: 'POST',
@@ -75,7 +75,7 @@ export const orderFetch = (token, orderObj) => {
 };
 
 // FUNCION DE PETICION PEDIDOS ORDENADOS
-export const totalOrdersFetch = (token) => {
+export const totalOrdersPetition = (token) => {
   let Url = UrlBase + 'orders';
   return fetch(Url, {
     method: 'GET',
@@ -92,7 +92,7 @@ export const totalOrdersFetch = (token) => {
 };
 
 // FUNCION DE PETICION CAMBIO DE ESTADO a'delivering'
-export const statusDeliveringFetch = (orderId, token) => {
+export const statusDeliveringPetition = (orderId, token) => {
   let Url = UrlBase + 'orders/' + orderId;
   return fetch(Url, {
     method: 'PATCH',
@@ -101,7 +101,7 @@ export const statusDeliveringFetch = (orderId, token) => {
       authorization: 'Bearer ' + token,
     },
     body: JSON.stringify({
-      status: 'delivering'
+      status: 'delivering',
     }),
   }).then((response) => {
     if (!response.ok) {
@@ -112,7 +112,7 @@ export const statusDeliveringFetch = (orderId, token) => {
 };
 
 // FUNCION DE PETICION CAMBIO DE ESTADO a 'delivered'
-export const statusDeliveredFetch = (orderId, token, finalDate) => {
+export const statusDeliveredPetition = (orderId, token, finalDate) => {
   let Url = UrlBase + 'orders/' + orderId;
   return fetch(Url, {
     method: 'PATCH',
@@ -133,7 +133,7 @@ export const statusDeliveredFetch = (orderId, token, finalDate) => {
 };
 
 // FUNCION DE PETICION USUARIOS
-export const usersFetch = (token) => { 
+export const usersPetition = (token) => {
   let Url = UrlBase + 'users';
   return fetch(Url, {
     method: 'GET',
@@ -144,6 +144,77 @@ export const usersFetch = (token) => {
   }).then((response) => {
     if (!response.ok) {
       throw Error('Error al traer usuarios');
+    }
+    return response.json();
+  });
+};
+
+// FUNCION DE PETICION PARA CREAR USUARIOS
+export const createUserPetition = (token, userObj) => {
+  let Url = UrlBase + 'users';
+  return fetch(Url, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
+    },
+    body: JSON.stringify(userObj),
+  }).then((response) => {
+    if (!response.ok) {
+      throw Error('Error al crear usuario');
+    }
+    return response.json();
+  });
+};
+
+// FUNCION DE PETICION PARA ACTUALIZACION USUARIOS
+export const updateUserPetition = (userId, token, userObj) => {
+  let Url = UrlBase + 'users/' + userId;
+  return fetch(Url, {
+    method: 'PATCH',
+    headers: {
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
+    },
+    body: JSON.stringify(userObj),
+  }).then((response) => {
+    if (!response.ok) {
+      throw Error('Error al actualizar usuario');
+    }
+    return response.json();
+  });
+};
+
+// FUNCION DE PETICION PARA ELIMINAR USUARIO
+export const deleteUserPetition = (userId, token) => {
+  let Url = UrlBase + 'users/' + userId;
+  return fetch(Url, {
+    method: 'DELETE',
+    headers: {
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
+    },
+  }).then((response) => {
+    if (!response.ok) {
+      throw Error('Error al eliminar usuario');
+    }
+    return response.json();
+  });
+};
+
+// FUNCION DE PETICION PARA CREAR PRODUCTOS
+export const createProductPetition = (token, productObj) => {
+  let Url = UrlBase + 'products';
+  return fetch(Url, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token,
+    },
+    body: JSON.stringify(productObj),
+  }).then((response) => {
+    if (!response.ok) {
+      throw Error('Error al crear producto');
     }
     return response.json();
   });

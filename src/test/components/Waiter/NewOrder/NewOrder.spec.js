@@ -3,7 +3,7 @@ import { createMemoryHistory } from 'history';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { productFetch } from '../../../../api/petitionsFetch.js';
+import { productPetition } from '../../../../api/petitionsFetch.js';
 import { NewOrder } from '../../../../components/Waiter/NewOrder/NewOrder';
 
 // mock de sessionStorage para token
@@ -97,7 +97,7 @@ localStorage.getItem('react-use-cart', [
 ]);
 
 // test de peticion de productos
-test('response of productFetch petition', async () => {
+test('response of productPetition petition', async () => {
   const activeSession = JSON.parse(sessionStorage.user);
   const activeSessionToken = activeSession.accessToken;
 
@@ -111,7 +111,7 @@ test('response of productFetch petition', async () => {
     },
   ];
 
-  const productTestResult = await productFetch(activeSessionToken);
+  const productTestResult = await productPetition(activeSessionToken);
   expect(productTestResult).toEqual(productListTest);
 });
 

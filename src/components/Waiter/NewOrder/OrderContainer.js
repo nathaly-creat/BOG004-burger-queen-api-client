@@ -1,7 +1,10 @@
 // IMPORTACION HOOKS Y OTROS
 import { useState, useEffect } from 'react';
 import { useCart } from 'react-use-cart';
-import { onlyProductFetch, orderFetch } from '../../../api/petitionsFetch.js';
+import {
+  onlyProductPetition,
+  orderPetition,
+} from '../../../api/petitionsFetch.js';
 import { ProductsToBill } from './ProductsToBill.js';
 
 // COMPONENTE PARA MOSTRAR ORDEN DE CLIENTE
@@ -27,13 +30,13 @@ export const OrderContainer = ({ activeSession }) => {
 
   // se declara el estado de la orden
   const [orderSuccess, setOrderSuccess] = useState('');
-  
+
   // hook para cambio para mensaje de orderSuccess
   useEffect(() => {
     if (orderSuccess !== '') {
       setTimeout(() => {
         setOrderSuccess('');
-      }, 3000);
+      }, 2000);
     }
   }, [orderSuccess]);
 
@@ -54,7 +57,7 @@ export const OrderContainer = ({ activeSession }) => {
 
     // ciclo para recorrer productos a ordenar
     for (let product of total) {
-      onlyProductFetch(token, product.id)
+      onlyProductPetition(token, product.id)
         .then((response) => {
           products.push({ qty: product.quantity, product: response });
           const orderPetitionObj = {
@@ -66,7 +69,7 @@ export const OrderContainer = ({ activeSession }) => {
             totalPrice: cartTotal,
           };
           if (products.length === total.length) {
-            orderFetch(token, orderPetitionObj)
+            orderPetition(token, orderPetitionObj)
               .then(() => {
                 setOrderSuccess('Orden creada con éxito');
               })
@@ -79,6 +82,7 @@ export const OrderContainer = ({ activeSession }) => {
           console.log(error);
         });
     }
+
   };
 
   // estructura de hook para mostrar error de login,
@@ -99,7 +103,7 @@ export const OrderContainer = ({ activeSession }) => {
   return (
     <>
       <div className='waiter-order-container'>
-        <p>Resumen del pedido</p>
+        <h3>Resumen del pedido</h3>
         <input
           id='customerName'
           type='text'
@@ -111,15 +115,15 @@ export const OrderContainer = ({ activeSession }) => {
           className='waiter-order-container-input'
         ></input>
         <span>{inputNameError}</span>
-        <ProductsToBill />
+        <ProductsToBill/>
         <h2>Total: $ {cartTotal}</h2>
         <div>
-          <button className='btn btn-dark m-2' onClick={() => emptyCart()}>
+          <button className='btn btn-secondary m-2' onClick={() => emptyCart()}>
             Cancelar
           </button>
           <button
             type='button'
-            className='btn btn-warning m-2'
+            className='btn btn-order-request m-2'
             id='btn-order'
             onClick={() => nameValidation()}
           >
@@ -127,7 +131,7 @@ export const OrderContainer = ({ activeSession }) => {
           </button>
         </div>
         {orderSuccess && (
-          <span className='' data-testid='order-success-notification'>
+          <span data-testid='order-success-notification'>
             {orderSuccess}
           </span>
         )}

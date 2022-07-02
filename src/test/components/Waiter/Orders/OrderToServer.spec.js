@@ -4,8 +4,8 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { fireEvent, render, screen } from '@testing-library/react';
 import {
-  totalOrdersFetch,
-  statusDeliveredFetch,
+  totalOrdersPetition,
+  statusDeliveredPetition,
 } from '../../../../api/petitionsFetch.js';
 import { Orders } from '../../../../components/Waiter/Orders/Orders.js';
 
@@ -88,7 +88,7 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 // test para peticion de ordenes con estatus delivering
-test('response of totalOrdersFetch petition with status delivering', async () => {
+test('response of totalOrdersPetition petition with status delivering', async () => {
   const activeSession = JSON.parse(sessionStorage.user);
   const activeSessionToken = activeSession.accessToken;
 
@@ -116,7 +116,7 @@ test('response of totalOrdersFetch petition with status delivering', async () =>
     },
   ];
 
-  const orderTestResult = await totalOrdersFetch(activeSessionToken);
+  const orderTestResult = await totalOrdersPetition(activeSessionToken);
   expect(orderTestResult).toEqual(orderDeliveringList);
 });
 
@@ -150,7 +150,7 @@ test('change status orders to delivered', async () => {
     },
   ];
 
-  const deliveredTestResult = await statusDeliveredFetch(
+  const deliveredTestResult = await statusDeliveredPetition(
     1,
     activeSessionToken,
     '2022-06-06 18:19:08'
@@ -183,5 +183,5 @@ test('component after delivered button event', async () => {
   );
 
   const orderToServerRes = await screen.findByTestId('orders-to-deliver');
-  expect(orderToServerRes.textContent).toEqual('Pedidos listos para entregar');
+  expect(orderToServerRes.textContent).toEqual('Pedidos a entregar');
 });

@@ -1,7 +1,7 @@
 // IMPORTACION HOOKS Y OTROS
 import { useState, useEffect } from 'react';
 import { CartProvider } from 'react-use-cart';
-import { productFetch } from '../../../api/petitionsFetch.js';
+import { productPetition } from '../../../api/petitionsFetch.js';
 import { ProductList } from './ProductList.js';
 import { OrderContainer } from './OrderContainer.js';
 
@@ -18,7 +18,7 @@ export const NewOrder = () => {
   // estructura de hook para peticion de productos y agregar
   // los mismos a la lista de productos (products)
   useEffect(() => {
-    productFetch(activeSessionToken)
+    productPetition(activeSessionToken)
       .then((response) => {
         setProducts(response);
       })

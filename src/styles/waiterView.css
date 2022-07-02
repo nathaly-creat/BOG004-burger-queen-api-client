@@ -1,76 +1,15 @@
-:root {
-  --red1: #ff0202;
-  --orange1: #ff3f00;
-  --orange2: #ff7700;
-  --yellow1: #fab300;
-  --yellow2: #fff1a4;
-  --yellow3: #fff9d6;
-  --textblack: #0a0909;
-  --black: #0a0909;
-  --textwhite: #fcf9f9;
-  --textwhite2: #fcf9f9be;
-}
 .waiter-view {
   width: 100vw;
   height: 100vh;
-  background-color: var(--black);
+  background-color: var(--bg);
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   overflow-x: hidden;
 }
-.general-nav{
-  background-color: var(--black);
-}
-.general-nav-img {
-  width:120px;
-  height:50px;
-}
-.general-nav-toggle {
-  width: 20%;
-  height: 25%;
-  border: none;
-  align-items: center;
-  background-color: var(--orange2);
-}
-.general-nav-dir{
-  width: 100%;
-  height: 100%;
-  gap: 8%;
-}
-.general-nav-dir a {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
-  color: var(--yellow1);
-  text-decoration: none;
-  padding: 6px;
-  font-size: 1em;
-}
-.general-nav-dir a:hover {
-  color: var(--textwhite);
-}
-.general-nav-dir .fa-right-from-bracket {
-  color: var(--orange2);
-  text-decoration: none;
-  padding: 10px;
-  font-size: 1.4em;
-  float: left;
-}
-.logout-btn {
-  border: none;
-  background-color: transparent;
-}
-.general-selected-component{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--black);
-  color: var(--textwhite);
-}
+
+/*INICIO seccion productos disponibles*/
 .waiter-accordion {
   margin-top: 8px;
   max-width: 90vw;
@@ -78,28 +17,28 @@
 .accordion-button {
   min-width: 90vw;
   max-width: 90vw;
-  font-family:'verdana', sans-serif;
+  font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
   font-weight: bold;
-  color: var(--black);
-  background-color: var(--orange2);
+  color: var(--bg2);
+  background-color: var(--salmon);
 }
 .accordion-button:focus {
   min-width: 90vw;
   max-width: 90vw;
-  box-shadow: 0px 0px 6px 0px var(--yellow1);
+  box-shadow: 0px 0px 6px 0px  var(--textwhite);
 }
-.accordion-button:not(.collapsed){
-  color: var(--black);
-  background-color: var(--yellow2);
+.accordion-button:not(.collapsed) {
+  color: var(--textwhite);
+  background-color: var(--light-salmon);
 }
 .waiter-accordion-body {
-  min-width: 90vw;
-  max-width: 90vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--black);
+  min-width: 90vw;
+  max-width: 90vw;
+  background-color: var(--bg2);
 }
 .waiter-acordion-product {
   display: flex;
@@ -108,190 +47,291 @@
 }
 .waiter-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  gap: 5px;
+  align-items: baseline;
+  min-width: 85vw;
   color: var(--textwhite);
 }
-.waiter-card img{
-  width: 130px;
+.waiter-card img {
+  width: 4.5rem;
 }
-.waiter-card-body{
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 15px;
-  min-width: 90%;
-  max-width: 90%;
-}
-.waiter-card-body p{
-  font-size: 15px;
+.waiter-card p {
+  font-size: 1rem;
 }
 .waiter-add-btn {
+  font-size: 0.8rem;
+  background-color: var(--salmon);
   border: none;
   padding: 3px;
-  border-radius: 15px;
-  background-color: var(--yellow2);
-  color:  var(--black);
+  border-radius: 10px;
+  color: var(--bg2);
+  font-weight: bold;
 }
+.waiter-add-btn:hover{
+  border: 1px solid var(--textwhite);
+  color: var(--textwhite);
+  background-color: var(--bg2);
+}
+/*FIN seccion productos disponibles*/
 
 /*INICIO seccion pedidos a facturar*/
 .waiter-order-container {
-  margin-top: 20px;
-  width: 90vw;
-  min-height: 60vh;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 90vw;
+  margin-top: 15px;
+  padding: 5px;
+  padding-top: 15px;
+  gap: 10px;
   border-radius: 10px;
-  border: 1px solid var(--orange2);
-  background-color: transparent;
-}
-.waiter-order-container p {
-  font-size: 1.5em;
-  color: var(--yellow1);
+  border: 1px solid var(--salmon);
+  background-color: var(--bg2);
 }
 .waiter-order-container-input {
-  margin-bottom: 20px;
-  padding: 5px;
   border-radius: 10px;
-  
+  padding: 5px;
 }
 .waiter-order-products {
-  height: 100px;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  min-width: 75vw;
+  height: 100%;
+}
+.waiter-order-products tr{
+  justify-content: baseline;
+}
+.waiter-order-products td{
+  padding: 0 2px 0 2px;
+  margin-top: 15px;
+  align-items: baseline;
+}
+.waiter-order-products-img {
+  width: 3.5rem;
 }
 .waiter-order-products-text {
-  font-size: 9px;
-}
-.btn-info {
-  border: none;
-  background-color: var(--yellow2);
+  font-size: 0.7rem;
 }
 .waiter-order-products-btns-qty {
   display: flex;
-  height: 81px;
-}
-.waiter-order-products button {
-  width: 20px;
+  justify-content: baseline;
+  align-items: center;
+  gap: 5px;
   height: 20px;
+}
+.waiter-order-products-btns-qty p {
+  font-size: 0.7rem;
+}
+.btn-decrease{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 17px;
+  width: 17px;
+  border-radius: 50px;
+  border: none;
+  background-color: var(--decrease);
+  color: var(--textwhite);
+}
+.btn-increase{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 17px;
+  width: 17px;
+  border-radius: 50px;
+  border: none;
+  background-color: var(--increase);
+  color: var(--textwhite);
+}
+.btn-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid var(--light-salmon);
+  border-radius: 5px;
+  color: var(--salmon);
+  padding: 5px;
+}
+.btn-delete:hover {
+  background-color: var(--salmon);
+}
+.btn-order-request{
+  font-weight: bold;
+  background-color: var(--salmon);
+  color: var(--bg2);
 }
 /*FIN seccion pedidos a facturar*/
 
 /*INICIO seccion pedidos Pending*/
-.waiter-orders-pending, .waiter-orders-to-serve {
-  background-color: var(--black);
-  border: 1px solid var(--orange2);
-  margin-left: 10px;
-  text-align: center;
-  color: var(--yellow1);
-  padding: 25px;
+.waiter-orders-pending {
   width: 90vw;
+  padding: 15px 15px 0 15px;
+  margin-top: 8px;
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
+  color: var(--textwhite2);
+  background-color: var(--bg2) ;
 }
-.waiter-orders-to-serve .btn {
-  background-color: var(--yellow2);
-  color: var(--black);
-  border: none;
+.waiter-orders-pending-card{
+  padding: 0;
+  align-items: center;
+  color: var(--textwhite);
+  list-style: none;
+}
+.card-header {
+  background-color: var(--light-salmon);
+  align-self: center;
+}
+.card-header:first-child{
+  border-radius: 5px 12px 0 0;
+}
+.card-body-status-pending { 
+  width: 55%;
   padding: 5px;
-  font-size: 1em;
-  border-radius: 10px;
+  color: var(--light-blue);
+  background-color: var(--dark-blue2);
 }
 /*FIN de la seccion pedidos pending*/
 
-.waiter-orders-total {
-  background-color: var(--black);
-  border: 1px outset var(--orange2);
-  justify-content: center;
-  text-align: center;
-  font-size: 1.1em;
-  color: var(--textwhite);
-  padding: 10px;
-  width: 10%; 
-}
-.waiter-card-body-orders {
-  background-color: var(--black);
+/*INICIO seccion pedidos Delivering*/
+.waiter-orders-to-serve {
+  width: 90vw;
+  margin-top: 15px;
+  padding: 15px;
+  gap: 12px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding: 10px;
+  text-align: justify;
+  overflow-x: hidden;
   border: none;
+  background-color: var(--bg2);
 }
+.waiter-orders-to-serve tr, th, td {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--textwhite);
+  vertical-align: middle;
+}
+.waiter-orders-to-serve .btn {
+  padding: 5px;
+  font-size: 1em;
+  border-radius: 10px;
+  border: none;
+  color: var(--light-yellow2);
+  background-color: var(--light-yellow);
+}
+/*FIN seccion pedidos Delivering*/
+
+/*INICIO seccion pedidos Delivered*/
+.waiter-orders-table{
+  max-width: 80vw;
+  margin: 15px 10px 15px 10px;
+  color: var(--textwhite);
+  background-color: var(--bg2);
+}
+.delivered-thead th {
+  font-size: 0.58rem;
+  background-color: var(--light-salmon);
+}
+.delivered-tbody td {
+  font-size: 0.58rem;
+}
+/*FIN seccion pedidos Delivered*/
 
 @media only screen and (min-width: 768px) {
-  .general-nav {
-    height: 10vh;
-    margin-top: 15px;
-    /* display: flex;
-    justify-content: space-between; */
+  .waiter-accordion {
+    margin-top: 5px;
+    max-width: 40vw;
+    min-width: 40vw;
   }
-  .general-nav-img {
-    width:150px;
-    height:70px;
+  .accordion-button {
+    min-width: 40vw;
+    max-width: 40vw;
   }
-  .general-nav-dir {
-    display: flex;
-    justify-content: flex-end;
-  }
-  .general-nav-dir a {
-    padding: 20px;
-    justify-content: center;
-    gap: 10px;
-  }
-  .general-selected-component{
-    margin-top: 40px;
-    flex-direction: row;
-    align-items: flex-start;
+  .accordion-button:focus {
+    min-width: 40vw;
+    max-width: 40vw;
   }
   .waiter-accordion-body {
     flex-direction: row;
     align-items: flex-start;
-    min-width: 45vw;
-    max-width: 45vw;
-  } 
+    min-width: 40vw;
+    max-width: 40vw;
+  }
   .waiter-card {
     flex-direction: row;
-    gap: 30px;
-    padding: 15px;
+    min-width: 38vw;
+    gap: 9px;
   }
-  .waiter-card-body{
-    flex-direction: column;
-    gap: 3px;
-    min-width: 35%;
-    max-width: 35%;
-  }
-  .waiter-accordion {
-    max-width: 45vw;
-    min-width: 45vw;
-  }
-  .accordion-button {
-    min-width: 45vw;
-    max-width: 45vw;
-  }
-  .accordion-button:focus {
-    min-width: 45vw;
-    max-width: 45vw; 
+  .waiter-add-btn{
+    font-size: 1rem;
   }
   .waiter-order-container {
     margin-top: 5px;
     margin-left: 20px;
-    width: 45vw;
-    height: 60%;
+    width: 55vw;
+    min-height: 65vh;
   }
   .waiter-order-products {
-    width: 80%;
+    min-width: 50vw;
   }
-  .waiter-orders-pending {
-    min-width: 45vw;
-    max-width: 45vw;
+  .waiter-order-products td{
+    padding: 0 10px 0 10px;
+  }
+  .waiter-order-products-img {
+    width: 4rem;
+  }
+  .waiter-order-products-text {
+    font-size: 1rem;
+  }
+  .btn-decrease{
+    height: 22px;
+    width: 22px;
+  }
+  .btn-increase{
+    height: 22px;
+    width: 22px;
+  }
+  .waiter-orders-pending  {
+    min-height: 80vh;
+    max-height: 80vh;
+    min-width: 50vw;
+    max-width: 50vw;
+    margin: 5px 0 0 10px;
+    overflow-y: scroll;
+  }
+  .waiter-orders-pending-cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .waiter-orders-pending-card{
+    width: 48%;
+  }
+  .card-body-status-pending { 
+    width: 90%;
   }
   .waiter-orders-to-serve {
-    min-width: 45vw;
-    max-width: 45vw;
+    min-height: 80vh;
+    max-height: 80vh;
+    margin: 5px 10px 0 10px;
   }
-  .waiter-orders-total {
-    min-width: 45vw;
-    max-width: 45vw;
+  .waiter-orders-to-serve tr, th, td {
+    font-size: 1rem;
+  }
+  .delivered-thead th {
+    font-size: 1rem;
+  }
+  .delivered-tbody td {
+    font-size: 1rem;
   }
 }

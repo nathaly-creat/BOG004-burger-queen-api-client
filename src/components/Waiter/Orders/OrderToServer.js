@@ -1,38 +1,46 @@
 // IMPORTACION HOOKS Y OTROS
-import { statusDeliveredFetch } from '../../../api/petitionsFetch.js';
+import { statusDeliveredPetition } from '../../../api/petitionsFetch.js';
+import { Table } from 'react-bootstrap';
 
 // COMPONENTE PARA MOSTRAR PEDIDOS LISTOS PARA SERVIR
 export const OrderToServer = ({ orders, token }) => {
-
   // captura de ordenes con status delivering
-  let ordersToDeliver = orders.map((order) => {
-    let statusDelivering;
-    if (order.status === 'delivering') {
-      statusDelivering = (
-        <div className='waiter-card-body' key={order.id.toString()} data-testid='order-to-delivered'>
-          <p>{order.id}</p>
-          <p className='waiter-card-title'>{order.client}</p>
-          <p>{order.dateEntry}</p>
-          <button
-            className='btn btn-success'
-            onClick={() =>
-              statusDeliveredFetch(
-                order.id,
-                token,
-                new Date().toLocaleString('sv')
-              )
-            }
-          >Entregar pedido</button>
-        </div>
-      );
-    }
-    return statusDelivering;
-  });
-
   return (
-    <div className='waiter-orders-to-serve' data-testid='orders-to-deliver'>
-      <p>Pedidos listos para entregar</p>
-      {ordersToDeliver}
-    </div>
+    <>
+      <h3 data-testid='orders-to-deliver'>Pedidos a entregar</h3>
+      <Table key={orders}>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Cliente</th>
+            <th>Hr pedido</th>
+            <th>Estatus</th>
+          </tr>
+        </thead>
+        {orders
+          .filter((ord) => ord.status === 'delivering')
+          .map((order) => (
+            <tbody key={order.id.toString()}>
+              <tr>
+                <td>{order.id}</td>
+                <td>{order.client}</td>
+                <td>{order.dateEntry}</td>
+                <td>
+                  <button
+                    className='btn btn-warning'
+                    onClick={() =>
+                      statusDeliveredPetition(
+                        order.id,
+                        token,
+                        new Date().toLocaleString('sv')
+                      )
+                    }
+                  >Entregar pedido</button>
+                </td>
+              </tr>
+            </tbody>
+          ))}
+      </Table>
+    </>
   );
 };

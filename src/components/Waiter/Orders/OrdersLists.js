@@ -1,26 +1,23 @@
 // COMPONENTE PARA MOSTRAR PEDIDOS PENDIENTES
-export const OrderLists = ({orders}) => {
-
-  // captura de ordenes con status pending
-  let pendingOrders = orders.map((order) => {
-    let statusPending;
-    if (order.status === 'pending') {
-      statusPending = (
-        <div className='waiter-card-body-orders' key={order.id.toString()}>
-              <p>{order.id}</p>
-              <p className='waiter-card-title'>{order.client}</p>
-              <p>{order.dateEntry}</p>
-        </div>
-      );
-    }
-    return statusPending;
-  });
-
+export const OrderLists = ({ orders }) => {
   return (
     <>
       <section className='waiter-orders-pending'>
-        <p>Pedidos en preparación</p>
-        <div>{pendingOrders}</div>
+        <h3>Pedidos pendientes</h3>
+        <div className='waiter-orders-pending-cards'>
+          {orders
+            .filter((ord) => ord.status === 'pending')
+            .map((order) => (
+              <ul className='waiter-orders-pending-card' key={order.id.toString()}>
+                <li className='card-header'>Orden: {order.id}</li>
+                <div className='card-body'>
+                  <li data-testid='card-body-name'>Cliente: {order.client}</li>
+                  <li>Hr pedido: {order.dateEntry}</li>
+                  <li className='card-body-status-pending'>Estatus: {order.status}</li>
+                </div>
+              </ul>
+            ))}
+        </div>
       </section>
     </>
   );

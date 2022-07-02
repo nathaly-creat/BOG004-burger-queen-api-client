@@ -20,6 +20,6 @@ test('login in kitchen page', async () => {
 
   const withoutAccessComponent = await screen.findByTestId('without-access');
   expect(withoutAccessComponent.textContent.trim()).toBe(
-    'Vista no existente o no tienes acceso permitidoVolver'
+    'VolverVista no existente o no tienes acceso permitido'
   );
 });

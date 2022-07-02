@@ -1,12 +1,11 @@
 // IMPORTACION HOOKS Y OTROS
 import { useState, useEffect } from 'react';
-import { totalOrdersFetch } from '../../../api/petitionsFetch.js';
+import { totalOrdersPetition } from '../../../api/petitionsFetch.js';
 import { OrderLists } from './OrdersLists.js';
 import { OrderToServer } from './OrderToServer.js';
 
 // COMPONENTE PARA MOSTRAR PEDIDOS LISTOS PARA SERVIR
 export const Orders = () => {
-
   // token usuario activo
   const activeSessionToken = JSON.parse(sessionStorage.user).accessToken;
 
@@ -15,34 +14,36 @@ export const Orders = () => {
 
   // funcion para peticion de ordenes
   const getDeliveringOrders = async () => {
-    totalOrdersFetch(activeSessionToken)
-    .then((response) => {
-      setOrders(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    totalOrdersPetition(activeSessionToken)
+      .then((response) => {
+        setOrders(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   // estructura de hook para visualizar ordenes
   useEffect(() => {
     getDeliveringOrders();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // estructura de hook para para visualizar ordenes cada 5 seg
+  // estructura de hook para para visualizar ordenes cada seg
   useEffect(() => {
     const interval = setInterval(() => {
       getDeliveringOrders();
-    }, 5000);
+    }, 1000);
     return () => clearInterval(interval);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
       <OrderLists orders={orders}/>
-      <OrderToServer orders={orders} token={activeSessionToken}/>
+      <section className='waiter-orders-to-serve'>
+        <OrderToServer orders={orders} token={activeSessionToken} />
+      </section>
     </>
   );
 };

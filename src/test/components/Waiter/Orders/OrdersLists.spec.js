@@ -3,7 +3,7 @@ import { createMemoryHistory } from 'history';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { render, screen } from '@testing-library/react';
-import { totalOrdersFetch } from '../../../../api/petitionsFetch.js';
+import { totalOrdersPetition } from '../../../../api/petitionsFetch.js';
 import { Orders } from '../../../../components/Waiter/Orders/Orders.js';
 
 // mock de sessionStorage para token
@@ -56,7 +56,7 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 // test para peticion de ordenes pendientes
-test('response of totalOrdersFetch petition with status pending', async () => {
+test('response of totalOrdersPetition petition with status pending', async () => {
   const activeSession = JSON.parse(sessionStorage.user);
   const activeSessionToken = activeSession.accessToken;
 
@@ -84,7 +84,7 @@ test('response of totalOrdersFetch petition with status pending', async () => {
     },
   ];
 
-  const orderTestResult = await totalOrdersFetch(activeSessionToken);
+  const orderTestResult = await totalOrdersPetition(activeSessionToken);
   expect(orderTestResult).toEqual(orderListTest);
 });
 
@@ -97,6 +97,6 @@ test('print of orders pending in Orders component', async () => {
     </Router>
   );
 
-  const clientOrder = await screen.findByText('Juanes');
-  expect(clientOrder.textContent).toEqual('Juanes');
+  const clientOrder = await screen.findByTestId('card-body-name');
+  expect(clientOrder.textContent).toEqual('Cliente: Juanes');
 });

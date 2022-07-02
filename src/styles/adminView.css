@@ -1,0 +1,196 @@
+.admin-view {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+.admin-view-components {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*INICIO seccion para agregar empleados*/
+.employee-register {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px 5px 5px 5px;
+  margin-top: 10px;
+  gap: 15px;
+  border-radius: 10px;
+  background-color: var(--bg2);
+}
+.employee-register input {
+  font-size: 0.7rem;
+  height: 35px;
+  padding: 5px;
+  border-radius: 5px;
+  color: var(--textblack);
+  border: 1px outset var(--light-salmon);
+  background-color: var(--textwhite);
+}
+.employee-register input:focus-visible{
+  outline:none;
+}
+.employee-register input:focus {
+  color: var(--textwhite);
+  background-color: var(--light-salmon);
+}
+.employee-register label {
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: var(--textwhite);
+}
+.employee-register-select {
+  height: 35px;
+  padding: 5px;
+  margin-bottom: 20px;
+  font-size: 0.8em;
+  outline: 0;
+  cursor: pointer;
+  border: 1px outset var(--light-salmon);
+  border-radius: 7px;
+  transition: all 0.25s ease;
+  color: var(--textblack);
+  background-color: white;
+}
+.employee-register-select:focus {
+  width: 50%;
+  color: var(--textwhite);
+  background-color: var(--dark-blue2);;
+}
+.btn-register {
+  width: 60%;
+  margin: 5px 0 10px 0;
+  padding: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  align-self: center;
+  border-radius: 20px;
+  color: var(--bg2);
+  background-color: var(--salmon);
+}
+.btn-register:hover {
+  color: var(--textwhite);
+  background-color: var(--light-yellow);
+}
+.employee-register-success {
+  margin: auto;
+}
+/*FIN seccion para agregar empleados*/
+
+/*INICIO seccion para visualizar lista de empleados*/
+.admin-view-components-list {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 4px;
+  margin-top: 20px;
+  background-color: var(--bg2);
+}
+.employee-list-general{
+  display: flex;
+  flex-direction: column;
+}
+.employee-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 5px;
+  margin-top: 7px;
+  border: 2px outset var(--dark-blue2);
+  border-radius: 10px;
+}
+.employee-card p {
+  background-color: var(--light-salmon);
+  color: var(--textwhite);
+  padding: 4px;
+  font-size: 1rem;
+  border-radius: 5px 12px 0 0;
+}
+.employee-card label {
+  font-size: 0.9rem;
+  color: var(--textwhite);
+  margin-bottom: 7px;
+}
+.employee-card input {
+  height: 35px;
+  color: var(--textblack);
+  font-size: 0.9rem;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 7px;
+}
+.employee-card  input:focus-visible{
+  outline:none;
+}
+.employee-card input:focus {
+  background-color: var(--decrease2);
+  color: var(--textwhite);
+}
+.employee-list-general button {
+  width: 45px;
+  height: 35px;
+  margin: 3px;
+  font-size: 1.1rem;
+  border: 1px solid var(--dark-blue2);
+  border-radius: 10px;
+  color: var(--bg2);
+  background-color: var(--salmon);
+}
+/*FIN seccion para visualizar lista de empleados*/
+
+@media only screen and (min-width: 768px) {
+  a {
+    font-size: 1.2rem;
+  }
+  .admin-view-components {
+    flex-direction: row;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  .employee-register {
+    height: 60%;
+    min-width: 35vw;
+    max-width: 35vw;
+    margin: 0;
+    padding: 15px 10px 10px 10px;
+  }
+  .employee-register input {
+    font-size: 1rem;
+  }
+  .employee-register label {
+    font-size: 1.2rem;
+  }
+  .employee-register-select {
+    font-size: 1rem;
+  }
+  .admin-view-components-list {
+    max-height: 82vh;
+    max-width: 55vw;
+    min-width: 55vw;
+    margin: 0;
+    padding-top: 15px;
+    overflow-y: scroll;
+    align-items: center;
+  }
+  .employee-list-general{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-left: 8px;
+  }
+  .employee-card {
+    width: 48%;
+  }
+}
